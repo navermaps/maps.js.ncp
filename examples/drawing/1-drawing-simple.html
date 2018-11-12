@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>그리기 도구 기본 예제</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script src='http://dev.openapi.map.naver.com/openapi/maps3.max.js?submodules=drawing'></script>
+    <!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=drawing"></script> -->
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Drawing -->
+
+<div id="wrap" class="section">
+    <h2>그리기 도구 기본 예제</h2>
+    <p>기본 옵션을 적용한 그리기 도구를 생성하는 예제입니다. 도형을 생성, 선택, 삭제 시 발생하는 이벤트가 왼쪽 아래에 표시됩니다.</p>
+    <div id="map" style="width:100%;height:800px;">
+        <div id="_panel" style="display: inline-block; position: relative; z-index: 1;margin: 20px 0 0 20px;font-size: 12px;">
+            <div id="guide" style="display: inline-block;border: 1px solid #b4b4b4;border-radius: 4px;padding: 10px;background: #fff;">
+                <b>그리기</b><br>
+                아이콘이 선택된 상태에서 지도 위에 클릭합니다.<br>
+                - shift를 누르고 있는 경우 정방형/직교좌표로 스냅이 제공됩니다.<br>
+                - polygon, polyline: 마우스 오른쪽 버튼 클릭/Esc로 그리기 종료.<br>
+                <br>
+                <b>이동</b><br>
+                그려진 도형을 클릭하여 편집 모드로 변경합니다.<br>
+                그려진 도형을 드래그하여 이동합니다.<br>
+                <br>
+                <b>수정</b><br>
+                그려진 도형을 클릭하여 편집 모드로 변경합니다.<br>
+                그려진 도형의 제어점을 드래그하여 수정합니다.<br>
+                - polygon, polyline: 중간 제어점을 클릭하면 점을 추가합니다.<br>
+                <br>
+                <b>삭제</b><br>
+                그려진 도형을 마우스 오른쪽 버튼으로 클릭해 삭제합니다.
+            </div>
+            <br>
+            <div style="display: inline-block;border: 1px solid #b4b4b4;border-radius: 4px;padding: 10px;overflow: scroll;margin-top: 10px;max-height: 300px;background: #fff;">
+                <div><b>Occurred Events</b></div>
+                <div id="logger" ></div>
+            </div>
+        </div>
+
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.LARGE,
+            position: naver.maps.Position.TOP_RIGHT
+        },
+        mapTypeControl: true,
+        zoom: 10
+    });
+
+    var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
+
+    // 오버레이 추가
+    var rect = new naver.maps.Rectangle({
+        map: map,
+        bounds: [126.96744,37.561622,126.9737437,37.5668781],
+        fillColor: '#ff0000',
+        fillOpacity: 0.4,
+        strokeWeight: 2,
+        strokeColor: '#ff0000'
+    });
+
+    var polygon = new naver.maps.Polygon({
+        map: map,
+        paths: [
+            [126.9797895, 37.5670131],
+            [126.979215, 37.5649555],
+            [126.9766789, 37.5649082],
+            [126.9789515, 37.5637645],
+            [126.9785598, 37.5614914],
+            [126.9804949, 37.5632666],
+            [126.9827689, 37.5619065],
+            [126.9818039, 37.5639213],
+            [126.9837414, 37.5653719],
+            [126.9811162, 37.5651081]
+        ],
+        fillColor: '#ff0000',
+        fillOpacity: 0.4,
+        strokeWeight: 2,
+        strokeColor: '#ff0000'
+    })
+
+    drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
+    drawingManager.addDrawing(polygon, naver.maps.drawing.DrawingMode.POLYGON);
+
+</script>
+<script type="text/javascript">
+    // 이벤트 로깅
+    var logger = $('#logger'),
+        OVERAY_NAMES = ['rectangle', 'ellipse', 'polyline', 'arrowline', 'polygon', 'marker'],
+        EVENT_SUBFIXEX = ['Added', 'Selected', 'Removed'],
+        GROUPED_EVENTS = [
+            naver.maps.drawing.DrawingEvents.ADD,
+            naver.maps.drawing.DrawingEvents.SELECT,
+            naver.maps.drawing.DrawingEvents.REMOVE
+        ];
+
+    $(OVERAY_NAMES).each(function(i, name) {
+        $(EVENT_SUBFIXEX).each(function(i, subfix) {
+            var eventName = name + subfix;
+            drawingManager.addListener(eventName, function(overlay) {
+                logger.html(logger.html() + eventName + '<br>');
+            });
+        })
+    });
+    $(GROUPED_EVENTS).each(function(i, eventName){
+        drawingManager.addListener(eventName, function(overlay) {
+            logger.html(logger.html() + eventName + '<br>---------------------<br>');
+            logger.scrollTop(logger.innerHeight());
+        });
+    });
+</script>
+</body>
+</html>

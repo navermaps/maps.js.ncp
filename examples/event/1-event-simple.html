@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>지도 이벤트</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Event -->
+
+<div id="wrap" class="section">
+    <h2>지도 이벤트</h2>
+    <p>지도의 클릭 이벤트를 이용하는 예제입니다. 클릭 위치에 마커를 표시하고, 마우스 오른쪽 버튼을 클릭하면 정보 레이어를 표시합니다. </p>
+    <p>이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoom: 4,
+        center: new naver.maps.LatLng(37.3614483, 127.1114883)
+    });
+
+    var markerList = [];
+    var menuLayer = $('<div style="position:absolute;z-index:10000;background-color:#fff;border:solid 1px #333;padding:10px;display:none;"></div>');
+
+    map.getPanes().floatPane.appendChild(menuLayer[0]);
+
+
+    naver.maps.Event.addListener(map, 'click', function(e) {
+        var marker = new naver.maps.Marker({
+            position: e.coord,
+            map: map
+        });
+
+        markerList.push(marker);
+    });
+
+    naver.maps.Event.addListener(map, 'keydown', function(e) {
+        var keyboardEvent = e.keyboardEvent,
+            keyCode = keyboardEvent.keyCode || keyboardEvent.which;
+
+        var ESC = 27;
+
+        if (keyCode === ESC) {
+            keyboardEvent.preventDefault();
+
+            for (var i=0, ii=markerList.length; i<ii; i++) {
+                markerList[i].setMap(null);
+            }
+
+            markerList = [];
+
+            menuLayer.hide();
+        }
+    });
+
+    naver.maps.Event.addListener(map, 'mousedown', function(e) {
+        menuLayer.hide();
+    });
+
+    naver.maps.Event.addListener(map, 'rightclick', function(e) {
+        var coordHtml =
+            'Coord: '+ '(우 클릭 지점 위/경도 좌표)' + '<br />' +
+            'Point: ' + e.point + '<br />' +
+            'Offset: ' + e.offset;
+
+        menuLayer.show().css({
+            left: e.offset.x,
+            top: e.offset.y
+        }).html(coordHtml);
+
+        console.log('Coord: ' + e.coord.toString());
+    });
+
+</script>
+
+
+</body>
+</html>
+

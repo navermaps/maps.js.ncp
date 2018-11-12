@@ -1,0 +1,6056 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Types | 네이버 지도 API v3</title>
+    <meta name="description" content="Types">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
+    <meta property="og:title" content="NAVER Maps API v3">
+    <meta property="og:description" content="NAVER Maps API v3로 여러분의 지도를 만들어 보세요. 유용한 기술문서와 다양한 예제 코드를 제공합니다.">
+    <meta property="og:image" content="https://navermaps.github.io/maps.js/docs/img/NAVERMaps.png">
+    <meta property="og:url" content="https://navermaps.github.io/maps.js">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NAVER Maps API v3">
+    <meta name="twitter:description" content="NAVER Maps API v3로 여러분의 지도를 만들어 보세요. 유용한 기술문서와 다양한 예제 코드를 제공합니다.">
+    <meta name="twitter:image" content="https://navermaps.github.io/maps.js/docs/img/NAVERMaps.png">
+    <meta name="twitter:url" content="https://navermaps.github.io/maps.js">
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .dropdown-menu {
+       max-height: 500px !important;
+    }
+    </style>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+    <link type="text/css" rel="stylesheet" href="styles/site.flatly.css">
+    <link type="text/css" rel="stylesheet" href="./css/highlightjs.css">
+</head>
+
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+            
+            <img class="branding-logo" src="./img/logo-ncp.png" alt="logo">
+             
+            </a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="topNavigation">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown">
+                    <a href="namespaces.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-namespaces" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="naver.html">naver</a></li><li><a href="naver.maps.html">naver.maps</a></li><li><a href="naver.maps.drawing.html">naver.maps.drawing</a></li><li><a href="naver.maps.visualization.html">naver.maps.visualization</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="classes.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-classes" data-toggle="dropdown">Classes<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Base</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.LatLng.html">naver.maps.LatLng</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.LatLngBounds.html">naver.maps.LatLngBounds</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Point.html">naver.maps.Point</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.PointBounds.html">naver.maps.PointBounds</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Size.html">naver.maps.Size</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >KVO</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.KVO.html">naver.maps.KVO</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.KVOArray.html">naver.maps.KVOArray</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Map</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Map.html">naver.maps.Map</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Tile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CanvasTile.html">naver.maps.CanvasTile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ImageTile.html">naver.maps.ImageTile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Tile.html">naver.maps.Tile</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >MapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CanvasMapType.html">naver.maps.CanvasMapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ImageMapType.html">naver.maps.ImageMapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapTypeRegistry.html">naver.maps.MapTypeRegistry</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:30px" >preset</a></li>
+                
+                        <li><a style="padding-left:40px;" href="naver.maps.NaverMapTypeOption.html">naver.maps.NaverMapTypeOption</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Control</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.CustomControl.html">naver.maps.CustomControl</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Controls</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.LogoControl.html">naver.maps.LogoControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapDataControl.html">naver.maps.MapDataControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapTypeControl.html">naver.maps.MapTypeControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ScaleControl.html">naver.maps.ScaleControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ZoomControl.html">naver.maps.ZoomControl</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Layer</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Layer.html">naver.maps.Layer</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Layers</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CadastralLayer.html">naver.maps.CadastralLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.LabelLayer.html">naver.maps.LabelLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.StreetLayer.html">naver.maps.StreetLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TrafficLayer.html">naver.maps.TrafficLayer</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Data Layer</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Data.html">naver.maps.Data</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Feature.html">naver.maps.Feature</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Geometry.html">naver.maps.Geometry</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Overlay</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.OverlayView.html">naver.maps.OverlayView</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Overlays</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Circle.html">naver.maps.Circle</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Ellipse.html">naver.maps.Ellipse</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.GroundOverlay.html">naver.maps.GroundOverlay</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.InfoWindow.html">naver.maps.InfoWindow</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Marker.html">naver.maps.Marker</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Polygon.html">naver.maps.Polygon</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Polyline.html">naver.maps.Polyline</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Rectangle.html">naver.maps.Rectangle</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: drawing</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.drawing.DrawingManager.html">naver.maps.drawing.DrawingManager</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: panorama</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.AroundControl.html">naver.maps.AroundControl</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.FlightSpot.html">naver.maps.FlightSpot</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Panorama.html">naver.maps.Panorama</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: visualization</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.DotMap.html">naver.maps.visualization.DotMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.HeatMap.html">naver.maps.visualization.HeatMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.WeightedLocation.html">naver.maps.visualization.WeightedLocation</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapType.html">naver.maps.StyleMapType</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="interfaces.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-interfaces" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Abstract</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.MapSystemProjection.html">naver.maps.MapSystemProjection</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.MapType.html">naver.maps.MapType</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Projection.html">naver.maps.Projection</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: panorama</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.PanoramaProjection.html">naver.maps.PanoramaProjection</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="mixins.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-statics" data-toggle="dropdown">Statics<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Event</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Event.html">naver.maps.Event</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Projection</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.EPSG3857.html">naver.maps.EPSG3857</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.UTMK.html">naver.maps.UTMK</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.UTMK_NAVER.html">naver.maps.UTMK_NAVER</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: geocoder</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Service.html">naver.maps.Service</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.TransCoord.html">naver.maps.TransCoord</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Extended Projection</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.EPSG3857Coord.html">naver.maps.EPSG3857Coord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TM128.html">naver.maps.TM128</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TM128Coord.html">naver.maps.TM128Coord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.UTMK_NAVERCoord.html">naver.maps.UTMK_NAVERCoord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.UTMKCoord.html">naver.maps.UTMKCoord</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: visualization</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.SpectrumStyle.html">naver.maps.visualization.SpectrumStyle</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapLayerId.html">naver.maps.StyleMapLayerId</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeId.html">naver.maps.StyleMapTypeId</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeOption.html">naver.maps.StyleMapTypeOption</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="global.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-types" data-toggle="dropdown">Types<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="global.html#any">any</a></li><li><a href="global.html#array">array</a></li><li><a href="global.html#ArrayOfBounds">ArrayOfBounds</a></li><li><a href="global.html#ArrayOfBoundsLiteral">ArrayOfBoundsLiteral</a></li><li><a href="global.html#ArrayOfCoords">ArrayOfCoords</a></li><li><a href="global.html#ArrayOfCoordsLiteral">ArrayOfCoordsLiteral</a></li><li><a href="global.html#boolean">boolean</a></li><li><a href="global.html#Bounds">Bounds</a></li><li><a href="global.html#BoundsLiteral">BoundsLiteral</a></li><li><a href="global.html#Coord">Coord</a></li><li><a href="global.html#CoordLiteral">CoordLiteral</a></li><li><a href="global.html#DOMEvent">DOMEvent</a></li><li><a href="global.html#DOMEventListener">DOMEventListener</a></li><li><a href="global.html#DrawingOverlay">DrawingOverlay</a></li><li><a href="global.html#function">function</a></li><li><a href="global.html#GeoJSON">GeoJSON</a></li><li><a href="global.html#GPX">GPX</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#ImageData">ImageData</a></li><li><a href="global.html#KeyboardEvent">KeyboardEvent</a></li><li><a href="global.html#KML">KML</a></li><li><a href="global.html#KVOArrayOfCoords">KVOArrayOfCoords</a></li><li><a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a></li><li><a href="global.html#LatLngBoundsObjectLiteral">LatLngBoundsObjectLiteral</a></li><li><a href="global.html#LatLngLiteral">LatLngLiteral</a></li><li><a href="global.html#LatLngObjectLiteral">LatLngObjectLiteral</a></li><li><a href="global.html#LayerRegistry">LayerRegistry</a></li><li><a href="global.html#MapEventListener">MapEventListener</a></li><li><a href="global.html#MapType">MapType</a></li><li><a href="global.html#margin">margin</a></li><li><a href="global.html#null">null</a></li><li><a href="global.html#number">number</a></li><li><a href="global.html#object">object</a></li><li><a href="global.html#padding">padding</a></li><li><a href="global.html#PointArrayLiteral">PointArrayLiteral</a></li><li><a href="global.html#PointBoundsArrayLiteral">PointBoundsArrayLiteral</a></li><li><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></li><li><a href="global.html#PointBoundsObjectLiteral">PointBoundsObjectLiteral</a></li><li><a href="global.html#PointerEvent">PointerEvent</a></li><li><a href="global.html#PointLiteral">PointLiteral</a></li><li><a href="global.html#PointObjectLiteral">PointObjectLiteral</a></li><li><a href="global.html#SizeArrayLiteral">SizeArrayLiteral</a></li><li><a href="global.html#SizeLiteral">SizeLiteral</a></li><li><a href="global.html#SizeObjectLiteral">SizeObjectLiteral</a></li><li><a href="global.html#string">string</a></li><li><a href="global.html#TransitionOptions">TransitionOptions</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-stylemap.html">stylemap</a></li><li><a href="module-visualization.html">visualization</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="tutorials.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-tutorials" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >개요</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Conceptual-Overview.html">NAVER 지도 API v3 특징</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Abbreviation.html">축약형 표현</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-KVO-Mechanism.html">KVO 디자인</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-Submodules.html">서브 모듈 시스템</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Quota.html">사용 제한</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >시작하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Getting-Client-ID.html">클라이언트 아이디 발급</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Getting-Started.html">Hello, World</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Map.html">지도 생성 및 기본 동작</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-MapTypes.html">지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Projection.html">지도 투영과 좌표 체계</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-DOM-Event.html">DOM 이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-KVO-State-Changes.html">KVO 상태 변경 알림</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-UI-Event.html">UI 이벤트</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Controls.html">지도 컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Custom-Control.html">사용자 정의 컨트롤</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >데이터 표시</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Layers.html">레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-DataLayer.html">데이터 레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Visualization.html">데이터 시각화</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Overlay-Overview.html">오버레이 개요</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Marker.html">마커</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-InfoWindow.html">정보 창</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-Shape.html">도형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-GroundOverlay.html">지상 오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-CustomOverlay.html">사용자 정의 오버레이</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >파노라마</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Geocoder.html">Geocoder를 활용한 좌표 변환</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >그리기 도구</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">신규 스타일 지도</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="example.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-examples" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="tutorial-digest.example.html#Digest" class="_cat" style="padding-left:10px" >Digest</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-digest.example.html">예제 모아보기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지도" class="_cat" style="padding-left:10px" >지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-map-simple.example.html">지도 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-map-options.example.html">지도 옵션 조정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-map-types.example.html">지도 유형 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-map-bounds.example.html">지도 좌표 경계 확인하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-map-moves.example.html">지도 이동하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-map-geolocation.example.html">HTML5 Geolocation API 활용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-map-fullsize-minimap.example.html">전체 화면 지도와 미니 맵</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지도 유형" class="_cat" style="padding-left:10px" >지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-maptypes-tilecheck.example.html">지도의 타일 인덱스 그리드 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-maptypes-imagemaptype.example.html">이미지 타일 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-maptypes-basic.example.html">사용자 지도 유형 만들기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-maptypes-dynamic.example.html">투영법과 타일의 크기를 동적으로 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-maptypes-naver_osm.example.html">두 가지의 지도 유형을 함께 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-maptypes-gta5.example.html">Grand Theft Auto V 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-maptypes-the-hunters.example.html">Starcraft The Hunters 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-8-maptypes-greenfactory.example.html">NAVER 그린팩토리 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-9-maptypes-canvasmaptype.example.html">캔버스 타일 지도 유형</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#이벤트" class="_cat" style="padding-left:10px" >이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-event-simple.example.html">이벤트 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-event-kvo.example.html">KVO 이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-event-overlay.example.html">오버레이의 이벤트</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#컨트롤" class="_cat" style="padding-left:10px" >컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-control-simple.example.html">지도 컨트롤 추가/제거하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-control-options.example.html">지도 컨트롤 스타일 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-control-positioning.example.html">지도 컨트롤 위치 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-control-custom-p1.example.html">사용자 정의 컨트롤 만들기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#레이어" class="_cat" style="padding-left:10px" >레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-bicycle.example.html">네이버 자전거 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-cadastral.example.html">네이버 지적도 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-traffic.example.html">네이버 실시간 교통상황 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-street.example.html">네이버 거리뷰 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-custom.example.html">사용자 정의 레이어 만들기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#데이터 레이어" class="_cat" style="padding-left:10px" >데이터 레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-datalayer.example.html">GeoJSON 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-datalayer-region.example.html">행정구역 GeoJSON 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-datalayer-kml.example.html">KML 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-datalayer-gpx.example.html">GPX 데이터 레이어 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#시각화" class="_cat" style="padding-left:10px" >시각화</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-visualization-heatmap.example.html">열지도 시각화하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-visualization-dotmap.example.html">점지도 시각화하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-visualization-spectrum.example.html">열지도 스펙트럼 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-visualization-heatmap-w.example.html">열지도 가중치 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-visualization-dotmap-w.example.html">점지도 가중치 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#오버레이" class="_cat" style="padding-left:10px" >오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-custom-overlay.example.html">사용자 정의 오버레이 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#마커" class="_cat _subcat" style="padding-left:20px" >마커</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-marker-simple.example.html">마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-3-marker-image-icon.example.html">이미지 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-4-marker-sprite-image-icon.example.html">스프라이트 이미지 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-5-marker-html-icon.example.html">HTML 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-6-marker-symbol-icon.example.html">심벌 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-7-marker-retina.example.html">이미지 아이콘 레티나 대응하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-8-marker-retina-sprite.example.html">스프라이트 이미지 아이콘 레티나 대응하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-9-marker-position.example.html">클릭한 지점으로 마커 옮기기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-animation.example.html">애니메이션 마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-cluster.example.html">마커 클러스터화하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-intersect.example.html">겹침 마커 처리하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-shape.example.html">마커 인터랙션 영역 설정하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-viewport.example.html">보이는 지도 영역의 마커만 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-viewportevents.example.html">다수의 마커에 이벤트 핸들러 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#정보 창" class="_cat _subcat" style="padding-left:20px" >정보 창</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-infowindow-simple.example.html">정보 창 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-infowindow-options.example.html">정보 창 옵션 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#도형" class="_cat _subcat" style="padding-left:20px" >도형</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-shape-simple.example.html">사각형, 원, 타원 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-3-polygon-simple.example.html">폴리곤, 폴리라인 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-4-polygon-hole.example.html">구멍 난 폴리곤 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-5-polygon-options.example.html">폴리곤 옵션 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-6-polyline-options.example.html">폴리라인 옵션 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-pointing-icon.example.html">폴리라인에 화살표 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-polygon-dynamic.example.html">클릭한 지점 폴리곤 연결하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-polyline-dynamic.example.html">클릭한 지점 폴리라인 연결하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-shape-measures.example.html">폴리라인, 폴리곤의 거리/면적 재기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지상 오버레이" class="_cat _subcat" style="padding-left:20px" >지상 오버레이</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-ground-overlay.example.html">지상 오버레이 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#파노라마" class="_cat" style="padding-left:10px" >파노라마</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-panorama-simple.example.html">파노라마 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-panorama-resize.example.html">파노라마 크기 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-panorama-event.example.html">파노라마 이벤트 처리하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-panorama-image-marker.example.html">파노라마 마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-panorama-html-infowindow.example.html">파노라마 요약 정보 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-panorama-zoomcontrol.example.html">파노라마 줌 컨트롤 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-panorama-aroundcontrol.example.html">거리/항공뷰 전환하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-8-panorama-flightspot.example.html">지도에 항공뷰 아이콘 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#그리기 도구" class="_cat" style="padding-left:10px" >그리기 도구</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-drawing-simple.example.html">그리기 도구 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-drawing-options.example.html">그리기 도구 옵션 활용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#신규 스타일 지도" class="_cat" style="padding-left:10px" >신규 스타일 지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+            </ul>
+            <div id="_searchbox" class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="검색" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit">
+                                <!-- <i class="glyphicon glyphicon-search"></i> -->
+                                <img src="./img/icon_search-ncp.png" width="14px" height="14px" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-footer">
+        <div class="container">
+            <div class="navbar-footer-wrapper">
+            
+                <a href="https://github.com/navermaps/maps.js.ncp">포크하기</a>
+            
+                <a href="https://github.com/navermaps/maps.js.ncp/issues">문의하기</a>
+            
+                <a href="https://www.ncloud.com/">네이버 클라우드 플랫폼 바로가기</a>
+            
+                <a href="https://www.ncloud.com/support/notice">공지사항 바로가기</a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+    
+    <div class="col-md-8">
+    
+        <div id="main" itemscope itemtype="https://schema.org/TechArticle">
+            <div style="display:none;">
+                <div itemprop="image" itemscope, itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="thumbnailUrl" content="./img/logo_200x200.png">
+                    <img src="./img/logo_200x200.png" alt="logo">
+                </div>
+                <div>
+                    <a href="tutorial-0-Getting-Started.html" itemprop="mainEntityOfPage">Tutorials</a>
+                    <a href="tutorial-digest.example.html" itemprop="mainEntityOfPage">Examples</a>
+                    <span itemprop="keywords">naver</span>
+                    <span itemprop="keywords">map</span>
+                    <span itemprop="keywords">js</span>
+                    <span itemprop="keywords">api</span>
+                    <span itemprop="keywords">v3</span>
+                    <span itemprop="keywords">네이버 지도 API</span>
+                    <span itemprop="keywords">Types</span>
+                </div>
+            </div>
+            
+
+	<h1 class="page-title">Types</h1>
+<section>
+
+<header>
+    
+        <h2>
+        
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id="any">
+    <h4>any</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>모든 데이터 형식을 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#any">any</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="array">
+    <h4>array</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>배열(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>) 객체를 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#array">array</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="ArrayOfBounds">
+    <h4>ArrayOfBounds</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계의 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="naver.maps.PointBounds.html">naver.maps.PointBounds</a>></span>
+|
+
+<span class="param-type">Array.&lt;<a href="naver.maps.LatLngBounds.html">naver.maps.LatLngBounds</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="ArrayOfBoundsLiteral">
+    <h4>ArrayOfBoundsLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계 리터럴의 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a>></span>
+|
+
+<span class="param-type">Array.&lt;<a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="ArrayOfCoords">
+    <h4>ArrayOfCoords</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표의 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="naver.maps.Point.html">naver.maps.Point</a>></span>
+|
+
+<span class="param-type">Array.&lt;<a href="naver.maps.LatLng.html">naver.maps.LatLng</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="ArrayOfCoordsLiteral">
+    <h4>ArrayOfCoordsLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 리터럴의 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;<a href="global.html#PointLiteral">PointLiteral</a>></span>
+|
+
+<span class="param-type">Array.&lt;<a href="global.html#LatLngLiteral">LatLngLiteral</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="boolean">
+    <h4>boolean</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>true</code> 또는 <code>false</code> 값(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>)을 표현합니다.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="Bounds">
+    <h4>Bounds</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.PointBounds.html">naver.maps.PointBounds</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.LatLngBounds.html">naver.maps.LatLngBounds</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="BoundsLiteral">
+    <h4>BoundsLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계 리터럴 객체입니다. <code>new naver.maps.PointBounds</code>나 <code>new naver.maps.LatLngBounds</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="Coord">
+    <h4>Coord</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.Point.html">naver.maps.Point</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.LatLng.html">naver.maps.LatLng</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="CoordLiteral">
+    <h4>CoordLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 리터럴 객체입니다. <code>new naver.maps.Point</code>나 <code>new naver.maps.LatLng</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointLiteral">PointLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#LatLngLiteral">LatLngLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="DOMEvent">
+    <h4>DOMEvent</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>HTMLElement에서 발생하는 원시(native) 형태의 DOMEvent 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">event</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="DOMEventListener">
+    <h4>DOMEventListener</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>DOM에서 이벤트 알림을 받기 위해 리스너를 등록하면 반환되는 DOM 이벤트 리스너 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 이벤트의 이름입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 이벤트의 핸들러입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#HTMLElement">HTMLElement</a> -->
+    <a href="global.html#HTMLElement">HTMLElement</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트가 등록된 대상 요소입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="DrawingOverlay">
+    <h4>DrawingOverlay</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><a href="module-drawing.html">그리기 도구 서브 모듈</a>을 이용해 생성되는 오버레이 객체입니다.</p>
+<blockquote>
+<p>그리기 도구 서브 모듈은 로드되는 경우 <a href="naver.maps.OverlayView.html">OverlayView</a>를 확장하여 편집 가능한 오버레이 클래스를 구현합니다.<br>그리기 도구 서브 모듈을 로드하지 않은 경우 아래의 속성은 오버레이 객체 내에 존재하지 않습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.Rectangle.html">naver.maps.Rectangle</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.Ellipse.html">naver.maps.Ellipse</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.Polyline.html">naver.maps.Polyline</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.Polygon.html">naver.maps.Polygon</a></span>
+|
+
+<span class="param-type"><a href="naver.maps.Marker.html">naver.maps.Marker</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>헤당 오버레이의 <code>id</code>입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>해당 오버레이의 유형입니다. 'rectangle', 'ellipse' 등이 있습니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>setEditable</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>오버레이의 <code>editable</code> 속성을 정의합니다. <code>editable</code> 속성이 참일 경우 편집 상태이고, 거짓일 경우 일반 상태입니다.</p>
+<blockquote>
+<p><code>setEditable</code> 메서드의 인수로 <code>editable</code> 속성(<code>boolean</code>)과<br><code>controlPointOptions</code> 속성(<a href="naver.maps.drawing.DrawingManager.html#~controlPointOptions">편집 제어점 속성</a>)을 전달할 수 있습니다.<br>두 번째 인수인 <code>controlPointOptions</code> 속성을 생락한 경우 기본값으로 표시됩니다.</p>
+</blockquote></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// 그리기 도구 서브 모듈이 로드된 상태
+
+var controlPointOptions = {
+        anchorPointOptions: {
+            radius: 6,
+            fillColor: &#x27;#ff0000&#x27;,
+            strokeColor: &#x27;#0000ff&#x27;,
+            strokeWeight: 2
+        },
+        midPointOptions: {
+            radius: 6,
+            fillColor: &#x27;#ff0000&#x27;,
+            strokeColor: &#x27;#0000ff&#x27;,
+            strokeWeight: 2,
+            fillOpacity: 0.5
+        }
+    };
+
+// 임의의 오버레이
+overlay.setEditable(true, controlPointOptions);</pre>
+
+
+    
+</dd>
+
+            
+                
+<dt>
+    <h4 class="name" id="function"><span class="type-signature"></span>function()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>JavaScript 함수(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a>)를 표현합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="GeoJSON">
+    <h4>GeoJSON</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><a href="http://geojson.org/geojson-spec.html">GeoJSON</a> 객체는 지리 공간 데이터를 기반으로 지도 위에 점, 선, 도형 등을 표현하는 데이터 구조를 정의합니다.</p>
+<p>이 타입의 객체는 <code>Feature</code>, <code>FeatureCollection</code> 또는 <code>geometry</code>로 표현할 수 있으며, 각 <code>Feature</code>에서 표현할 수 있는 <code>geometry</code>의 형태는 다음과 같습니다.</p>
+<ul>
+<li>Point</li>
+<li>LineString</li>
+<li>Polygon</li>
+<li>MultiPoint</li>
+<li>MultiLineString</li>
+<li>MultiPolygon</li>
+<li>GeometryCollection</li>
+</ul>
+<p><code>Feature</code>는 <code>geometry</code> 객체와 부가적인 속성을 포함하며, <code>FeatureCollection</code>은 <code>feature</code>의 목록이라고 할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><em class="disabled">Tutorial: DataLayer</em></li>
+			</ul>
+	</dd>
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="http://geojson.org/geojson-spec.html">http://geojson.org/geojson-spec.html</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">{
+    &quot;type&quot;: &quot;FeatureCollection&quot;,
+    &quot;features&quot;: [
+        {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [102.0, 0.5] },
+            &quot;properties&quot;: { &quot;prop0&quot;: &quot;value0&quot; }
+        }, {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {
+                &quot;type&quot;: &quot;LineString&quot;,
+                &quot;coordinates&quot;: [
+                    [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                ]
+            },
+            &quot;properties&quot;: {
+                &quot;prop0&quot;: &quot;value0&quot;,
+                &quot;prop1&quot;: 0.0
+            }
+        }, {
+            &quot;type&quot;: &quot;Feature&quot;,
+            &quot;geometry&quot;: {
+                &quot;type&quot;: &quot;Polygon&quot;,
+                &quot;coordinates&quot;: [
+                    [
+                        [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
+                        [100.0, 1.0], [100.0, 0.0]
+                    ]
+                ]
+            },
+            &quot;properties&quot;: {
+                &quot;prop0&quot;: &quot;value0&quot;,
+                &quot;prop1&quot;: {&quot;this&quot;: &quot;that&quot;}
+            }
+        }
+    ]
+}</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="GPX">
+    <h4>GPX</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><a href="http://%3Ca">GPX</a>는">www.topografix.com/gpx.asp}는</a> 인터넷에서 GPS 데이터를 다양한 응용 프로그램과 웹 서비스 사이에서 교환하는 데 사용되는 파일 형식입니다.</p>
+<p>현재 지원하는 요소는 다음과 같습니다.</p>
+<ul>
+<li>Line Paths (wpt, rte, trk)</li>
+<li><a href="http://www.topografix.com/gpx/gpx_style/0/2/#element_line">Line Styles</a> (color, opacity, width, linecap, pattern)</li>
+<li>bounds, name, time, desc, cmt, type, sym</li>
+</ul>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><em class="disabled">Tutorial: DataLayer</em></li>
+			</ul>
+	</dd>
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="http://www.topografix.com/gpx.asp">http://www.topografix.com/gpx.asp</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">&lt;gpx creator=&quot;GPS Visualizer http://www.gpsvisualizer.com/&quot; version=&quot;1.0&quot;&gt;
+    &lt;wpt lat=&quot;45.41000&quot; lon=&quot;-121.71349&quot;&gt;
+        &lt;ele&gt;1777&lt;/ele&gt;
+        &lt;name&gt;Wy&#x27;East Basin&lt;/name&gt;
+    &lt;/wpt&gt;
+&lt;/gpx&gt;</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="HTMLElement">
+    <h4>HTMLElement</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>HTML DOM 노드를 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#HTMLElement">HTMLElement</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="ImageData">
+    <h4>ImageData</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>HTML Canvas 요소를 렌더링하는 데 사용될 이미지 데이터(<a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a>)를 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#ImageData">ImageData</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="KeyboardEvent">
+    <h4>KeyboardEvent</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도에서 키보드 이벤트 발생 시 전달되는 키보드 이벤트 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">event</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>keyboardEvent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#DOMEvent">DOMEvent</a> -->
+    <a href="global.html#DOMEvent">DOMEvent</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 시점의 DOM 이벤트 객체입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="KML">
+    <h4>KML</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><a href="https://developers.google.com/kml/documentation/kml_tut?hl=ko">KML</a>(Keyhole Markup Language)은 Google 어스, Google 지도 및 Google 모바일 지도에서 지리 데이터를 표시하는 데 쓰이는 XML 기반의 마크업 언어 스키마입니다.</p>
+<p>현재 지원하는 요소는 다음과 같습니다.</p>
+<ul>
+<li>Point, LineString, LinearRing, Polygon, MultiGeometry, gx:Track, gx:MultiTrack</li>
+<li>Style (LineStyle, PolyStyle)</li>
+<li>LatLonAltBox</li>
+<li>name, address, description, visibility</li>
+</ul>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><em class="disabled">Tutorial: DataLayer</em></li>
+			</ul>
+	</dd>
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://developers.google.com/kml/documentation/kml_tut?hl=ko">https://developers.google.com/kml/documentation/kml_tut?hl=ko</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;kml xmlns=&quot;http://www.opengis.net/kml/2.2&quot;&gt;
+    &lt;Placemark&gt;
+        &lt;name&gt;Simple placemark&lt;/name&gt;
+        &lt;description&gt;Attached to the ground. Intelligently places itself at the height of the underlying terrain.&lt;/description&gt;
+        &lt;Point&gt;
+            &lt;coordinates&gt;-122.0822035425683,37.42228990140251,0&lt;/coordinates&gt;
+        &lt;/Point&gt;
+    &lt;/Placemark&gt;
+&lt;/kml&gt;</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="KVOArrayOfCoords">
+    <h4>KVOArrayOfCoords</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표의 KVO 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.KVOArray.html">naver.maps.KVOArray</a>.&lt;<a href="naver.maps.Point.html">naver.maps.Point</a>></span>
+|
+
+<span class="param-type"><a href="naver.maps.KVOArray.html">naver.maps.KVOArray</a>.&lt;<a href="naver.maps.LatLng.html">naver.maps.LatLng</a>></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="LatLngBoundsLiteral">
+    <h4>LatLngBoundsLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계 리터럴 객체입니다. <code>new naver.maps.LatLngBounds</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#LatLngBoundsObjectLiteral">LatLngBoundsObjectLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="LatLngBoundsObjectLiteral">
+    <h4>LatLngBoundsObjectLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>north</code>, <code>east</code>, <code>south</code>, <code>west</code>를 키로 사용하는 위경도 좌표 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>north</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>위도 최대 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>east</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>경도 최대 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>south</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>위도 최소 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>west</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>경도 최소 좌표입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var min = {x: 126.5322317, y: 33.3572421},
+    max = {x: 126.5364907, y: 33.3608829};
+
+var bounds = {north: max.y, east: max.x, south: min.y, west: min.x};</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="LatLngLiteral">
+    <h4>LatLngLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 리터럴 객체입니다. <code>new naver.maps.LatLng</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointLiteral">PointLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#LatLngObjectLiteral">LatLngObjectLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="LatLngObjectLiteral">
+    <h4>LatLngObjectLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>lat</code>, <code>lng</code>를 키로 사용하는 위경도 좌표 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>위도 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lng</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>경도 좌표입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var x = 126.5322317,
+    y = 33.3572421;
+
+var coord = {lat: y, lng: x};</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="LayerRegistry">
+    <h4>LayerRegistry</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 레이어의 컬렉션을 포함하는 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.KVO.html">naver.maps.KVO</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>getLayerNames</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 모든 레이어의 이름을 배열로 반환합니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="MapEventListener">
+    <h4>MapEventListener</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>NAVER 지도 API v3 내의 일부 객체에서 제공하는 마우스와 키보드, 터치, <code>KVO</code>(Key Value Observing) 상태 변경 등의 이벤트 알림을 받기 위해 리스너를 등록하면 반환되는 지도 이벤트 리스너 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 이벤트의 이름입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 이벤트의 핸들러입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listenerId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>등록된 이벤트의 ID입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트가 등록된 대상 객체입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="MapType">
+    <h4>MapType</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 유형 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="naver.maps.ImageMapType.html">naver.maps.ImageMapType</a></span>
+|
+
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="margin">
+    <h4>margin</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>CSS의 <code>position</code>을 나타내는 것과 같은 방식으로 특정 방향에 설정되는 안쪽 여백(margin)값을 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>top</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>위</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>오른쪽</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bottom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>아래</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>left</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>왼쪽</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="null">
+    <h4>null</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> 값을 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#null">null</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="number">
+    <h4>number</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>정수와 실수를 포함하는 숫자(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)를 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#number">number</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="object">
+    <h4>object</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>JavaScript의 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>를 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="padding">
+    <h4>padding</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>CSS의 <code>position</code>을 나타내는 것과 같은 방식으로 특정 방향에 설정되는 바깥쪽 여백(padding) 값을 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>top</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>위</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>오른쪽</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bottom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>아래</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>left</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>왼쪽</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointArrayLiteral">
+    <h4>PointArrayLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>x</code>, <code>y</code> 순서대로 선언된 좌표 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#array">array</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+    <pre class="sunlight-highlight-javascript">var x = 126.5322317,
+    y = 33.3572421;
+
+var coord = [x, y];</pre>
+
+    <pre class="sunlight-highlight-javascript">var coord = [10, 10];</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointBoundsArrayLiteral">
+    <h4>PointBoundsArrayLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>minX</code>, <code>minY</code>, <code>maxX</code>, <code>maxY</code> 순서대로 선언된 좌표 경계의 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#array">array</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+    <pre class="sunlight-highlight-javascript">var min = [126.5322317, 33.3572421],
+    max = [126.5364907, 33.3608829];
+
+var bounds = [min[0], min[1], max[0], max[1]];</pre>
+
+    <pre class="sunlight-highlight-javascript">var min = [0, 0],
+    max = [200, 200];
+
+var bounds = [min[0], min[1], max[0], max[1]];</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointBoundsLiteral">
+    <h4>PointBoundsLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 경계 리터럴 객체입니다. <code>new naver.maps.PointBounds</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointBoundsArrayLiteral">PointBoundsArrayLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#PointBoundsObjectLiteral">PointBoundsObjectLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointBoundsObjectLiteral">
+    <h4>PointBoundsObjectLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>minX</code>, <code>minY</code>, <code>maxX</code>, <code>maxY</code>를 키로 사용하는 좌표 경계 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>MinX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>최소 좌표의 x 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MinY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>최소 좌표의 y 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MaxX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>최대 좌표의 x 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>MaxY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>최대 좌표의 y 좌표입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var min = [126.5322317, 33.3572421],
+    max = [126.5364907, 33.3608829];
+
+var bounds = {minX: min[0], minY: min[1], maxX: max[0], maxY:max[1]};</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointerEvent">
+    <h4>PointerEvent</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도와 오버레이에서 발생한 마우스 또는 터치 이벤트 발생 시 전달되는 포인터 이벤트 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">event</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>coord</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#Coord">Coord</a> -->
+    <a href="global.html#Coord">Coord</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 위치의 지도 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Point.html">naver.maps.Point</a> -->
+    <a href="naver.maps.Point.html">naver.maps.Point</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 위치의 세계 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Point.html">naver.maps.Point</a> -->
+    <a href="naver.maps.Point.html">naver.maps.Point</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 위치의 픽셀 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pointerEvent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#DOMEvent">DOMEvent</a> -->
+    <a href="global.html#DOMEvent">DOMEvent</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 시점의 DOM 이벤트 객체입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>overlay</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.OverlayView.html">naver.maps.OverlayView</a> -->
+    <a href="naver.maps.OverlayView.html">naver.maps.OverlayView</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트가 발생한 오버레이 객체입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointLiteral">
+    <h4>PointLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도 좌표 리터럴 객체입니다. <code>new naver.maps.Point</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#PointArrayLiteral">PointArrayLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#PointObjectLiteral">PointObjectLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="PointObjectLiteral">
+    <h4>PointObjectLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>x</code>, <code>y</code>를 키로 사용하는 좌표 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>x 좌표입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>y 좌표입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Examples</h5>
+        
+    <pre class="sunlight-highlight-javascript">var x = 126.5322317,
+    y = 33.3572421;
+
+var coord = {x: x, y: y};</pre>
+
+    <pre class="sunlight-highlight-javascript">var coord = {x: 10, y: 10};</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="SizeArrayLiteral">
+    <h4>SizeArrayLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>width</code>, <code>height</code> 순서대로 선언된 크기 배열입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#array">array</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var width = 10,
+    height = 5;
+
+var sizeArray = [width, height];</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="SizeLiteral">
+    <h4>SizeLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>2차원 평면의 크기 리터럴입니다. <code>new naver.maps.Size</code>를 대신하여 사용할 수 있습니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#SizeArrayLiteral">SizeArrayLiteral</a></span>
+|
+
+<span class="param-type"><a href="global.html#SizeObjectLiteral">SizeObjectLiteral</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="SizeObjectLiteral">
+    <h4>SizeObjectLiteral</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>width</code>, <code>height</code>를 키로 사용하는 크기 객체입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>너비</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>높이</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">var width = 10,
+    height = 5;
+
+var SizeObjectLiteral = {width: width, height: height};</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="string">
+    <h4>string</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>문자열(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)을 표현합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#string">string</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="TransitionOptions">
+    <h4>TransitionOptions</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>지도의 이동 효과에 사용할 옵션입니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    500
+                
+                </td>
+            
+
+            <td class="description last"><p>이동 효과가 실행되는 시간(ms)입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>easing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    "easeOutCubic"
+                
+                </td>
+            
+
+            <td class="description last"><p>이동 효과에 사용할 <code>easing</code> 방식입니다.</p>
+<p><code>linear</code>, <code>easeOutCubic</code>, <code>easeInCubic</code>만 지원합니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    
+        <div class="col-md-3">
+            <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+        </div>
+    
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<div class="footer">
+
+
+    <span class="copyright">
+    <a href="https://developers.naver.com">NAVER Developers</a> | Copyright 2016 NAVER Corp. All rights reserved. | <a href="http://developer.naver.com/wiki/pages/mapAgreement">Terms of Service</a>
+    </span>
+
+<span class="jsdoc-message">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+    
+    using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</div>
+
+<!--[if lt IE 9]>
+<script src="scripts/iron.js"></script>
+<script src="scripts/respond.min.js"></script>
+<script src="scripts/docstrap.lib.ie8.js"></script>
+<script type="text/javascript">
+    var isTocSupported = false;
+    var isSearchSupported = false;
+    function remove(itm) {
+        itm && itm.parentElement.removeChild(itm);
+    }
+    remove(document.getElementById('toc'));
+    remove(document.getElementById('_searchbox'));
+</script>
+<![endif]-->
+
+
+<!--[if gt IE 8]> <!-- -->
+<script src="scripts/docstrap.lib.js"></script>
+<script id="__toc" src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+<script type="text/javascript">
+    var isTocSupported = true;
+    var isSearchSupported = true;
+</script>
+<!-- <![endif]-->
+
+<script src="./js/highlight.min.js"></script>
+
+<script>
+$( function () {
+    $( "[id*='$']" ).each( function () {
+        var $this = $( this );
+
+        $this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+    } );
+
+
+    $('pre').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+    if (isTocSupported) {
+        $.catchAnchorLinks( {
+            navbarOffset: 10
+        } );
+
+        $( "#toc" ).toc( {
+            anchorName  : function ( i, heading, prefix ) {
+                var id = $( heading ).attr( "id" );
+                return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+            },
+            selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+            showAndHide : false,
+            smoothScrolling: true
+        } );
+    }
+
+    $( "#main span[id^='toc']" ).addClass( "toc-shim" );
+    $( '.dropdown-toggle' ).dropdown();
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+    $("#main>section:not('.tutorial-section')").localScroll({
+        offset: {
+            top: -170 //offset by the height of your header (give or take a few px, see what works for you)
+        }
+    });
+} );
+</script>
+
+<script type="text/javascript">
+    if (isSearchSupported) {
+        $(document).ready(function() {
+            SearcherDisplay.init();
+
+            var w = $(window);
+            $('.dropdown-menu').on('mousewheel', function(e, d) {
+                var t = $(this),
+                    up = e.originalEvent.deltaY < 0;
+
+                if (w.width() < 768) return;
+
+                if (up) {
+                    if (t.scrollTop() === 0) e.preventDefault();
+                } else {
+                    if (t.scrollTop() == t.get(0).scrollHeight - t.innerHeight()) e.preventDefault();
+                }
+            })
+        });
+    }
+</script>
+
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "ab0d1ce292d4cc";
+    wcs_do();
+</script>
+</body>
+</html>

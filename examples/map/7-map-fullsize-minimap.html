@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>전체 화면 지도와 미니 맵 표시하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var LOCAL_EXAMPLE = true;
+    </script>
+</head>
+<body>
+
+<!-- @category Map -->
+
+<div id="wrap" class="section">
+    <p>전체 화면 지도와 미니 맵을 표시하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.<br />
+    지도 초기화 시 `MapOptions`의 `size` 속성을 생략하면 지도의 크기가 DOM 요소의 HTML 렌더링 크기대로 자동으로 조정됩니다.<br />
+    전체 화면으로 지도를 표시하는 예제이므로 <a id="new-window" href="../examples/map/7-map-fullsize-minimap-opened.html" target="_blank">새창으로 열기</a>를 눌러서 확인할 수 있습니다.</p>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<div id="code" style="display:none;">
+// size 옵션이 생략되면 map DOM 요소의 HTML 렌더링 크기로 자동으로 조정됩니다.
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.5666805, 126.9784147),
+    zoom: 8,
+    minZoom: 1,
+    mapTypeId: naver.maps.MapTypeId.HYBRID,
+    zoomControl: true,
+    zoomControlOptions: {
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    disableKineticPan: false
+});
+
+map.setOptions({
+    mapTypeControl: true,
+    scaleControl: false,
+    logoControl: false
+});
+
+// 미니 맵이 들어갈 HTML 요소를 controls 객체에 추가합니다. 가장 오른쪽 아래에 위치하기 위해서 다른 옵션들을 잠시 끕니다.
+map.controls[naver.maps.Position.BOTTOM_RIGHT].push($("#minimap")[0]);
+map.setOptions({
+    scaleControl: true,
+    logoControl: true,
+});
+
+var minimap = new naver.maps.Map('minimap', { //미니 맵 지도를 생성합니다.
+    bounds: map.getBounds(),
+    scrollWheel: false,
+    scaleControl: false,
+    mapDataControl: false,
+    logoControl: false
+});
+
+
+var semaphore = false;
+naver.maps.Event.addListener(map, 'bounds_changed', function(bounds) {
+    if (semaphore) return;
+
+    minimap.fitBounds(bounds);
+});
+naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
+    var toTypes = {
+        "normal": "hybrid",
+        "terrain": "satellite",
+        "satellite": "terrain",
+        "hybrid": "normal"
+    };
+
+    minimap.setMapTypeId(toTypes[mapTypeId]);
+});
+naver.maps.Event.addListener(minimap, 'drag', function() {
+    semaphore = true;
+    map.panTo(minimap.getCenter());
+    naver.maps.Event.once(map, 'idle', function() {
+        semaphore = false;
+    });
+
+});
+</div>
+
+<script type="text/javascript">
+if (window.LOCAL_EXAMPLE) {
+    document.getElementById('new-window').href = './7-map-fullsize-minimap-opened.html';
+}
+</script>
+
+</body>
+</html>
+
+
+
+

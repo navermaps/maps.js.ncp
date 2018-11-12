@@ -1,0 +1,13 @@
+{
+    "name": "네이버 지도 API v3",
+    "short_name": "네이버 지도 API v3",
+    "icons": [
+        {
+            "src": "https://navermaps.github.io/maps.js/docs/img/logo_200x200.png",
+            "sizes": "200x200",
+            "density": "4.0"
+        }
+    ],
+    "start_url": "/",
+    "orientation": "portrait"
+}

@@ -1,0 +1,117 @@
+._digest *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+._digest{
+    padding-left: 0px;
+    overflow: hidden;
+    text-decoration: none;
+    padding-bottom: 10px;
+    margin: auto;
+}
+
+._digest h1{
+    clear: both;
+    padding: 40px 0 !important;
+}
+
+._digest h1:first-of-type{
+    padding: 0 0 40px 0 !important;
+}
+
+._digest ._digest_itm ._digest_h2 {
+    font-weight: bold;
+    line-height: 280px;
+    font-size: 33px;
+}
+._digest ._digest_itm{
+    position: relative;
+    float: left;
+    width: 280px;
+    height: 280px;
+    border: 1px solid #fff;
+    overflow: hidden;
+    background-color: #f5f5f7;
+    background-position:center center;
+}
+
+._digest a {
+    text-decoration: none;
+    color: #26304d;
+}
+
+._digest a:focus {
+    outline: none;
+}
+
+._digest_itm.s11{
+    width: 280px;
+    height: 280px;
+}
+
+._digest_itm.s12{
+    width: 280px;
+    height: 560px;
+}
+._digest_itm.s21{
+    width: 560px;
+    height: 280px;
+}
+._digest_itm.s22{
+    width: 560px;
+    height: 560px;
+}
+
+._digest ._digest_itm ._digest_itm_cover {
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+
+._digest ._digest_itm ._digest_a {
+    position: absolute;
+    display: block;
+    color: #FFF;
+    padding: 20px 19px;
+    font-size: 20px;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+._digest ._digest_itm:hover:not(._digest_itm_subcat){
+    border: 4px solid #2780E3;
+}
+
+._digest ._digest_itm:hover ._digest_itm_cover{
+    opacity: 0;
+    transition: opacity .4s ease-out;
+    -webkit-transition: opacity .4s ease-out
+}
+
+._digest ._digest_itm:hover ._digest_a{
+    color: #2780E3;
+    padding: 16px 15px;
+}
+
+._unclickable {
+    cursor: default;
+}
+
+@media (max-width: 767px) {
+    ._digest{
+        width: 100%;
+    }
+    ._digest ._digest_itm{
+        height: 280px;
+        width: 99%;
+        margin-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    ._digest ._digest_itm img{
+        right: 0;
+        width: initial;
+    }
+}

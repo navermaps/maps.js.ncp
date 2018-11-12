@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>지도 이동하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Map -->
+
+<style type="text/css">
+    #wrap .buttons { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
+</style>
+<div id="wrap" class="section">
+    <h2>지도 이동하기</h2>
+    <p>지도를 이동하는 여러 가지 방법에 대한 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <p>지도 이동 메서드에 대한 자세한 내용은 {@link naver.maps.Map Map}을 참고하세요.</p>
+    <div id="map" style="width:100%;height:600px;">
+        <div class="buttons">
+            <input id="to-jeju" type="button" value="제주도로 setCenter" class="control-btn" />
+            <input id="to-1" type="button" value="1레벨로 setZoom" class="control-btn" />
+            <input id="to-dokdo" type="button" value="독도로 fitBounds" class="control-btn" />
+            <input id="to-busan" type="button" value="부산으로 panTo" class="control-btn" />
+            <input id="to-seoul" type="button" value="서울로 panToBounds" class="control-btn" />
+            <input id="panBy" type="button" value="panBy로 조금씩 이동하기" class="control-btn" />
+        </div>
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.5666805, 126.9784147),
+    zoom: 4
+});
+
+var jeju = new naver.maps.LatLng(33.3590628, 126.534361),
+    busan = new naver.maps.LatLng(35.1797865, 129.0750194),
+    dokdo = new naver.maps.LatLngBounds(
+                new naver.maps.LatLng(37.2380651, 131.8562652),
+                new naver.maps.LatLng(37.2444436, 131.8786475)),
+    seoul = new naver.maps.LatLngBounds(
+                new naver.maps.LatLng(37.42829747263545, 126.76620435615891),
+                new naver.maps.LatLng(37.7010174173061, 127.18379493229875));
+
+$("#to-jeju").on("click", function(e) {
+    e.preventDefault();
+
+    map.setCenter(jeju);
+});
+
+$("#to-1").on("click", function(e) {
+    e.preventDefault();
+
+    map.setZoom(1, true);
+});
+
+$("#to-dokdo").on("click", function(e) {
+    e.preventDefault();
+
+    map.fitBounds(dokdo);
+});
+
+$("#to-busan").on("click", function(e) {
+    e.preventDefault();
+
+    map.panTo(busan);
+});
+
+$("#to-seoul").on("click", function(e) {
+    e.preventDefault();
+
+    map.panToBounds(seoul);
+});
+
+$("#panBy").on("click", function(e) {
+    e.preventDefault();
+
+    map.panBy(new naver.maps.Point(10, 10));
+});
+</script>
+
+</body>
+</html>
+
+
+
+

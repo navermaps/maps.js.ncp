@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>투영법과 타일 크기를 동적으로 변경하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category MapType -->
+
+<style type="text/css">
+    #radio-wrap { margin-top:10px; }
+    #radio-wrap input { margin-left:0;vertical-align:bottom; }
+    #radio-wrap label { margin-right:15px; }
+</style>
+
+<div id="wrap" class="section">
+    <h2>투영법과 타일 크기를 동적으로 변경하기</h2>
+    <p>투영법과 타일 크기를 동적으로 변경하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <div>
+        <h4>투영법 변경</h4>
+        <p>(오른쪽 위 버튼 메뉴)</p>
+    </div>
+    <div id="radio-wrap" class="radio">
+        <h4>타일 크기 변경</h4>
+        <input id="s64x64" type="radio" name="tile_size" value="64x64" /><label for="s64x64">64 x 64</label>
+        <input id="s128x128" type="radio" name="tile_size" value="128x128" /><label for="s128x128">128 x 128</label>
+        <input id="s256x256" type="radio" name="tile_size" value="256x256" checked /><label for="s256x256">256 x 256</label>
+        <input id="s512x512" type="radio" name="tile_size" value="512x512" /><label for="s512x512">512 x 512</label>
+        <input id="s256x128" type="radio" name="tile_size" value="256x128" /><label for="s256x128">256 x 128</label>
+        <input id="s256x64" type="radio" name="tile_size" value="256x64" /><label for="s256x64">256 x 64</label>
+    </div>
+
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+//UTMK_NAVER 투영법의 이미지 지도 타입
+var naverNormalMapType = naver.maps.NaverMapTypeOption.getNormalMap();
+//EPSG3857 투영법의 이미지 지도 타입
+var openStreetMapType = new naver.maps.ImageMapType({
+    name: 'OSM',
+    minZoom: 0,
+    maxZoom: 19,
+    tileSize: new naver.maps.Size(256, 256),
+    projection: naver.maps.EPSG3857,
+    repeatX: true,
+    tileSet: [
+        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    ],
+    provider: [{
+        title: " /OpenStreetMap",
+        link: "http://www.openstreetmap.org/copyright"
+    }]
+});
+
+// 두 개의 mapType으로 된 지도를 생성합니다.
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 2,
+    mapTypes: new naver.maps.MapTypeRegistry({
+        'naver': naverNormalMapType,
+        'osm': openStreetMapType
+    }),
+    mapTypeId: 'naver', //지도의 초기 지도 유형 id
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.BUTTON
+    }
+});
+
+new naver.maps.Marker({
+    position: map.getCenter(),
+    map: map
+});
+
+
+var stopNotify = false;
+
+$('#radio-wrap input').on('click', function(e) {
+    var sizeArr = this.value.split('x'),
+        tileSize = new naver.maps.Size(parseInt(sizeArr[0], 10), parseInt(sizeArr[1], 10));
+
+
+    function changeTileSize(mapType, tileSize) {
+        var opts = mapType.getMapTypeOptions();
+
+        opts.tileSize = tileSize; // 타일 크기를 변경합니다.
+        mapType.setMapTypeOptions(opts);
+    }
+
+    changeTileSize(naverNormalMapType, tileSize);
+    changeTileSize(openStreetMapType, tileSize);
+
+    stopNotify = true;
+    map.refresh(true);
+    stopNotify = false;
+});
+
+var idleListener = null;
+
+naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
+    if (stopNotify) return;
+
+    naver.maps.Event.removeListener(idleListener);
+
+    var curZoom = map.getZoom(),
+        toZoom = curZoom;
+
+    if (mapTypeId === 'osm') {
+        toZoom += 5;
+    } else if (mapTypeId === 'naver') {
+        toZoom -= 5;
+    }
+
+    idleListener = naver.maps.Event.once(map, 'idle', function() {
+        naver.maps.Event.removeListener(idleListener);
+
+        var zoom = map.getZoom();
+
+        if (zoom !== toZoom) {
+            map.setZoom(toZoom);
+        }
+    });
+});
+</script>
+
+</body>
+</html>

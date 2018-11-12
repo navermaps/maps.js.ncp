@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>파노라마 이벤트 처리하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Panorama -->
+
+<div id="wrap" class="section">
+    <h2>파노라마 이벤트 처리하기</h2>
+    <p>파노라마의 이벤트를 이용하여 파노라마 객체의 속성을 살펴보는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="pano" style="width:100%;height:400px"></div>
+
+    <div id="button-wrap" class="buttons">
+        <input id="zoomIn" type="button" value= "확대" class="control-btn control-on" />
+        <input id="zoomOut" type="button" value = "축소" class="control-btn" />
+    </div>
+
+    <div id="panoInfo" style="width:400px">
+        <table>
+            <tr>
+                <td><b>Pano ID</b></td><td id="id_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Title</b></td><td id="title_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Address</b></td><td id="address_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Photodate</b></td><td id="photodate_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>POV Pan</b></td><td id="pan_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>POV Tilt</b></td><td id="tilt_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>POV Fov</b></td><td id="fov_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Zoom</b></td><td id="zoom_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Min Zoom</b></td><td id="min_zoom_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Max Zoom</b></td><td id="max_zoom_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Scale</b></td><td id="scale_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Min Scale</b></td><td id="min_scale_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Max Scale</b></td><td id="max_scale_cell">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Pano Status</b></td><td id="pano_status_cell">&nbsp;</td>
+            </tr>
+        </table>
+     </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+var pano = null;
+
+function initPanorama() {
+    pano = new naver.maps.Panorama("pano", {
+        position: new naver.maps.LatLng(37.3599605, 127.1058814),
+        pov: {
+            pan: -135,
+            tilt: 29,
+            fov: 100
+        },
+        minScale: 0, // default: 0
+        maxScale: 5  // default: 10
+    });
+
+    naver.maps.Event.addListener(pano, "init", function() {
+        pano.setVisible(true);
+    });
+
+    naver.maps.Event.addListener(pano, "pano_status", function(status) {
+        $("#pano_status_cell").text(status + ", " + pano.getPanoId());
+
+        if (status != naver.maps.PanoramaStatus.OK) {
+            alert("error");
+        }
+    });
+
+    naver.maps.Event.addListener(pano, "pano_changed", function() {
+        $("#id_cell").text(pano.getPanoId());
+        $("#title_cell").text(pano.getLocation().title);
+        $("#address_cell").text(pano.getLocation().address);
+        $("#photodate_cell").text(pano.getLocation().photodate);
+        console.log('Position: ' + pano.getPosition());
+    });
+
+    naver.maps.Event.addListener(pano, "pov_changed", function() {
+        $("#pan_cell").text(pano.getPov().pan);
+        $("#tilt_cell").text(pano.getPov().tilt);
+        $("#fov_cell").text(pano.getPov().fov);
+
+        $("#zoom_cell").text(pano.getZoom());
+        $("#min_zoom_cell").text(pano.getMinZoom());
+        $("#max_zoom_cell").text(pano.getMaxZoom());
+
+        $("#scale_cell").text(pano.getScale());
+        $("#min_scale_cell").text(pano.getMinScale());
+        $("#max_scale_cell").text(pano.getMaxScale());
+
+        updateZoomState();
+    });
+}
+
+naver.maps.onJSContentLoaded = initPanorama;
+
+function updateZoomState() {
+    var disabledZoomIn = (pano.getScale() === pano.getMaxScale());
+    var disabledZoomOut = (pano.getScale() === pano.getMinScale());
+
+    var zoomIn = $("#zoomIn"),
+        zoomOut = $("#zoomOut");
+
+    if (disabledZoomIn) {
+        zoomIn.removeClass("control-on");
+    } else {
+        zoomIn.addClass("control-on");
+    }
+
+    if (disabledZoomOut) {
+        zoomOut.removeClass("control-on");
+    } else {
+        zoomOut.addClass("control-on");
+    }
+}
+
+$("#zoomIn").on("click", function(e) {
+    e.preventDefault();
+
+    pano.zoomIn();
+});
+
+$("#zoomOut").on("click", function(e) {
+    e.preventDefault();
+
+    pano.zoomOut();
+});
+
+</script>
+
+</body>
+</html>
+

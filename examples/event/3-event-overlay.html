@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>오버레이 이벤트</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Event -->
+
+<div id="wrap" class="section">
+    <h2>오버레이 이벤트</h2>
+    <p>오버레이 객체의 이벤트를 이용하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="data">
+// path data
+var polylinePath = [
+    new naver.maps.LatLng(37.4526437, 126.49236),
+    new naver.maps.LatLng(37.4768068, 126.4847975),
+    new naver.maps.LatLng(37.4988237, 126.4960839),
+    new naver.maps.LatLng(37.5176422, 126.5392841),
+    new naver.maps.LatLng(37.5398154, 126.5708743),
+    new naver.maps.LatLng(37.5457857, 126.5968815),
+    new naver.maps.LatLng(37.5646413, 126.6502792),
+    new naver.maps.LatLng(37.5708896, 126.7197823),
+    new naver.maps.LatLng(37.5710499, 126.7444216),
+    new naver.maps.LatLng(37.5770001, 126.7733532),
+    new naver.maps.LatLng(37.5817724, 126.799401),
+    new naver.maps.LatLng(37.5841817, 126.8167752),
+    new naver.maps.LatLng(37.5808037, 126.8313027),
+    new naver.maps.LatLng(37.5716637, 126.8473288),
+    new naver.maps.LatLng(37.56136, 126.8619116),
+    new naver.maps.LatLng(37.5487926, 126.8852035),
+    new naver.maps.LatLng(37.540747, 126.8910651),
+    new naver.maps.LatLng(37.5303713, 126.8925982),
+    new naver.maps.LatLng(37.5164746, 126.8825719),
+    new naver.maps.LatLng(37.5002697, 126.8725686),
+    new naver.maps.LatLng(37.4933399, 126.8711786),
+    new naver.maps.LatLng(37.4760577, 126.8756663),
+    new naver.maps.LatLng(37.4634352, 126.8887979),
+    new naver.maps.LatLng(37.448467, 126.8947082),
+    new naver.maps.LatLng(37.4346374, 126.8977132),
+    new naver.maps.LatLng(37.4242394, 126.8949032),
+    new naver.maps.LatLng(37.4033979, 126.8806084),
+    new naver.maps.LatLng(37.3848775, 126.8691937),
+    new naver.maps.LatLng(37.371033, 126.8693097),
+    new naver.maps.LatLng(37.3724101, 126.9126676),
+    new naver.maps.LatLng(37.3830471, 126.9660813),
+    new naver.maps.LatLng(37.3807849, 126.9762181),
+    new naver.maps.LatLng(37.3971504, 127.0267188),
+    new naver.maps.LatLng(37.3961676, 127.0715545),
+    new naver.maps.LatLng(37.3730718, 127.0659032),
+    new naver.maps.LatLng(37.35114, 127.063139),
+    new naver.maps.LatLng(37.3268898, 127.0575003),
+    new naver.maps.LatLng(37.3210994, 127.0517556),
+    new naver.maps.LatLng(37.3084352, 127.0590529),
+    new naver.maps.LatLng(37.2877049, 127.0692822),
+    new naver.maps.LatLng(37.2762087, 127.0808982)
+];
+
+var polygonPath = [
+    new naver.maps.LatLng(37.4189396, 126.9947576),
+    new naver.maps.LatLng(37.3911035, 126.9616861),
+    new naver.maps.LatLng(37.3644604, 126.9387485),
+    new naver.maps.LatLng(37.3403527, 126.9649387),
+    new naver.maps.LatLng(37.3216031, 126.9043952),
+    new naver.maps.LatLng(37.2881378, 126.903215),
+    new naver.maps.LatLng(37.2541204, 127.0362754),
+    new naver.maps.LatLng(37.2924506, 127.1068025),
+    new naver.maps.LatLng(37.2395506, 127.1633591),
+    new naver.maps.LatLng(37.2492336, 127.4216687),
+    new naver.maps.LatLng(37.4938588, 127.4851262),
+    new naver.maps.LatLng(37.4267, 127.2608991),
+    new naver.maps.LatLng(37.418252, 127.1191646)
+];
+</script>
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoom: 5,
+        center: new naver.maps.LatLng(37.3614483, 127.1114883)
+    });
+
+    var marker = new naver.maps.Marker({
+        position: map.getCenter(),
+        map: map,
+        clickable: true
+    });
+
+    var polyline = new naver.maps.Polyline({
+        path: polylinePath,
+        strokeColor: '#00CA00',
+        strokeOpacity: 0.8,
+        strokeWeight: 6,
+        zIndex: 2,
+        clickable: true,
+        map: map
+    });
+
+    var polygon = new naver.maps.Polygon({
+        paths: polygonPath,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        zIndex: 1,
+        clickable: true,
+        map: map
+    });
+
+    var rectangle = new naver.maps.Rectangle({
+        strokeColor: '#ff00ff',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#ff00ff',
+        fillOpacity: 0.35,
+        bounds: new naver.maps.LatLngBounds(
+            new naver.maps.LatLng(37.5924988, 127.1291527),
+            new naver.maps.LatLng(37.5315893, 127.2149296)),
+        clickable: true,
+        map: map
+    });
+
+    var circle = new naver.maps.Circle({
+        strokeColor: '#0000ff',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#0000ff',
+        fillOpacity: 0.35,
+        center: new naver.maps.LatLng(37.3376733, 126.6954694),
+        radius: 3000,
+        zIndex: 100,
+        clickable: true,
+        map: map
+    });
+
+    naver.maps.Event.addListener(marker, 'click', function() {
+        var delta = 0,
+            zoom = map.getZoom();
+
+        if (zoom < 12) {
+            delta = 12 - zoom;
+        } else {
+            delta = 5 - zoom;
+        }
+
+        map.zoomBy(delta, marker.getPosition(), true);
+    });
+
+    naver.maps.Event.addListener(polyline, "mousedown", function(e) {
+        polyline.setOptions({
+            strokeWeight: 20
+        });
+    });
+    naver.maps.Event.addListener(polyline, "mouseup", function(e) {
+        polyline.setOptions({
+            strokeWeight: 6
+        });
+    });
+
+    naver.maps.Event.addListener(polygon, "mouseover", function(e) {
+        map.setCursor("pointer");
+
+        polygon.setOptions({
+            fillOpacity: 0.8
+        });
+    });
+
+    naver.maps.Event.addListener(polygon, "mouseout", function(e) {
+        map.setCursor("auto");
+
+        polygon.setOptions({
+            fillOpacity: 0.35
+        });
+    });
+
+    naver.maps.Event.addListener(rectangle, "mousemove", function(e) {
+        var strokeWeight = rectangle.get("strokeWeight");
+
+        strokeWeight++;
+        if (strokeWeight > 50) {
+            strokeWeight = 1;
+        }
+
+        rectangle.setOptions({
+            strokeWeight: strokeWeight
+        });
+    });
+
+    var $radius = $({ radius: 3000 });
+
+    naver.maps.Event.addListener(circle, "dblclick", function(e) {
+        var radius = circle.getRadius();
+
+        $radius[0].radius = radius;
+        if (radius === 3000) {
+            $radius.stop().animate({
+                "radius": 6000
+            }, {
+                duration: 500,
+                step: function(value) {
+                    circle.setRadius(value);
+                },
+
+                complete: function() {
+                    circle.setRadius(6000);
+                }
+            });
+        } else {
+            $radius.stop().animate({
+                "radius": 3000
+            }, {
+                duration: 500,
+                step: function(value) {
+                    circle.setRadius(value);
+                },
+
+                complete: function() {
+                    circle.setRadius(3000);
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+

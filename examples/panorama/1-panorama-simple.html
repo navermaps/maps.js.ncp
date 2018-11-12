@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>파노라마 기본 예제</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Panorama -->
+
+<div id="wrap" class="section">
+    <h2>파노라마 기본 예제</h2>
+    <p>기본 파노라마를 생성하는 예제입니다.</p>
+    <div id="pano" style="width:100%;height:800px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+var pano = null;
+
+naver.maps.onJSContentLoaded = function() {
+    // 아이디 혹은 지도 좌표로 파노라마를 표시할 수 있습니다.
+    pano = new naver.maps.Panorama("pano", {
+        // panoId: "OregDk87L7tsQ35dcpp+Mg==",
+        position: new naver.maps.LatLng(37.3599605, 127.1058814),
+        pov: {
+            pan: -135,
+            tilt: 29,
+            fov: 100
+        }
+    });
+};
+</script>
+
+</body>
+</html>

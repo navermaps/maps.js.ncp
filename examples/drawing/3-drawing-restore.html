@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>지리 형상 정보 추출 및 복원 예제</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script src='http://dev.openapi.map.naver.com/openapi/maps3.max.js?submodules=drawing'></script>
+    <!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=drawing"></script> -->
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Drawing -->
+
+<style type="text/css">
+    #wrap .buttons { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
+</style>
+<div id="wrap" class="section">
+    <h2>지리 형상 정보 추출 및 복원 예제</h2>
+    <p>그리기 도구를 이용해 지도 위에 올린 오버레이의 지리 형상 정보를 추출하고, 추출한 GeoJSON 데이터를 데이터 레이어를 이용해 복원합니다.</p>
+    <p>그리기 도구를 이용해 지도 위에 오버레이를 그린 후, 추출 및 복원 버튼을 눌러 보세요.</p>
+    <div id="map" style="width:100%;height:500px;">
+        <div class="buttons">
+            <input id="restore" type="button" name="추출 및 복원" value="추출 및 복원" class="control-btn" />
+        </div>
+    </div>
+    <br>
+    <div id="restoreMap" style="width:100%;height:400px;">
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.LARGE,
+            position: naver.maps.Position.TOP_RIGHT
+        },
+        mapTypeControl: true,
+        zoom: 10
+    });
+
+    var drawingManager = new naver.maps.drawing.DrawingManager({
+        map: map,
+        rectangleOptions: {
+            fillColor: '#ff0000',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor: '#ff0000'
+        },
+        ellipseOptions: {
+            fillColor: '#ff25dc',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor: '#ff25dc'
+        },
+        polylineOptions: {
+            strokeColor: '#222',
+            strokeWeight: 3,
+        },
+        arrowlineOptions: {
+            endIconSize: 16,
+            strokeWeight: 3
+        },
+        polygonOptions: {
+            fillColor: '#ffc300',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor:'#ffc300'
+        }
+    });
+
+    var restoreMap = new naver.maps.Map('restoreMap', {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.LARGE,
+            position: naver.maps.Position.TOP_RIGHT
+        },
+        mapTypeControl: true,
+        zoom: 10
+    });
+
+    var geojson;
+
+    $("#restore").on("click", function(e) {
+        e.preventDefault();
+
+        if (geojson) {
+            restoreMap.data.removeGeoJson(geojson);
+            geojson = null;
+        }
+
+        geojson = drawingManager.toGeoJson();
+        restoreMap.data.addGeoJson(geojson, true);
+    });
+</script>
+</body>
+</html>

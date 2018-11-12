@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>사용자 정의 컨트롤(Control 객체 만들기)</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Controls -->
+
+<style>
+    #wrap .btn_mylct{z-index:100;overflow:hidden;display:inline-block;position:absolute;top:7px;left:5px;width:34px;height:34px;border:1px solid rgba(58,70,88,.45);border-radius:2px;background:#fcfcfd;text-align:center;-webkit-background-clip:padding;background-clip:padding-box}
+
+    #wrap .spr_trff{overflow:hidden;display:inline-block;color:transparent!important;vertical-align:top;background:url(https://ssl.pstatic.net/static/maps/m/spr_trff_v6.png) 0 0;background-size:200px 200px;-webkit-background-size:200px 200px}
+    #wrap .spr_ico_mylct{width:20px;height:20px;margin:7px 0 0 0;background-position:-153px -31px}
+</style>
+
+<div id="wrap" class="section">
+    <h2>사용자 정의 컨트롤</h2>
+    <p>사용자 정의 컨트롤을 생성하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+    var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
+    var map = new naver.maps.Map('map', {zoom: 8});
+
+    //customControl 객체 이용하기
+    var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+        position: naver.maps.Position.TOP_LEFT
+    });
+
+    customControl.setMap(map);
+
+    var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+    });
+
+    //Map 객체의 controls 활용하기
+    var $locationBtn = $(locationBtnHtml),
+        locationBtnEl = $locationBtn[0];
+
+    map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+
+    var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+    });
+</script>
+</body>
+</html>

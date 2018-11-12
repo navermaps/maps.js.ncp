@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>그리기 도구 모듈 옵션 활용하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script src='http://dev.openapi.map.naver.com/openapi/maps3.max.js?submodules=drawing'></script>
+    <!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=drawing"></script> -->
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Drawing -->
+
+<style>
+    ._component {
+        border: 1px solid #b4b4b4;
+        border-radius: 4px;
+        padding: 10px;
+        background: #fff;
+        font-size: 12px;
+    }
+    .column {
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+
+<div id="wrap" class="section">
+    <h2>그리기 도구 모듈 옵션 활용하기</h2>
+    <p>그리기 도구 모듈의 다양한 옵션을 활용하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:800px;">
+        <div style="display: inline-block; position: relative; z-index: 1;margin: 20px 0 0 20px;font-size: 12px;">
+            <div id='position_panel' class="_component">
+                <b>위치</b><br>
+                <div class="column">
+                    <input type='radio' name='pos' value="5"> LEFT_TOP<br>
+                    <input type='radio' name='pos' value="4"> LEFT_CENTER<br>
+                    <input type='radio' name='pos' value="6"> LEFT_BOTTOM<br>
+                    <input type='radio' name='pos' value="7"> RIGHT_TOP<br>
+                    <input type='radio' name='pos' value="8" checked> RIGHT_CENTER<br>
+                    <input type='radio' name='pos' value="9"> RIGHT_BOTTOM<br>
+                </div>
+                <div class="column">
+                    <input type='radio' name='pos' value="1"> TOP_LEFT<br>
+                    <input type='radio' name='pos' value="2"> TOP_CENTER<br>
+                    <input type='radio' name='pos' value="3"> TOP_RIGHT<br>
+                    <input type='radio' name='pos' value="10"> BOTTOM_LEFT<br>
+                    <input type='radio' name='pos' value="11"> BOTTOM_CENTER<br>
+                    <input type='radio' name='pos' value="12"> BOTTOM_RIGHT<br>
+                </div>
+            </div>
+            <div id='style_panel' class="_component">
+                <b>스타일</b><br>
+                <input type="radio" name="style" value="1"> horizontal<br>
+                <input type="radio" name="style" value="2" checked> vertical<br>
+                <input type="radio" name="style" value="3"> horizontal_2<br>
+                <input type="radio" name="style" value="4"> vertical_2<br>
+            </div>
+            <div id='icons_panel' class="_component">
+                <b>아이콘</b><br>
+                <input type="checkbox" name="icon" value="0"> HAND<br>
+                <input type="checkbox" name="icon" value="1" checked> RECTANGLE<br>
+                <input type="checkbox" name="icon" value="2" checked> ELLIPSE<br>
+                <input type="checkbox" name="icon" value="3" checked> POLYLINE<br>
+                <input type="checkbox" name="icon" value="4"> ARROWLINE<br>
+                <input type="checkbox" name="icon" value="5" checked> POLYGON<br>
+                <input type="checkbox" name="icon" value="6"> MARKER<br>
+                <button name="_rm_all_icon">모두제거</button>
+                <button name="_add_all_icon">모두추가</button>
+            </div>
+        </div>
+
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script type="text/javascript">
+    var HOME_PATH = window.HOME_PATH || '.';
+</script>
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.LARGE,
+            position: naver.maps.Position.TOP_RIGHT
+        },
+        mapTypeControl: true,
+        zoom: 2
+    });
+
+    var drawingManager = new naver.maps.drawing.DrawingManager({
+        map: map,
+        drawingControl: [
+            naver.maps.drawing.DrawingMode.POLYLINE,
+            naver.maps.drawing.DrawingMode.POLYGON,
+            naver.maps.drawing.DrawingMode.ELLIPSE,
+            naver.maps.drawing.DrawingMode.RECTANGLE
+        ],
+        drawingControlOptions: {
+            position: naver.maps.Position.TOP_CENTER,
+            style: naver.maps.drawing.DrawingStyle.VERTICAL
+        },
+        controlPointOptions: {
+            anchorPointOptions: {
+                radius: 5,
+                fillColor: '#ff0000',
+                strokeColor: '#0000ff',
+                strokeWeight: 2
+            },
+            midPointOptions: {
+                radius: 4,
+                fillColor: '#ff0000',
+                strokeColor: '#0000ff',
+                strokeWeight: 2,
+                fillOpacity: 0.5
+            }
+        },
+        rectangleOptions: {
+            fillColor: '#ff0000',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor: '#ff0000'
+        },
+        ellipseOptions: {
+            fillColor: '#ff25dc',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor: '#ff25dc'
+        },
+        polylineOptions: { // 화살표 아이콘 계열 옵션은 무시됩니다.
+            strokeColor: '#222',
+            strokeWeight: 3
+        },
+        arrowlineOptions: { // startIcon || endIcon 옵션이 없으면 endIcon을 BLOCK_OPEN으로 설정합니다.
+            endIconSize: 16,
+            strokeWeight: 3
+        },
+        polygonOptions: {
+            fillColor: '#ffc300',
+            fillOpacity: 0.5,
+            strokeWeight: 3,
+            strokeColor:'#ffc300'
+        },
+        markerOptions: {
+            icon: {
+                content: '<img src="'+ HOME_PATH +'/img/example/pin_default.png" alt="" ' +
+                    'style="margin:0px;padding:0px;border:0px solid transparent;display:block;max-width:none;max-height:none; ' +
+                    '-webkit-user-select: none; position: absolute; width: 22px; height: 35px; left: 0px; top: 0px;">',
+                size: new naver.maps.Size(22, 35),
+                anchor: new naver.maps.Point(11, 35)
+            }
+        }
+    });
+
+    // 옵션 조정
+    drawingManager.setOptions('drawingControlOptions', {position: naver.maps.Position.RIGHT_CENTER});
+
+    // 오버레이를 매니저에 추가
+    var rect = new naver.maps.Rectangle({
+            map: map,
+            bounds: [125.6195858,37.1928595,126.5689034,37.8594302],
+            fillColor: '#00bf46',
+            fillOpacity: 0.4,
+            strokeWeight: 2,
+            strokeColor: '#00bf46'
+        });
+
+    drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
+
+    // 오버레이의 setEditable을 직접 호출
+    var rect2 = new naver.maps.Rectangle({
+            map: map,
+            bounds: [124.2220128,37.1928595,125.1587723,37.8594302],
+            fillColor: '#bf0091',
+            fillOpacity: 0.4,
+            strokeWeight: 2,
+            strokeColor: '#bf0091'
+        });
+
+    rect2.setEditable(true);
+
+</script>
+<script type="text/javascript">
+    var dm = drawingManager;
+
+    $('#position_panel input[type=radio]').change(function() {
+        dm.setOptions('drawingControlOptions', {position: +this.value});
+    });
+
+    $('#style_panel input').change(function() {
+        dm.setOptions('drawingControlOptions', {style: +this.value});
+    });
+
+    $('#icons_panel input').change(function() {
+        var current = dm.getOptions('drawingControl'),
+            icon = +this.value;
+
+        if (current.indexOf(icon) === -1) {
+            current.push(icon);
+            dm.setOptions('drawingControl', current);
+        } else {
+            current.splice(current.indexOf(icon), 1);
+            dm.setOptions('drawingControl', current);
+        }
+    });
+
+    $('#icons_panel button').click(function() {
+        if (this.name === '_rm_all_icon') {
+            dm.setOptions('drawingControl', []);
+            $('#icons_panel input:checkbox').prop('checked', false);
+        } else {
+            dm.setOptions('drawingControl', [0,1,2,3,4,5,6]);
+            $('#icons_panel input:checkbox').prop('checked', true);
+        }
+    });
+
+</script>
+</body>
+</html>

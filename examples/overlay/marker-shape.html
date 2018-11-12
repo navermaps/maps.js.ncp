@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>마커 인터랙션 영역 설정하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Overlay/Marker -->
+
+<div id="wrap" class="section">
+    <h2>마커 인터랙션 영역 설정하기</h2>
+    <p>shape 속성을 이용해 마커의 사용자 인터랙션 영역(마우스, 터치 이벤트)을 정의하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var HOME_PATH = window.HOME_PATH || '.';
+var position = new naver.maps.LatLng(37.3595704, 127.105399);
+
+var map = new naver.maps.Map('map', {
+    center: position,
+    zoom: 10
+});
+
+var markerOptions = {
+    position: position,
+    map: map,
+    icon: {
+        url: HOME_PATH +'/img/example/pin_default.png',
+        size: new naver.maps.Size(22, 35),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(11, 35)
+    },
+    shape: {
+        coords: [11, 0, 9, 0, 6, 1, 4, 2, 2, 4,
+                0, 8, 0, 12, 1, 14, 2, 16, 5, 19,
+                5, 20, 6, 23, 8, 26, 9, 30, 9, 34,
+                13, 34, 13, 30, 14, 26, 16, 23, 17, 20,
+                17, 19, 20, 16, 21, 14, 22, 12, 22, 12,
+                22, 8, 20, 4, 18, 2, 16, 1, 13, 0],
+        type: 'poly'
+    }
+};
+
+var marker = new naver.maps.Marker(markerOptions);
+</script>
+
+</body>
+</html>

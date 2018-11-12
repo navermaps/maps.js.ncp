@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>클릭한 지점 폴리곤으로 연결하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Overlay/Shapes -->
+
+<div id="wrap" class="section">
+    <h2>클릭한 지점 폴리곤으로 연결하기</h2>
+    <p>지도에서 클릭한 지점을 폴리곤으로 연결하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3674001, 127.1181196),
+    zoom: 9
+});
+
+var polygon = new naver.maps.Polygon({
+    map: map,
+    paths: [[]],
+    fillColor: '#ff0000',
+    fillOpacity: 0.3,
+    strokeColor: '#ff0000',
+    strokeOpacity: 0.6,
+    strokeWeight: 3,
+    clickable: true
+});
+
+naver.maps.Event.addListener(map, 'click', function(e) {
+
+    var point = e.coord;
+
+    var path = polygon.getPaths().getAt(0);
+    path.push(point);
+
+    new naver.maps.Marker({
+        map: map,
+        position: point
+    });
+});
+</script>
+
+</body>
+</html>

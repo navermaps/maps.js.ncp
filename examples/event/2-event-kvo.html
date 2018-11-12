@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>KVO 이벤트</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Event -->
+
+<div id="wrap" class="section">
+    <h2>KVO 이벤트</h2>
+    <p>지도 객체의 KVO 이벤트를 이용하는 예제입니다. 지도의 줌 레벨을 변경하면 변경된 줌 레벨을 정보 창에 표시합니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+    var map = new naver.maps.Map('map', {
+        zoom: 4,
+        center: new naver.maps.LatLng(37.3614483, 127.1114883),
+        padding: { top: 100 },
+        zoomControl:true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL
+        }
+    });
+
+    var contentEl = $('<div class="iw_inner" style="width:350px;position:absolute;top:0;right:0;z-index:1000;background-color:#fff;border:solid 1px #333;">'
+        + '<h3>Map States</h3>'
+        + '<p style="font-size:14px;">zoom : <em class="zoom">'+ map.getZoom() +'</em></p>'
+        + '<p style="font-size:14px;">centerPoint : <em class="center">'+ map.getCenterPoint() +'</em></p>'
+        + '</div>');
+
+    contentEl.appendTo(map.getElement());
+
+    naver.maps.Event.addListener(map, 'zoom_changed', function(zoom) {
+        contentEl.find('.zoom').text(zoom);
+    });
+
+    naver.maps.Event.addListener(map, 'bounds_changed', function(bounds) {
+        contentEl.find('.center').text(map.getCenterPoint());
+        console.log('Center: ' + map.getCenter().toString() + ', Bounds: ' + bounds.toString());
+    });
+</script>
+
+</body>
+</html>

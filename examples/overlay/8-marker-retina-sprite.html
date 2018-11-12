@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>스프라이트 이미지 아이콘 레티나 대응하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Overlay/Marker -->
+
+<div id="wrap" class="section">
+    <h2>스프라이트 이미지 아이콘 레티나 대응하기</h2>
+    <p>scaledSize 속성을 이용해 레티나 디스플레이에 대응하도록 마커의 스프라이트 이미지 아이콘 크기를 조절하는 예제입니다. </p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var HOME_PATH = window.HOME_PATH || '.';
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10
+});
+
+makeMarker(map, new naver.maps.LatLng(37.3595704, 127.105399), 0);
+makeMarker(map, new naver.maps.LatLng(37.3618025, 127.1153248), 1);
+makeMarker(map, new naver.maps.LatLng(37.3561936, 127.0983706), 2);
+
+function makeMarker(map, position, index) {
+
+    var ICON_GAP = 31;
+    var ICON_SPRITE_IMAGE_URL = HOME_PATH +'/img/example/sp_pin_hd.png';
+    var iconSpritePositionX = (index * ICON_GAP) + 1;
+    var iconSpritePositionY = 1;
+
+    var marker = new naver.maps.Marker({
+        map: map,
+        position: position,
+        icon: {
+          url: ICON_SPRITE_IMAGE_URL,
+          size: new naver.maps.Size(26, 36), // 이미지 크기
+          origin: new naver.maps.Point(iconSpritePositionX, iconSpritePositionY), // 스프라이트 이미지에서 클리핑 위치
+          anchor: new naver.maps.Point(13, 36), // 지도상 위치에서 이미지 위치의 offset
+          scaledSize: new naver.maps.Size(395, 79)
+        }
+    });
+
+    return marker;
+}
+</script>
+
+</body>
+</html>

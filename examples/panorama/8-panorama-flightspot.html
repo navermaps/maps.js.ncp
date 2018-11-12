@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>지도에 항공뷰 아이콘 표시하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Panorama -->
+
+<div id="wrap" class="section">
+    <h2>지도에 항공뷰 아이콘 표시하기</h2>
+    <p>네이버 지도에서 제공하는 항공뷰를 지도에 표시하는 예제입니다. 자세한 내용은 {@link naver.maps.FlightSpot FlightSpot}을 참고하세요. </p>
+    <p>이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+
+    <div id="button-wrap" class="buttons">
+        <input id="fligtspot" type="button" value="FlightSpot 제거" class="control-btn control-on" />
+    </div>
+
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+var mapOptions = {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 4
+};
+
+var map = new naver.maps.Map("map", mapOptions),
+    flightSpot = null;
+
+naver.maps.onJSContentLoaded = function() {
+    flightSpot = new naver.maps.FlightSpot();
+
+    flightSpot.setMap(map); // 항공뷰 아이콘을 지도에 표시합니다.
+
+    naver.maps.Event.addListener(flightSpot, "poi_clicked", function(panoId) {
+        alert(panoId); //클러스터링 마커가 아닌 일반 마커에서 클릭해야 동작합니다.
+    });
+
+    $("#fligtspot").on("click", function(e) {
+        e.preventDefault();
+
+        var el = $(this);
+
+        if (flightSpot.getMap()) {
+            flightSpot.setMap(null);
+            el.val("FlightSpot 추가").removeClass("control-on");
+        } else {
+            flightSpot.setMap(map);
+            el.val("FlightSpot 제거").addClass("control-on");
+        }
+    });
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>사용자 DOM 요소를 활용하는 지도 유형 만들기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category MapType -->
+
+<style type="text/css">
+    #wrap .mytile { font-size:200px;line-height:256px;text-align:center;font-weight:bold;border: solid 1px #aaa;color:#fff;background-color:#000; }
+</style>
+<div id="wrap" class="section">
+    <h2>사용자 DOM 요소를 활용하는 지도 유형 만들기</h2>
+    <p>사용자의 DOM 요소를 활용한 지도 유형 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10,
+    mapTypeId: 'mine',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.DROPDOWN
+    }
+});
+
+var MyMapType = {
+    name: "Alphabet",
+    minZoom: 0,
+    maxZoom: 22,
+    tileSize: new naver.maps.Size(50, 50),
+    getTile: function(x, y, z) {
+        var w = this.tileSize.width,
+            h = this.tileSize.height;
+
+        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+            alphabet = String.fromCharCode(ascii);
+        var div = $("<div class='mytile'>"+ alphabet +"</div>");
+
+        div.css({
+            width: w, height: h,
+            fontSize: Math.min(w, h) - 10,
+            lineHeight: h+"px",
+            opacity: 1 - ((ascii - 65) * 0.04)
+        });
+
+        return div[0];
+    }
+};
+
+map.mapTypes.set("mine", MyMapType);
+</script>
+
+</body>
+</html>

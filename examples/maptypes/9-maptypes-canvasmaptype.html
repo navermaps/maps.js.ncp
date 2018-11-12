@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>캔버스 타일 지도 유형 만들기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category MapType -->
+
+<div id="wrap" class="section">
+    <h2>캔버스 타일 지도 유형 만들기</h2>
+    <p>캔버스 타일을 이용해 지도를 생성하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var MyMapType = {
+    name: "Alphabet",
+    minZoom: 0,
+    maxZoom: 22,
+    tileSize: new naver.maps.Size(50, 50),
+    getTileData: function(x, y, z) {
+        var w = this.tileSize.width,
+            h = this.tileSize.height,
+            canvas = document.createElement("canvas"),
+            ctx = canvas.getContext("2d");
+
+        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+            alphabet = String.fromCharCode(ascii);
+
+        canvas.width = w;
+        canvas.height = h;
+
+        ctx.globalAlpha = 1 - ((ascii - 65) * 0.04);
+
+        ctx.rect(0, 0, w, h);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#aaa";
+        ctx.stroke();
+
+        ctx.font = "bold " + (Math.min(w, h) - 10) + "px Arial";
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#fff";
+        ctx.fillText(alphabet, w / 2, h / 2);
+
+        return ctx.getImageData(0, 0, w, h);
+    }
+};
+
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(28.084179775000003, 25.216796875),
+    zoom: 10,
+    mapTypeId: 'Alphabet',
+    mapTypes: new naver.maps.PaneTypeRegistry({
+        "Alphabet": new naver.maps.CanvasMapType(MyMapType)
+    })
+});
+</script>
+</body>
+</html>

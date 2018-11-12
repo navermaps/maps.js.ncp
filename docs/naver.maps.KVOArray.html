@@ -1,0 +1,6058 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>KVOArray | 네이버 지도 API v3</title>
+    <meta name="description" content="Class: naver.maps.KVOArray">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
+    <meta property="og:title" content="NAVER Maps API v3">
+    <meta property="og:description" content="NAVER Maps API v3로 여러분의 지도를 만들어 보세요. 유용한 기술문서와 다양한 예제 코드를 제공합니다.">
+    <meta property="og:image" content="https://navermaps.github.io/maps.js/docs/img/NAVERMaps.png">
+    <meta property="og:url" content="https://navermaps.github.io/maps.js">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NAVER Maps API v3">
+    <meta name="twitter:description" content="NAVER Maps API v3로 여러분의 지도를 만들어 보세요. 유용한 기술문서와 다양한 예제 코드를 제공합니다.">
+    <meta name="twitter:image" content="https://navermaps.github.io/maps.js/docs/img/NAVERMaps.png">
+    <meta name="twitter:url" content="https://navermaps.github.io/maps.js">
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .dropdown-menu {
+       max-height: 500px !important;
+    }
+    </style>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+    <link type="text/css" rel="stylesheet" href="styles/site.flatly.css">
+    <link type="text/css" rel="stylesheet" href="./css/highlightjs.css">
+</head>
+
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+            
+            <img class="branding-logo" src="./img/logo-ncp.png" alt="logo">
+             
+            </a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="topNavigation">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown">
+                    <a href="namespaces.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-namespaces" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="naver.html">naver</a></li><li><a href="naver.maps.html">naver.maps</a></li><li><a href="naver.maps.drawing.html">naver.maps.drawing</a></li><li><a href="naver.maps.visualization.html">naver.maps.visualization</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="classes.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-classes" data-toggle="dropdown">Classes<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Base</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.LatLng.html">naver.maps.LatLng</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.LatLngBounds.html">naver.maps.LatLngBounds</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Point.html">naver.maps.Point</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.PointBounds.html">naver.maps.PointBounds</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Size.html">naver.maps.Size</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >KVO</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.KVO.html">naver.maps.KVO</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.KVOArray.html">naver.maps.KVOArray</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Map</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Map.html">naver.maps.Map</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Tile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CanvasTile.html">naver.maps.CanvasTile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ImageTile.html">naver.maps.ImageTile</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Tile.html">naver.maps.Tile</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >MapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CanvasMapType.html">naver.maps.CanvasMapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ImageMapType.html">naver.maps.ImageMapType</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapTypeRegistry.html">naver.maps.MapTypeRegistry</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:30px" >preset</a></li>
+                
+                        <li><a style="padding-left:40px;" href="naver.maps.NaverMapTypeOption.html">naver.maps.NaverMapTypeOption</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Control</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.CustomControl.html">naver.maps.CustomControl</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Controls</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.LogoControl.html">naver.maps.LogoControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapDataControl.html">naver.maps.MapDataControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.MapTypeControl.html">naver.maps.MapTypeControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ScaleControl.html">naver.maps.ScaleControl</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.ZoomControl.html">naver.maps.ZoomControl</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Layer</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Layer.html">naver.maps.Layer</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Layers</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.CadastralLayer.html">naver.maps.CadastralLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.LabelLayer.html">naver.maps.LabelLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.StreetLayer.html">naver.maps.StreetLayer</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TrafficLayer.html">naver.maps.TrafficLayer</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Data Layer</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Data.html">naver.maps.Data</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Feature.html">naver.maps.Feature</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Geometry.html">naver.maps.Geometry</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Overlay</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.OverlayView.html">naver.maps.OverlayView</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Naver Overlays</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Circle.html">naver.maps.Circle</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Ellipse.html">naver.maps.Ellipse</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.GroundOverlay.html">naver.maps.GroundOverlay</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.InfoWindow.html">naver.maps.InfoWindow</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Marker.html">naver.maps.Marker</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Polygon.html">naver.maps.Polygon</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Polyline.html">naver.maps.Polyline</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.Rectangle.html">naver.maps.Rectangle</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: drawing</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.drawing.DrawingManager.html">naver.maps.drawing.DrawingManager</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: panorama</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.AroundControl.html">naver.maps.AroundControl</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.FlightSpot.html">naver.maps.FlightSpot</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Panorama.html">naver.maps.Panorama</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: visualization</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.DotMap.html">naver.maps.visualization.DotMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.HeatMap.html">naver.maps.visualization.HeatMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.WeightedLocation.html">naver.maps.visualization.WeightedLocation</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapType.html">naver.maps.StyleMapType</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="interfaces.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-interfaces" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Abstract</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.MapSystemProjection.html">naver.maps.MapSystemProjection</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.MapType.html">naver.maps.MapType</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Projection.html">naver.maps.Projection</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: panorama</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.PanoramaProjection.html">naver.maps.PanoramaProjection</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="mixins.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-statics" data-toggle="dropdown">Statics<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Event</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Event.html">naver.maps.Event</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Projection</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.EPSG3857.html">naver.maps.EPSG3857</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.UTMK.html">naver.maps.UTMK</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.UTMK_NAVER.html">naver.maps.UTMK_NAVER</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: geocoder</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.Service.html">naver.maps.Service</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.TransCoord.html">naver.maps.TransCoord</a></li>
+                
+                        <li><a href="#" class="_cat _subcat" style="padding-left:20px" >Extended Projection</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.EPSG3857Coord.html">naver.maps.EPSG3857Coord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TM128.html">naver.maps.TM128</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.TM128Coord.html">naver.maps.TM128Coord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.UTMK_NAVERCoord.html">naver.maps.UTMK_NAVERCoord</a></li>
+                
+                        <li><a style="padding-left:30px;" href="naver.maps.UTMKCoord.html">naver.maps.UTMKCoord</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: visualization</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.visualization.SpectrumStyle.html">naver.maps.visualization.SpectrumStyle</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapLayerId.html">naver.maps.StyleMapLayerId</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeId.html">naver.maps.StyleMapTypeId</a></li>
+                
+                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeOption.html">naver.maps.StyleMapTypeOption</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="global.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-types" data-toggle="dropdown">Types<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="global.html#any">any</a></li><li><a href="global.html#array">array</a></li><li><a href="global.html#ArrayOfBounds">ArrayOfBounds</a></li><li><a href="global.html#ArrayOfBoundsLiteral">ArrayOfBoundsLiteral</a></li><li><a href="global.html#ArrayOfCoords">ArrayOfCoords</a></li><li><a href="global.html#ArrayOfCoordsLiteral">ArrayOfCoordsLiteral</a></li><li><a href="global.html#boolean">boolean</a></li><li><a href="global.html#Bounds">Bounds</a></li><li><a href="global.html#BoundsLiteral">BoundsLiteral</a></li><li><a href="global.html#Coord">Coord</a></li><li><a href="global.html#CoordLiteral">CoordLiteral</a></li><li><a href="global.html#DOMEvent">DOMEvent</a></li><li><a href="global.html#DOMEventListener">DOMEventListener</a></li><li><a href="global.html#DrawingOverlay">DrawingOverlay</a></li><li><a href="global.html#function">function</a></li><li><a href="global.html#GeoJSON">GeoJSON</a></li><li><a href="global.html#GPX">GPX</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#ImageData">ImageData</a></li><li><a href="global.html#KeyboardEvent">KeyboardEvent</a></li><li><a href="global.html#KML">KML</a></li><li><a href="global.html#KVOArrayOfCoords">KVOArrayOfCoords</a></li><li><a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a></li><li><a href="global.html#LatLngBoundsObjectLiteral">LatLngBoundsObjectLiteral</a></li><li><a href="global.html#LatLngLiteral">LatLngLiteral</a></li><li><a href="global.html#LatLngObjectLiteral">LatLngObjectLiteral</a></li><li><a href="global.html#LayerRegistry">LayerRegistry</a></li><li><a href="global.html#MapEventListener">MapEventListener</a></li><li><a href="global.html#MapType">MapType</a></li><li><a href="global.html#margin">margin</a></li><li><a href="global.html#null">null</a></li><li><a href="global.html#number">number</a></li><li><a href="global.html#object">object</a></li><li><a href="global.html#padding">padding</a></li><li><a href="global.html#PointArrayLiteral">PointArrayLiteral</a></li><li><a href="global.html#PointBoundsArrayLiteral">PointBoundsArrayLiteral</a></li><li><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></li><li><a href="global.html#PointBoundsObjectLiteral">PointBoundsObjectLiteral</a></li><li><a href="global.html#PointerEvent">PointerEvent</a></li><li><a href="global.html#PointLiteral">PointLiteral</a></li><li><a href="global.html#PointObjectLiteral">PointObjectLiteral</a></li><li><a href="global.html#SizeArrayLiteral">SizeArrayLiteral</a></li><li><a href="global.html#SizeLiteral">SizeLiteral</a></li><li><a href="global.html#SizeObjectLiteral">SizeObjectLiteral</a></li><li><a href="global.html#string">string</a></li><li><a href="global.html#TransitionOptions">TransitionOptions</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-stylemap.html">stylemap</a></li><li><a href="module-visualization.html">visualization</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="tutorials.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-tutorials" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="#" class="_cat" style="padding-left:10px" >개요</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Conceptual-Overview.html">NAVER 지도 API v3 특징</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Abbreviation.html">축약형 표현</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-KVO-Mechanism.html">KVO 디자인</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-Submodules.html">서브 모듈 시스템</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Quota.html">사용 제한</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >시작하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Getting-Client-ID.html">클라이언트 아이디 발급</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Getting-Started.html">Hello, World</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Map.html">지도 생성 및 기본 동작</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-MapTypes.html">지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Projection.html">지도 투영과 좌표 체계</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-DOM-Event.html">DOM 이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-KVO-State-Changes.html">KVO 상태 변경 알림</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-UI-Event.html">UI 이벤트</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Controls.html">지도 컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Custom-Control.html">사용자 정의 컨트롤</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >데이터 표시</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Layers.html">레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-DataLayer.html">데이터 레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Visualization.html">데이터 시각화</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-Overlay-Overview.html">오버레이 개요</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Marker.html">마커</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-InfoWindow.html">정보 창</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-Shape.html">도형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-GroundOverlay.html">지상 오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-CustomOverlay.html">사용자 정의 오버레이</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >파노라마</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Geocoder.html">Geocoder를 활용한 좌표 변환</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >그리기 도구</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">신규 스타일 지도</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="example.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-examples" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                    <ul class="dropdown-menu ">
+                        
+                        <li><a href="tutorial-digest.example.html#Digest" class="_cat" style="padding-left:10px" >Digest</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-digest.example.html">예제 모아보기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지도" class="_cat" style="padding-left:10px" >지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-map-simple.example.html">지도 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-map-options.example.html">지도 옵션 조정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-map-types.example.html">지도 유형 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-map-bounds.example.html">지도 좌표 경계 확인하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-map-moves.example.html">지도 이동하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-map-geolocation.example.html">HTML5 Geolocation API 활용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-map-fullsize-minimap.example.html">전체 화면 지도와 미니 맵</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지도 유형" class="_cat" style="padding-left:10px" >지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-maptypes-tilecheck.example.html">지도의 타일 인덱스 그리드 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-maptypes-imagemaptype.example.html">이미지 타일 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-maptypes-basic.example.html">사용자 지도 유형 만들기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-maptypes-dynamic.example.html">투영법과 타일의 크기를 동적으로 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-maptypes-naver_osm.example.html">두 가지의 지도 유형을 함께 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-maptypes-gta5.example.html">Grand Theft Auto V 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-maptypes-the-hunters.example.html">Starcraft The Hunters 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-8-maptypes-greenfactory.example.html">NAVER 그린팩토리 지도 유형</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-9-maptypes-canvasmaptype.example.html">캔버스 타일 지도 유형</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#이벤트" class="_cat" style="padding-left:10px" >이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-event-simple.example.html">이벤트 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-event-kvo.example.html">KVO 이벤트</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-event-overlay.example.html">오버레이의 이벤트</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#컨트롤" class="_cat" style="padding-left:10px" >컨트롤</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-control-simple.example.html">지도 컨트롤 추가/제거하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-control-options.example.html">지도 컨트롤 스타일 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-control-positioning.example.html">지도 컨트롤 위치 설정하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-control-custom-p1.example.html">사용자 정의 컨트롤 만들기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#레이어" class="_cat" style="padding-left:10px" >레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-bicycle.example.html">네이버 자전거 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-cadastral.example.html">네이버 지적도 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-traffic.example.html">네이버 실시간 교통상황 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-street.example.html">네이버 거리뷰 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-custom.example.html">사용자 정의 레이어 만들기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#데이터 레이어" class="_cat" style="padding-left:10px" >데이터 레이어</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-datalayer.example.html">GeoJSON 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-datalayer-region.example.html">행정구역 GeoJSON 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-datalayer-kml.example.html">KML 데이터 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-datalayer-gpx.example.html">GPX 데이터 레이어 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#시각화" class="_cat" style="padding-left:10px" >시각화</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-visualization-heatmap.example.html">열지도 시각화하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-visualization-dotmap.example.html">점지도 시각화하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-visualization-spectrum.example.html">열지도 스펙트럼 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-visualization-heatmap-w.example.html">열지도 가중치 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-visualization-dotmap-w.example.html">점지도 가중치 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#오버레이" class="_cat" style="padding-left:10px" >오버레이</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-custom-overlay.example.html">사용자 정의 오버레이 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#마커" class="_cat _subcat" style="padding-left:20px" >마커</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-marker-simple.example.html">마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-3-marker-image-icon.example.html">이미지 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-4-marker-sprite-image-icon.example.html">스프라이트 이미지 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-5-marker-html-icon.example.html">HTML 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-6-marker-symbol-icon.example.html">심벌 아이콘 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-7-marker-retina.example.html">이미지 아이콘 레티나 대응하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-8-marker-retina-sprite.example.html">스프라이트 이미지 아이콘 레티나 대응하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-9-marker-position.example.html">클릭한 지점으로 마커 옮기기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-animation.example.html">애니메이션 마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-cluster.example.html">마커 클러스터화하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-intersect.example.html">겹침 마커 처리하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-shape.example.html">마커 인터랙션 영역 설정하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-viewport.example.html">보이는 지도 영역의 마커만 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-marker-viewportevents.example.html">다수의 마커에 이벤트 핸들러 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#정보 창" class="_cat _subcat" style="padding-left:20px" >정보 창</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-infowindow-simple.example.html">정보 창 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-infowindow-options.example.html">정보 창 옵션 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#도형" class="_cat _subcat" style="padding-left:20px" >도형</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-1-shape-simple.example.html">사각형, 원, 타원 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-3-polygon-simple.example.html">폴리곤, 폴리라인 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-4-polygon-hole.example.html">구멍 난 폴리곤 그리기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-5-polygon-options.example.html">폴리곤 옵션 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-6-polyline-options.example.html">폴리라인 옵션 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-pointing-icon.example.html">폴리라인에 화살표 표시하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-polygon-dynamic.example.html">클릭한 지점 폴리곤 연결하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-polyline-dynamic.example.html">클릭한 지점 폴리라인 연결하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-shape-measures.example.html">폴리라인, 폴리곤의 거리/면적 재기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#지상 오버레이" class="_cat _subcat" style="padding-left:20px" >지상 오버레이</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-ground-overlay.example.html">지상 오버레이 표시하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#파노라마" class="_cat" style="padding-left:10px" >파노라마</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-panorama-simple.example.html">파노라마 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-panorama-resize.example.html">파노라마 크기 변경하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-panorama-event.example.html">파노라마 이벤트 처리하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-panorama-image-marker.example.html">파노라마 마커 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-panorama-html-infowindow.example.html">파노라마 요약 정보 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-panorama-zoomcontrol.example.html">파노라마 줌 컨트롤 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-7-panorama-aroundcontrol.example.html">거리/항공뷰 전환하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-8-panorama-flightspot.example.html">지도에 항공뷰 아이콘 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#그리기 도구" class="_cat" style="padding-left:10px" >그리기 도구</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-drawing-simple.example.html">그리기 도구 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-drawing-options.example.html">그리기 도구 옵션 활용하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#신규 스타일 지도" class="_cat" style="padding-left:10px" >신규 스타일 지도</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
+                
+                        
+                    </ul>
+                </li>
+                
+            </ul>
+            <div id="_searchbox" class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="검색" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit">
+                                <!-- <i class="glyphicon glyphicon-search"></i> -->
+                                <img src="./img/icon_search-ncp.png" width="14px" height="14px" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-footer">
+        <div class="container">
+            <div class="navbar-footer-wrapper">
+            
+                <a href="https://github.com/navermaps/maps.js.ncp">포크하기</a>
+            
+                <a href="https://github.com/navermaps/maps.js.ncp/issues">문의하기</a>
+            
+                <a href="https://www.ncloud.com/">네이버 클라우드 플랫폼 바로가기</a>
+            
+                <a href="https://www.ncloud.com/support/notice">공지사항 바로가기</a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+    
+    <div class="col-md-8">
+    
+        <div id="main" itemscope itemtype="https://schema.org/TechArticle">
+            <div style="display:none;">
+                <div itemprop="image" itemscope, itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="thumbnailUrl" content="./img/logo_200x200.png">
+                    <img src="./img/logo_200x200.png" alt="logo">
+                </div>
+                <div>
+                    <a href="tutorial-0-Getting-Started.html" itemprop="mainEntityOfPage">Tutorials</a>
+                    <a href="tutorial-digest.example.html" itemprop="mainEntityOfPage">Examples</a>
+                    <span itemprop="keywords">naver</span>
+                    <span itemprop="keywords">map</span>
+                    <span itemprop="keywords">js</span>
+                    <span itemprop="keywords">api</span>
+                    <span itemprop="keywords">v3</span>
+                    <span itemprop="keywords">네이버 지도 API</span>
+                    <span itemprop="keywords">KVOArray</span>
+                </div>
+            </div>
+            
+
+	<h1 class="page-title">Class: naver.maps.KVOArray</h1>
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="naver.html">naver</a><a href="naver.maps.html">.maps</a>.</span>
+        
+        KVOArray
+        </h2>
+        
+            <div class="class-description" itemprop="description"><p><code>KVOArray</code> 클래스는 배열 형태의 <code>KVO</code>를 정의합니다. 따라서 배열 요소의 값이 변경되면 알려줍니다.</p></div>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<dt>
+    <h4 class="name" id="KVOArray"><span class="type-signature"></span>new naver.maps.KVOArray(array)</h4>
+
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#array">array</a> -->
+    <a href="global.html#array">array</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>KVOArray</code>로 사용할 배열</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><a href="tutorial-KVO-State-Changes.html">KVO 상태 변경 알림</a></li>
+			</ul>
+	</dd>
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="naver.maps.KVO.html">naver.maps.KVO</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="addListener"><span class="type-signature"></span>addListener(eventName, listener)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 객체의 이벤트 알림을 받아 핸들러를 호출하는 리스너를 등록합니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>addListener</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 이름</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 리스너</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#addListener">naver.maps.KVO#addListener</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>지도 이벤트 리스너 객체</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#MapEventListener">MapEventListener</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#MapEventListener">MapEventListener</a> -->
+    <a href="global.html#MapEventListener">MapEventListener</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>지도 이벤트 리스너 객체</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="addListenerOnce"><span class="type-signature"></span>addListenerOnce(eventName, listener)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 객체에서 한 번만 이벤트 알림을 받아 핸들러를 호출하는 리스너를 등록합니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>once</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 이름</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 리스너</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#addListenerOnce">naver.maps.KVO#addListenerOnce</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>지도 이벤트 리스너 객체</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#MapEventListener">MapEventListener</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#MapEventListener">MapEventListener</a> -->
+    <a href="global.html#MapEventListener">MapEventListener</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>지도 이벤트 리스너 객체</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bindTo"><span class="type-signature"></span>bindTo(key, target, <span class="optional">targetKey</span>)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>대상 객체(<code>target</code>)의 대상 키(<code>targetKey</code>)에 자신의 키(<code>key</code>)를 바인딩합니다. 따라서 대상 객체의 대상 키의 값이 변경되면 자신의 키의 값 역시 갱신됩니다.</p>
+<p>즉, 대상 객체에서 사용하는 대상 키에 바인딩하면서 자신만의 키 이름을 설정할 때 사용할 수 있습니다. 대상 키가 없으면 동일한 키 이름을 사용합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>키</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.KVO.html">naver.maps.KVO</a> -->
+    <a href="naver.maps.KVO.html">naver.maps.KVO</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>대상 객체</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>대상 객체에 존재하는 키</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#bindTo">naver.maps.KVO#bindTo</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.KVO.html#event:%257Bkey%257D_changed">{key}_changed</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="clear"><span class="type-signature"></span>clear()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>모든 요소를 삭제합니다.</p>
+<blockquote>
+<p>이 메서드는 <code>remove_at</code> 이벤트를 발생시킵니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="clearListeners"><span class="type-signature"></span>clearListeners(eventName)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 객체에서 특정 이벤트 알림의 리스너를 모두 제거합니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>clearListeners</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>모두 제거할 이벤트의 이름</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#clearListeners">naver.maps.KVO#clearListeners</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="forEach"><span class="type-signature"></span>forEach(callback)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>배열의 전체 요소를 순회하며 콜백 함수를 실행합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#function">function</a> -->
+    <a href="global.html#function">function</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>순회 시 실행할 콜백 함수</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>요소</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>요소의 인덱스</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="get"><span class="type-signature"></span>get(key)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>키에 해당하는 값을 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>키</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#get">naver.maps.KVO#get</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>키에 할당되어 있는 값</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#any">any</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>키에 할당되어 있는 값</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getArray"><span class="type-signature"></span>getArray()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>원본 배열 객체를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>원본 배열</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#array">array</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#array">array</a> -->
+    <a href="global.html#array">array</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>원본 배열</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getAt"><span class="type-signature"></span>getAt(index)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 인덱스의 요소를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>인덱스</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>해당 인덱스의 요소</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#any">any</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>해당 인덱스의 요소</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getIndexOfElement"><span class="type-signature"></span>getIndexOfElement(element)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 요소의 인덱스를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>인덱스를 검색할 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>해당 요소의 인덱스</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#number">number</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>해당 요소의 인덱스</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getLength"><span class="type-signature"></span>getLength()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>배열의 전체 길이를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>배열의 전체 길이</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#number">number</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>배열의 전체 길이</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="hasListener"><span class="type-signature"></span>hasListener(eventName)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 객체에 이벤트 알림이 등록되었는지 여부를 확인합니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>hasListener</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 이름</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#hasListener">naver.maps.KVO#hasListener</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>등록 여부</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#boolean">boolean</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>등록 여부</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="insertAt"><span class="type-signature"></span>insertAt(index, element)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 인덱스에 요소를 삽입합니다.</p>
+<blockquote>
+<p>이 메서드는 <code>insert_at</code> 이벤트를 발생시킵니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>배열의 인덱스. 이 값이 음수이면 <code>&quot;index number should be positive&quot;</code> 오류가 발생합니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삽입할 요소의 값</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="pop"><span class="type-signature"></span>pop()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>배열의 마지막 요소를 삭제하고, 삭제된 요소를 반환합니다.</p>
+<blockquote>
+<p>이 메서드는 <code>remove_at</code> 이벤트를 발생시킵니다.</p>
+</blockquote>
+<blockquote>
+<p>이 메서드는 JavaScript 배열의 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">pop</a> 메서드를 구현합니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>삭제된 요소</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#any">any</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>삭제된 요소</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="push"><span class="type-signature"></span>push(element)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>배열의 마지막에 요소를 추가합니다.</p>
+<blockquote>
+<p>이 메서드는 <code>insert_at</code> 이벤트를 발생시킵니다.</p>
+</blockquote>
+<blockquote>
+<p>이 메서드는 JavaScript 배열의 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">push</a> 메서드를 구현합니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>추가할 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>배열의 전체 길이</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#number">number</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>배열의 전체 길이</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeAt"><span class="type-signature"></span>removeAt(index)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 인덱스의 요소를 삭제하고, 삭제된 요소를 반환합니다.</p>
+<blockquote>
+<p>이 메서드는 <code>remove_at</code> 이벤트를 발생시킵니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>배열의 인덱스. 이 값이 음수이면, <code>&quot;index number should be positive&quot;</code> 오류가 발생합니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>삭제된 요소의 값</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#any">any</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>삭제된 요소의 값</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeElement"><span class="type-signature"></span>removeElement(element)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 요소를 삭제합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삭제할 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="removeListener"><span class="type-signature"></span>removeListener(listeners)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 이벤트 알림의 리스너를 제거합니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>removeListener</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>listeners</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#MapEventListener">MapEventListener</a> -->
+    <a href="global.html#MapEventListener">MapEventListener</a>
+    </span>
+|
+
+<span class="param-type">
+    
+    <!-- Array.&lt;<a href="global.html#MapEventListener">MapEventListener</a>> -->
+    Array.&lt;<a href="global.html#MapEventListener">MapEventListener</a>>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>제거할 리스너 객체 또는 리스너 객체의 배열</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#removeListener">naver.maps.KVO#removeListener</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="set"><span class="type-signature"></span>set(key, value, <span class="optional">silently</span>)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>키(key)에 해당하는 값을 객체에 설정합니다.</p>
+<p>값이 설정되면 해당 객체의 키를 바인딩하고 있는 모든 <code>KVO</code> 객체에 동일한 값이 적용됩니다.<br>또한, <code>{key}_changed</code> 형태의 이벤트를 이용해 값의 변경을 감지할 수 있습니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>키</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>키에 저장할 값</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>silently</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>묵시적으로 값을 설정할지 여부. 이 값이 <code>true</code>이면 이벤트를 발생시키지 않습니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#set">naver.maps.KVO#set</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.KVO.html#event:%257Bkey%257D_changed">{key}_changed</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setAt"><span class="type-signature"></span>setAt(index, element)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 인덱스에 요소를 설정합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>배열의 인덱스. 이 값이 현재 배열 <code>length-1</code>보다 크면 <code>insertAt</code>을 호출합니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>설정할 요소의 값</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.KVOArray.html#event:set_at">set_at</a></li>
+    
+        <li><a href="naver.maps.KVOArray.html#event:insert_at">insert_at</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setValues"><span class="type-signature"></span>setValues(properties)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p><code>키-값</code> 쌍 형태로 동시에 여러 개의 값을 설정합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>설정할 키-값 쌍의 객체</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#setValues">naver.maps.KVO#setValues</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.KVO.html#event:%257Bkey%257D_changed">{key}_changed</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="splice"><span class="type-signature"></span>splice(startIndex, deleteCount, <span class="optional">element</span>)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p><code>startIndex</code>로부터 <code>deleteCount</code>만큼의 요소를 삭제하고, 신규 요소를 삽입합니다.</p>
+<p>삭제한 요소가 존재한다면 삭제된 요소들의 배열을 반환합니다.</p>
+<blockquote>
+<p>이 메서드는 JavaScript 배열의 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">splice</a> 메서드를 구현합니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>startIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>시작 인덱스</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>deleteCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>시작 인덱스로부터 삭제할 요소의 개수</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>시작 인덱스에 삽입할 새로운 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>삭제된 요소의 배열</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;<a href="global.html#any">any</a>></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- Array.&lt;<a href="global.html#any">any</a>> -->
+    Array.&lt;<a href="global.html#any">any</a>>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>삭제된 요소의 배열</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="trigger"><span class="type-signature"></span>trigger(eventName, <span class="optional">eventObject</span>)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 객체에 이벤트 알림을 발생시킵니다.</p>
+<blockquote>
+<p>이 메서드는 <a href="naver.maps.Event.html">Event</a>의 <code>trigger</code> 메서드를 상속받습니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트 이름</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eventObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>이벤트 리스너에 전달할 이벤트 객체</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#trigger">naver.maps.KVO#trigger</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unbind"><span class="type-signature"></span>unbind(key)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>해당 키의 바인딩을 제거합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>제거할 키</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#unbind">naver.maps.KVO#unbind</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="unbindAll"><span class="type-signature"></span>unbindAll()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>모든 바인딩을 제거합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#unbindAll">naver.maps.KVO#unbindAll</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+        <h3 class="subsection-title">Events</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="event:insert_at">insert_at</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>새로운 요소가 추가되면 이벤트가 발생합니다. 추가된 요소의 인덱스와 요소가 인수로 전달됩니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삽입된 요소의 인덱스</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삽입된 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:remove_at">remove_at</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>기존의 요소가 삭제되면 이벤트가 발생합니다. 삭제된 요소와 인덱스가 인수로 전달됩니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삭제된 요소의 인덱스</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삭제된 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:set_at">set_at</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>기존의 요소가 변경되면 이벤트가 발생합니다. 기존 요소(변경되어 삭제된)와 변경된 인덱스가 인수로 전달됩니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>인덱스</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>삭제된 요소</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:%7Bkey%7D_changed">{key}_changed</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>특정 <code>key</code>의 값이 변경되면 <code>{key}_changed</code> 이벤트가 발생합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#any">any</a> -->
+    <a href="global.html#any">any</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>해당 키의 변경된 값</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.KVO.html#event:%257Bkey%257D_changed">naver.maps.KVO#event:{key}_changed</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+</article>
+
+</section>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    
+        <div class="col-md-3">
+            <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+        </div>
+    
+
+</div>
+</div>
+
+<div class="modal fade" id="searchResults">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Search results</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<div class="footer">
+
+
+    <span class="copyright">
+    <a href="https://developers.naver.com">NAVER Developers</a> | Copyright 2016 NAVER Corp. All rights reserved. | <a href="http://developer.naver.com/wiki/pages/mapAgreement">Terms of Service</a>
+    </span>
+
+<span class="jsdoc-message">
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+    
+    using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</div>
+
+<!--[if lt IE 9]>
+<script src="scripts/iron.js"></script>
+<script src="scripts/respond.min.js"></script>
+<script src="scripts/docstrap.lib.ie8.js"></script>
+<script type="text/javascript">
+    var isTocSupported = false;
+    var isSearchSupported = false;
+    function remove(itm) {
+        itm && itm.parentElement.removeChild(itm);
+    }
+    remove(document.getElementById('toc'));
+    remove(document.getElementById('_searchbox'));
+</script>
+<![endif]-->
+
+
+<!--[if gt IE 8]> <!-- -->
+<script src="scripts/docstrap.lib.js"></script>
+<script id="__toc" src="scripts/toc.js"></script>
+<script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+<script type="text/javascript">
+    var isTocSupported = true;
+    var isSearchSupported = true;
+</script>
+<!-- <![endif]-->
+
+<script src="./js/highlight.min.js"></script>
+
+<script>
+$( function () {
+    $( "[id*='$']" ).each( function () {
+        var $this = $( this );
+
+        $this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+    } );
+
+
+    $('pre').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+    if (isTocSupported) {
+        $.catchAnchorLinks( {
+            navbarOffset: 10
+        } );
+
+        $( "#toc" ).toc( {
+            anchorName  : function ( i, heading, prefix ) {
+                var id = $( heading ).attr( "id" );
+                return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+            },
+            selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+            showAndHide : false,
+            smoothScrolling: true
+        } );
+    }
+
+    $( "#main span[id^='toc']" ).addClass( "toc-shim" );
+    $( '.dropdown-toggle' ).dropdown();
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+    $("#main>section:not('.tutorial-section')").localScroll({
+        offset: {
+            top: -170 //offset by the height of your header (give or take a few px, see what works for you)
+        }
+    });
+} );
+</script>
+
+<script type="text/javascript">
+    if (isSearchSupported) {
+        $(document).ready(function() {
+            SearcherDisplay.init();
+
+            var w = $(window);
+            $('.dropdown-menu').on('mousewheel', function(e, d) {
+                var t = $(this),
+                    up = e.originalEvent.deltaY < 0;
+
+                if (w.width() < 768) return;
+
+                if (up) {
+                    if (t.scrollTop() === 0) e.preventDefault();
+                } else {
+                    if (t.scrollTop() == t.get(0).scrollHeight - t.innerHeight()) e.preventDefault();
+                }
+            })
+        });
+    }
+</script>
+
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "ab0d1ce292d4cc";
+    wcs_do();
+</script>
+</body>
+</html>

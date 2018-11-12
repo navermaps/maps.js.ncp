@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>구멍 난 폴리곤 그리기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Overlay/Shapes -->
+
+<div id="wrap" class="section">
+    <h2>구멍 난 폴리곤 그리기</h2>
+    <p>구멍 난 폴리곤을 생성하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3674001, 127.1181196),
+    zoom: 9
+});
+
+var polygon = new naver.maps.Polygon({
+    map: map,
+    paths: [
+        [
+            new naver.maps.LatLng(37.37544345085402, 127.11224555969238),
+            new naver.maps.LatLng(37.37230584065902, 127.10791110992432),
+            new naver.maps.LatLng(37.35975408751081, 127.10795402526855),
+            new naver.maps.LatLng(37.359924641705476, 127.11576461791992),
+            new naver.maps.LatLng(37.35931064479073, 127.12211608886719),
+            new naver.maps.LatLng(37.36043630196386, 127.12293148040771),
+            new naver.maps.LatLng(37.36354029942161, 127.12310314178465),
+            new naver.maps.LatLng(37.365211629488016, 127.12456226348876),
+            new naver.maps.LatLng(37.37544345085402, 127.11224555969238)
+        ],
+        [
+            new naver.maps.LatLng(37.368485964153784, 127.10971355438232),
+            new naver.maps.LatLng(37.368520071054576, 127.11464881896971),
+            new naver.maps.LatLng(37.36350619025713, 127.11473464965819),
+            new naver.maps.LatLng(37.363403862670665, 127.1097993850708),
+            new naver.maps.LatLng(37.368485964153784, 127.10971355438232)
+        ]
+    ],
+    fillColor: '#ff0000',
+    fillOpacity: 0.3,
+    strokeColor: '#ff0000',
+    strokeOpacity: 0.6,
+    strokeWeight: 3
+});
+</script>
+
+</body>
+</html>

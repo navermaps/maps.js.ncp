@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>지도의 타일 인덱스 그리드 지도 유형</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category MapType -->
+
+<style type="text/css">
+    #wrap .tilegrid {
+        position:absolute;z-index:100;
+        font-size:20px;
+        text-align:left;
+        color:#f00;
+        background-color:transparent;
+        border: solid 1px #f00;
+        width:234px;height:234px;
+        padding:10px;
+        box-sizing:content-box;
+    }
+</style>
+<div id="wrap" class="section">
+    <h2>지도의 타일 인덱스 그리드 지도 유형</h2>
+        <p>네이버 지도의 타일 그리드를 살펴볼 수 있는 예제입니다.(타일 그리드를 표시하기 위해 레이어를 사용합니다)</p>
+        <p>이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.DROPDOWN
+    }
+});
+
+var tileGridLayer = new naver.maps.Layer('tileGrid', {
+    name: "TileGrid",
+    minZoom: -1,
+    maxZoom: 14,
+    tileSize: new naver.maps.Size(256, 256),
+    getTile: function(x, y, z) {
+        var div = $('<div class="tilegrid">('+ [z, x, y].join(', ')+')</div>');
+
+        return div[0];
+    }
+});
+
+tileGridLayer.setMap(map);
+
+</script>
+
+</body>
+</html>

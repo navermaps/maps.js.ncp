@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>정보 창 표시하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Overlay/Shapes -->
+
+<div id="wrap" class="section">
+    <h2>폴리라인 옵션 사용하기</h2>
+    <p>폴리라인에 마우스 포인터를 올리면 폴리라인의 스타일이 변경되는 예제입니다. </p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3646656, 127.108828),
+    zoom: 10
+});
+
+var polyline = new naver.maps.Polyline({
+    map: map,
+    path: [
+        new naver.maps.LatLng(37.365620929135716, 127.1036195755005),
+        new naver.maps.LatLng(37.365620929135716, 127.11353302001953),
+        new naver.maps.LatLng(37.3606921307849, 127.10452079772949),
+        new naver.maps.LatLng(37.36821310838941, 127.10814714431763),
+        new naver.maps.LatLng(37.360760351656545, 127.11299657821654),
+        new naver.maps.LatLng(37.365620929135716, 127.1036195755005)
+    ],
+    clickable: true,
+    strokeColor: '#5347AA',
+    strokeStyle: 'longdash',
+    strokeOpacity: 0.5,
+    strokeWeight: 5
+});
+
+naver.maps.Event.addListener(polyline, 'mouseover', function() {
+
+    polyline.setOptions({
+        strokeColor: '#E51D1A',
+        strokeStyle: 'solid',
+        strokeOpacity: 1
+    });
+});
+
+naver.maps.Event.addListener(polyline, 'mouseout', function() {
+
+    polyline.setOptions({
+        strokeColor: '#5347AA',
+        strokeStyle: 'longdash',
+        strokeOpacity: 0.5
+    });
+});
+</script>
+
+</body>
+</html>

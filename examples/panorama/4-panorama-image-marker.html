@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>파노라마 마커 표시하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../../docs';
+    </script>
+</head>
+<body>
+
+<!-- @category Panorama -->
+
+<div id="wrap" class="section">
+    <h2>파노라마 마커 표시하기</h2>
+    <p>마커 위치로 파노라마 시야를 조정하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div id="pano" style="width:100%;height:800px;"></div>
+
+    <div id="button-wrap" class="buttons">
+        <input id="marker" type="button" value="Marker 제거" class="control-btn control-on" />
+    </div>
+
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script id="code">
+var HOME_PATH = window.HOME_PATH || '.',
+    pano = null;
+
+function initPanorama() {
+    pano = new naver.maps.Panorama("pano", {
+        position: new naver.maps.LatLng(37.3599605, 127.1058814),
+        pov: {
+            pan: -135,
+            tilt: 29,
+            fov: 100
+        }
+    });
+
+    naver.maps.Event.addListener(pano, "init", function() {
+        marker.setMap(pano);
+
+        var proj = pano.getProjection();
+        var lookAtPov = proj.fromCoordToPov(marker.getPosition());
+        if (lookAtPov) {
+            pano.setPov(lookAtPov);
+        }
+    });
+}
+
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(37.359484, 127.105333),
+    icon: { // 레티나 디스플레이 대응 마커 아이콘
+        url: HOME_PATH +"/img/example/pin_map.png", // 110x72 크기의 원본 이미지
+        size: new naver.maps.Size(55, 36),
+        anchor: new naver.maps.Point(28, 36),
+        origin: new naver.maps.Point(0, 0),
+        scaledSize: new naver.maps.Size(55, 36)
+    }
+});
+
+naver.maps.Event.addListener(marker, "click", function(e) {
+    alert("marker clicked");
+});
+
+$("#marker").on("click", function(e) {
+    e.preventDefault();
+
+    var el = $(this);
+
+    if (marker.getMap()) {
+        marker.setMap(null);
+        el.val("Marker 추가").removeClass("control-on");
+    } else {
+        marker.setMap(pano);
+        el.val("Marker 제거").addClass("control-on");
+    }
+});
+
+naver.maps.onJSContentLoaded = initPanorama;
+</script>
+
+</body>
+</html>

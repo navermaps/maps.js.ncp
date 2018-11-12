@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>파노라마 크기 변경하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/maps3.js?oss=true&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Panorama -->
+
+<style type="text/css">
+    #button-wrap { margin-top:5px; }
+    #button-wrap input { margin-right:10px; }
+
+    .line-horizontal { position:absolute;top:0;left:50%;width:0px;height:100%;border-right:solid 1px red;pointer-events:none;overflow:hidden;margin-left:-1px; }
+    .line-vertical { position:absolute;top:50%;left:0;width:100%;height:0px;border-bottom:solid 1px red;pointer-events:none;overflow:hidden;margin-top:-1px; }
+
+    #origin-marker { position:absolute;width:10px;height:10px;border-radius:5px;background-color:#00f;opacity:0.8;pointer-events:none;z-index:100 }
+</style>
+
+<div id="wrap" class="section">
+    <h2>파노라마 크기 변경하기</h2>
+    <p>파노라마의 크기를 동적으로 변경하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
+    <div class="map-outer-wrap" style="position:relative;overflow:visible;">
+        <div class="map-wrap" style="position:relative;width:400px;height:400px;overflow:visible;">
+            <div id="pano" style="width:100%;height:400px;"></div>
+
+            <div class="line-horizontal"></div>
+            <div class="line-vertical"></div>
+        </div>
+
+        <div id="origin-marker" style="left:195px;top:195px;"></div>
+    </div>
+    <div id="button-wrap" class="buttons">
+        <input type="button" value="600 x 600" class="control-btn"/>
+        <input type="button" value="400 x 500" class="control-btn"/>
+        <input type="button" value="400 x 200" class="control-btn"/>
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+
+<script>
+    $(window).on("load", function() {
+        window.setTimeout(function() {
+            $(window).off("resize");
+        }, 10);
+    });
+</script>
+<script id="code">
+var pano = null;
+
+naver.maps.onJSContentLoaded = function() {
+    pano = new naver.maps.Panorama("pano", {
+        position: new naver.maps.LatLng(37.3599605, 127.1058814),
+        pov: {
+            pan: -135,
+            tilt: 29,
+            fov: 100
+        }
+    });
+};
+
+var originMarker = $("#origin-marker");
+
+$("#button-wrap input").on("click", function(e) {
+    e.preventDefault();
+
+    var val = this.value.split(" x "),
+        targetSize = new naver.maps.Size(parseInt(val[0], 10), parseInt(val[1], 10)),
+        panoSize = pano.getSize();
+
+    if (panoSize.equals(targetSize)) return;
+
+    var newSize = new naver.maps.Size();
+
+    $(".map-wrap").stop().animate({
+        width: targetSize.width,
+        height: targetSize.height
+    }, {
+        duration: 500,
+        step: function(value, tween) {
+            if (tween.prop === "width") {
+                newSize.width = Math.round(value);
+                return;
+            }
+
+            if (tween.prop === "height") {
+                newSize.height = Math.round(value);
+                return;
+            }
+        },
+
+        progress: function() {
+            pano.setSize(newSize.clone());
+
+            setOriginMarkerPosition(newSize);
+        }
+    });
+});
+
+function setOriginMarkerPosition(panoSize) {
+    originMarker.css({
+        "left": panoSize.width / 2 - 5,
+        "top": panoSize.height / 2 - 5
+    });
+};
+</script>
+
+</body>
+</html>
