@@ -664,7 +664,7 @@
 <blockquote>
 <p>NAVER 지도 API v3은 <code>http</code>와 <code>https</code> 프로토콜을 모두 지원합니다.</p>
 </blockquote>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=visualization&quot;>&lt;/script></code></pre><h2>열지도 사용하기</h2><p>열지도는 지리 정보를 포함한 데이터의 강도를 색상으로 표현하는 시각화 방식입니다. 기본적으로는 강도가 높은 영역은 붉은색으로, 강도가 낮은 영역은 파란색으로 표현됩니다.</p>
+<h5>네이버 클라우드 플렛폼</h5><pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=visualization&quot;>&lt;/script></code></pre><h5>공공기관용</h5><pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://openapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=visualization&quot;>&lt;/script></code></pre><h2>열지도 사용하기</h2><p>열지도는 지리 정보를 포함한 데이터의 강도를 색상으로 표현하는 시각화 방식입니다. 기본적으로는 강도가 높은 영역은 붉은색으로, 강도가 낮은 영역은 파란색으로 표현됩니다.</p>
 <p><a href="naver.maps.visualization.HeatMap.html">HeatMap</a> 클래스는 열지도를 표현하는 클래스입니다. <code>new</code> 연산자를 이용하여 새 인스턴스를 생성합니다. 이때 열지도 속성을 초기화하는 데 열지도 옵션을 사용합니다. 객체 리터럴로 만들며 열지도 옵션에 대한 자세한 설명은 <a href="naver.maps.visualization.HeatMap.html#~HeatMapOptions">HeatMapOptions</a> 명세를 참고합니다.</p>
 <pre class="prettyprint source lang-js"><code>var data = [
     new naver.maps.LatLng(37.75,125.4),

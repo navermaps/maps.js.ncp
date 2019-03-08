@@ -657,8 +657,7 @@
 var marker = new naver.maps.Marker({
     position: new naver.maps.LatLng(37.3595704, 127.105399),
     map: map
-});
-</code></pre><p><strong>Examples</strong>: <a href="tutorial-1-marker-simple.example.html">마커 표시하기</a></p>
+});</code></pre><p><strong>Examples</strong>: <a href="tutorial-1-marker-simple.example.html">마커 표시하기</a></p>
 <p>다음은 마커의 <code>setPosition</code> 메서드를 사용하여 지도에 클릭한 지점으로 마커의 위치를 옮기는 예제입니다.</p>
 <pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
@@ -672,8 +671,7 @@ var marker = new naver.maps.Marker({
 
 naver.maps.Event.addListener(map, 'click', function(e) {
     marker.setPosition(e.latlng);
-});
-</code></pre><p><strong>Examples</strong>: <a href="tutorial-9-marker-position.example.html">클릭한 지점으로 마커 옮기기</a></p>
+});</code></pre><p><strong>Examples</strong>: <a href="tutorial-9-marker-position.example.html">클릭한 지점으로 마커 옮기기</a></p>
 <h2>원하는 이미지를 마커 아이콘으로 사용하기</h2><p>마커의 <code>icon</code> 속성은 마커의 외형인 아이콘을 정의하는 객체입니다. <code>icon</code> 속성은 두 가지 타입의 객체 리터럴로 정의합니다.</p>
 <ul>
 <li><a href="naver.maps.Marker.html#~ImageIcon">ImageIcon</a>: 이미지 파일을 사용하여 아이콘을 설정합니다.</li>
@@ -699,8 +697,7 @@ var markerOptions = {
     }
 };
 
-var marker = new naver.maps.Marker(markerOptions);
-</code></pre><p><strong>Examples</strong>: <a href="tutorial-3-marker-image-icon.example.html">이미지 아이콘 사용하기</a></p>
+var marker = new naver.maps.Marker(markerOptions);</code></pre><p><strong>Examples</strong>: <a href="tutorial-3-marker-image-icon.example.html">이미지 아이콘 사용하기</a></p>
 <p><code>icon</code> 속성에 <code>ImageIcon</code> 객체 리터럴 대신 이미지의 <code>url</code>만 넣어 주어도 위 예제와 동일하게 동작합니다.<br><code>icon</code> 속성에 <code>url</code> 문자열을 넣으면 NAVER 지도 API v3 내부에서 자동으로 <a href="naver.maps.Marker.html#~ImageIcon">ImageIcon</a> 객체 리터럴로 변환하고, <a href="naver.maps.Marker.html#~ImageIcon">ImageIcon</a>의 <code>size</code> 속성은 이미지의 크기, <code>origin</code> 속성은 (0, 0), <code>anchor</code> 속성은 이미지의 가운데 아래 포인터를 기본값으로 설정합니다.</p>
 <pre class="prettyprint source lang-js"><code>var position = new naver.maps.LatLng(37.3595704, 127.105399);
 
@@ -715,8 +712,7 @@ var markerOptions = {
     icon: './img/pin_default.png'
 };
 
-var marker = new naver.maps.Marker(markerOptions);
-</code></pre><p>하나의 이미지에 여러 모양의 아이콘을 합친 스프라이트 이미지를 활용하여 마커를 만들 수도 있습니다.</p>
+var marker = new naver.maps.Marker(markerOptions);</code></pre><p>하나의 이미지에 여러 모양의 아이콘을 합친 스프라이트 이미지를 활용하여 마커를 만들 수도 있습니다.</p>
 <pre class="prettyprint source lang-js"><code>var MARKER_ICON_URL = './img/sp_pins_spot_v2.png';
 
 var MARKER_SPRITE_X_OFFSET = 29;
@@ -789,8 +785,7 @@ for (var key in MARKER_SPRITE_POSITION) {
             origin: new naver.maps.Point(MARKER_SPRITE_POSITION[key][0], MARKER_SPRITE_POSITION[key][1])
         }
     });
-};
-</code></pre><p><strong>Examples</strong>: <a href="tutorial-4-marker-sprite-image-icon.example.html">스프라이트 이미지 아이콘 사용하기</a></p>
+};</code></pre><p><strong>Examples</strong>: <a href="tutorial-4-marker-sprite-image-icon.example.html">스프라이트 이미지 아이콘 사용하기</a></p>
 <h2>이미지 아이콘 마커 사용 시 레티나 디스플레이 대응하기</h2><p><a href="naver.maps.Marker.html#~ImageIcon">ImageIcon</a> 객체 리터럴에 <code>scaledSize</code> 속성이 있습니다. <code>scaledSize</code>는 아이콘으로 사용하는 이미지의 크기를 강제로 조절하는 속성입니다. <code>scaledSize</code>를 입력하지 않으면 이미지의 원본 크기가 <code>scaledSize</code>에 기본값으로 입력됩니다.</p>
 <p>레티나 디스플레이에 대응하려면 화면에 보이는 이미지보다 두 배 큰 이미지를 준비하고 <code>scaledSize</code>를 원본 이미지 크기의 반으로 입력합니다. 큰 이미지를 작게 보여주어 레티나 디스플레이에서도 정상적으로 보이게 하는 원리입니다.</p>
 <p>다음은 레티나 디스플레이에 대응하는 단일 이미지 마커 예제입니다.<br><code>50 x 68</code> 크기의 이미지를 <code>25 x 34</code> 크기의 마커 아이콘으로 사용하여 레티나 디스플레이에 대응합니다.</p>
