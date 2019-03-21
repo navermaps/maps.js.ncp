@@ -658,6 +658,7 @@
     <p>StyleMap 서브 모듈로 지도를 생성하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
     <div id="map" style="width:100%;height:600px;">
         <div class="buttons">
+            <input id="ol" type="button" name="배경상세" value="배경상세" class="control-btn" />
             <input id="lko" type="button" name="한국어POI" value="한국어POI" class="control-btn" />
             <input id="br" type="button" name="자전거" value="자전거" class="control-btn" />
             <input id="ps" type="button" name="파노라마" value="파노라마" class="control-btn" />
@@ -687,13 +688,16 @@
         naver.maps.Event.addListener(map, 'mapType_changed', function(projection) {
             var mapType = map.mapTypes.selectedMapType;
             mapType.clearLayer();
-            mapType.addLayer(naver.maps.StyleMapLayerId.POI_KOREAN);
-            $("#lko").addClass(toggleClassName);
-            $("#br, #ps, #lp, #ar, #ts").removeClass(toggleClassName);
+            $("#ol, #br, #ps, #lp, #ar, #ts").removeClass(toggleClassName);
         });
     };
 
-    $("#lko").addClass(toggleClassName);
+    // 배경 상세 토글
+    $("#ol").on("click", function(e) {
+        e.preventDefault();
+        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.BACKGROUND_DETAIL);
+        map.refresh();
+    });
 
     // 한국어 POI 토글
     $("#lko").on("click", function(e) {
