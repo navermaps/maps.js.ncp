@@ -571,6 +571,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-options.example.html">StyleMap 생성 옵션 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -660,18 +662,20 @@
         <div class="buttons">
             <input id="ol" type="button" name="배경상세" value="배경상세" class="control-btn" />
             <input id="lko" type="button" name="한국어POI" value="한국어POI" class="control-btn" />
-            <input id="br" type="button" name="자전거" value="자전거" class="control-btn" />
-            <input id="ps" type="button" name="파노라마" value="파노라마" class="control-btn" />
-            <input id="lp" type="button" name="지적편집도" value="지적편집도" class="control-btn" />
-            <input id="ar" type="button" name="등산로" value="등산로" class="control-btn" />
             <input id="ts" type="button" name="대중교통" value="대중교통" class="control-btn" />
+            <input id="ctt" type="button" name="교통혼잡" value="교통혼잡" class="control-btn" />
+            <input id="ps" type="button" name="파노라마" value="파노라마" class="control-btn" />
+            <input id="br" type="button" name="자전거" value="자전거" class="control-btn" />
+            <input id="ar" type="button" name="등산로" value="등산로" class="control-btn" />
+            <input id="lp" type="button" name="지적편집도" value="지적편집도" class="control-btn" />
         </div>
     </div>
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
     var map = null,
-        toggleClassName = "control-on";
+        controlClass = 'control-on',
+        layerIdList = ['#ol', '#lko', '#br', '#ps', '#lp', '#ar', '#ts', '#ctt'];
 
     naver.maps.onJSContentLoaded = function() {
         map = new naver.maps.Map('map', {
@@ -688,62 +692,64 @@
         naver.maps.Event.addListener(map, 'mapType_changed', function(projection) {
             var mapType = map.mapTypes.selectedMapType;
             mapType.clearLayer();
-            $("#ol, #br, #ps, #lp, #ar, #ts").removeClass(toggleClassName);
+            $(layerIdList.join(',')).removeClass(controlClass);
         });
     };
 
     // 배경 상세 토글
-    $("#ol").on("click", function(e) {
+    $('#ol').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.BACKGROUND_DETAIL);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.BACKGROUND_DETAIL);
     });
 
     // 한국어 POI 토글
-    $("#lko").on("click", function(e) {
+    $('#lko').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.POI_KOREAN);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.POI_KOREAN);
     });
 
     // 자전거 토글
-    $("#br").on("click", function(e) {
+    $('#br').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.BYCYCLE);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.BYCYCLE);
     });
 
     // 파노라마 토글
-    $("#ps").on("click", function(e) {
+    $('#ps').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.PANORAMA);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.PANORAMA);
     });
 
     // 지적편집도 토글
-    $("#lp").on("click", function(e) {
+    $('#lp').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.CADASTRAL);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.CADASTRAL);
     });
 
     // 등산로 토글
-    $("#ar").on("click", function(e) {
+    $('#ar').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.HIKING_TRAIL);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.HIKING_TRAIL);
     });
 
     // 대중교통 토글
-    $("#ts").on("click", function(e) {
+    $('#ts').on('click', function(e) {
         e.preventDefault();
-        toggleButtonAndLayer($(this), toggleClassName, naver.maps.StyleMapLayerId.TRANSIT);
-        map.refresh();
+        toggle($(this), naver.maps.StyleMapLayerId.TRANSIT);
     });
 
-    function toggleButtonAndLayer(el, toggleClassName, layerId) {
-        var mapType = map.mapTypes.selectedMapType;
+    // 교통혼잡 토글
+    $('#ctt').on('click', function(e) {
+        e.preventDefault();
+        toggle($(this), naver.maps.StyleMapLayerId.CTT);
+    });
 
+    function toggle(el, id) {
+        update(el, controlClass, id);
+    }
+
+    function update(el, toggleClassName, layerId) {
+        var mapType = map.mapTypes.selectedMapType;
         if (el.hasClass(toggleClassName)) {
             mapType.removeLayer(layerId);
             el.removeClass(toggleClassName);
@@ -751,6 +757,7 @@
             mapType.addLayer(layerId);
             el.addClass(toggleClassName);
         }
+        map.refresh();
     }
 </script>
 
