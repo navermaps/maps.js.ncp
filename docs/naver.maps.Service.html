@@ -726,15 +726,15 @@
         <dl>
             
 <hr>
-<dt class="name" id=".CoordType">
-    <h4><span class="type-signature">&lt;static, readonly> </span>CoordType</h4>
+<dt class="name" id=".CoordinatesType">
+    <h4><span class="type-signature">&lt;static, readonly> </span>CoordinatesType</h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p><code>CoordType</code> 객체는 좌표 체계의 이름을 나타냅니다.</p>
+        <p><code>CoordinatesType</code> 객체는 좌표 체계의 이름을 나타냅니다.</p>
     </div>
     
 
@@ -794,12 +794,46 @@
             
                 <td class="default">
                 
-                    latlng
+                    epsg:4326
                 
                 </td>
             
 
-            <td class="description last"><p>위/경도 좌표계를 나타냅니다.</p></td>
+            <td class="description last"><p>위/경도(WGS 84) 좌표계를 나타냅니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>UTMK</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    nhn:2048
+                
+                </td>
+            
+
+            <td class="description last"><p>UTMK 좌표계를 나타냅니다.</p></td>
         </tr>
 
     
@@ -828,12 +862,46 @@
             
                 <td class="default">
                 
-                    tm128
+                    nhn:128
                 
                 </td>
             
 
-            <td class="description last"><p>TM128 좌표계를 나타냅니다.</p></td>
+            <td class="description last"><p>TM128(KATECH) 좌표계를 나타냅니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>EPSG3857</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    epsg:3857
+                
+                </td>
+            
+
+            <td class="description last"><p>구글맵(EPSG3857) 좌표계를 나타냅니다.</p></td>
         </tr>
 
     
@@ -885,15 +953,15 @@
         
             
 <hr>
-<dt class="name" id=".Encoding">
-    <h4><span class="type-signature">&lt;static, readonly> </span>Encoding</h4>
+<dt class="name" id=".GeocodeStatus">
+    <h4><span class="type-signature">&lt;static, readonly> </span>GeocodeStatus</h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p><code>Encoding</code> 객체는 서비스의 응답 인코딩 형태를 나타냅니다.</p>
+        <p><code>GeocodeStatus</code> Geocode 응답 상태를 나타냅니다.</p>
     </div>
     
 
@@ -931,7 +999,7 @@
 
         <tr>
             
-                <td class="name"><code>UTF_8</code></td>
+                <td class="name"><code>OK</code></td>
             
 
             <td class="type">
@@ -953,19 +1021,19 @@
             
                 <td class="default">
                 
-                    utf-8
+                    OK
                 
                 </td>
             
 
-            <td class="description last"><p><code>utf-8</code> 인코딩을 나타냅니다.</p></td>
+            <td class="description last"><p>정상 응답</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>EUC_KR</code></td>
+                <td class="name"><code>INVALID_REQUEST</code></td>
             
 
             <td class="type">
@@ -987,12 +1055,759 @@
             
                 <td class="default">
                 
-                    euc-kr
+                    INVALID_REQUEST
                 
                 </td>
             
 
-            <td class="description last"><p><code>euc-kr</code> 인코딩을 나타냅니다.</p></td>
+            <td class="description last"><p>요청 에러</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SYSTEM_ERROR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    SYSTEM_ERROR
+                
+                </td>
+            
+
+            <td class="description last"><p>예외처리가 안된 에러</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".OrderType">
+    <h4><span class="type-signature">&lt;static, readonly> </span>OrderType</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>OrderType</code> 객체는 변환 작업 이름을 나타냅니다.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>LEGAL_CODE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    legalcode
+                
+                </td>
+            
+
+            <td class="description last"><p>좌표를 법정동으로 나타냅니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ADDR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    addr
+                
+                </td>
+            
+
+            <td class="description last"><p>좌표를 행정동으로 나타냅니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ROAD_ADDR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    roadaddr
+                
+                </td>
+            
+
+            <td class="description last"><p>좌표를 지번 주소로 나타냅니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ADM_CODE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    admcode
+                
+                </td>
+            
+
+            <td class="description last"><p>좌표를 도로명 주소로 나타냅니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ReverseGeocodeStatusCode">
+    <h4><span class="type-signature">&lt;static, readonly> </span>ReverseGeocodeStatusCode</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>ReverseGeocodeStatusCode</code> ReverseGeocode 응답 상태 코드를 나타냅니다.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>정상적인 기능수행 및 반환된 결과가 있는 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_3</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    3
+                
+                </td>
+            
+
+            <td class="description last"><p>정상적인 기능수행 및 반환된 결과가 없는 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_100</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+
+            <td class="description last"><p>요청 파라미터가 잘못된 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CODE_900</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    900
+                
+                </td>
+            
+
+            <td class="description last"><p>정의되지 않은 에러</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ReverseGeocodeStatusName">
+    <h4><span class="type-signature">&lt;static, readonly> </span>ReverseGeocodeStatusName</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>ReverseGeocodeStatusName</code> ReverseGeocode 응답 상태 이름을 나타냅니다.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>OK</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ok
+                
+                </td>
+            
+
+            <td class="description last"><p>정상적인 기능수행 및 반환된 결과가 있는 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>NO_RESULTS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    no result
+                
+                </td>
+            
+
+            <td class="description last"><p>정상적인 기능수행 및 반환된 결과가 없는 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>INVALID_REQUEST</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    invalid request
+                
+                </td>
+            
+
+            <td class="description last"><p>요청 파라미터가 잘못된 경우</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>UNKNOWN_ERROR_IO_ERROR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    unknown error / io error
+                
+                </td>
+            
+
+            <td class="description last"><p>정의되지 않은 에러</p></td>
         </tr>
 
     
@@ -1467,7 +2282,7 @@
 
         <tr>
             
-                <td class="name"><code>address</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
@@ -1488,7 +2303,119 @@
 
             
 
-            <td class="description last"><p>좌표를 검색하기 위한 <code>주소</code></p></td>
+            <td class="description last"><p>주소 검색을 위한 <code>주소</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coordinate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>검색 중심 좌표. <code>lon,lat</code> 형식</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>검색 결과 필터링 조건. ’필터 타입@코드1;코드2;… ’ 형식 예) HCODE@4113554500;4113555000 - <code>HCODE</code>: 행정동 코드 - <code>BCODE</code>: 법정동 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>페이지 번호</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>count</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>결과 목록 크기</p></td>
         </tr>
 
     
@@ -1782,12 +2709,19 @@
 
         <tr>
             
-                <td class="name"><code>location</code></td>
+                <td class="name"><code>coords</code></td>
             
 
             <td class="type">
             
                 
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+|
+
 <span class="param-type">
     
     <!-- <a href="global.html#Coord">Coord</a> -->
@@ -1810,7 +2744,91 @@
 
             
 
-            <td class="description last"><p>주소를 검색하기 위한 <code>좌표</code>에 해당하는 위칫값</p></td>
+            <td class="description last"><p>주소 검색을 위한 <code>입력 좌표</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sourcecrs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>입력 좌표계 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetcrs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>출력 좌표계 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>orders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>변환 작업 이름</p></td>
         </tr>
 
     
@@ -2020,6 +3038,616 @@
         <dl>
                 
 <hr>
+<dt class="name" id="~Addition0">
+    <h4>Addition0</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Addition0</code>은 추가정보 나타냅니다. 지번 주소인 경우 reserved, 도로명 주소인 경우 건물정보</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소이고 건물정보가 있는경우 ‘building’</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소이고 건물정보가 있는경우 건물명</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Addition1">
+    <h4>Addition1</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Addition1</code>은 추가정보 나타냅니다. 지번 주소인 경우 reserved, 도로명 주소인 경우 우편번호</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소이고 우편번호정보가 있는경우 ‘zipcode’</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소이고 우편번호정보가 있는경우 우편번호</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Addition2">
+    <h4>Addition2</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Addition2</code>은 추가정보 나타냅니다. 지번 주소인 경우 reserved, 도로명 주소인 경우 도로코드</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소일경우 ‘roadGroupCode’</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소일경우 도로코드(12자리 road group code)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Addition3">
+    <h4>Addition3</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Addition3</code> reserved</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Addition4">
+    <h4>Addition4</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Addition4</code> reserved</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
 <dt class="name" id="~AddressItem">
     <h4>AddressItem</h4>
 
@@ -2028,7 +3656,7 @@
 <dd>
     
     <div class="description">
-        <p><code>AddressItem</code>은 특정 주소의 정보를 나타냅니다.</p>
+        <p><code>AddressItem</code>은 특정 주소의 정보를 나타냅니다. <code>(deprecated)</code></p>
     </div>
     
 
@@ -2111,8 +3739,8 @@
                 
 <span class="param-type">
     
-    <!-- <a href="global.html#string">string</a> -->
-    <a href="global.html#string">string</a>
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
     </span>
 
 
@@ -2397,6 +4025,1291 @@
             
                 
 <hr>
+<dt class="name" id="~AddressItemV2">
+    <h4>AddressItemV2</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>AddressItemV2</code>은 주소 검색 결과를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>roadAddress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>도로명 주소</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>jibunAddress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지번 주소</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>englishAddress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>영어 주소</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>x 좌표(경도)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>y 좌표(위도)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>distance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>검색 중심 좌표로부터의 거리(단위: 미터)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Area0">
+    <h4>Area0</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Area0</code>은 국가 정보를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>국가 코드 최상위 도메인 두 자리</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역과 관련된 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Area1">
+    <h4>Area1</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Area1</code>은 행정 구역 단위 명칭 1 정보 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>대한민국인 경우 행정안전부에서 공시된 시/도 명칭</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역과 관련된 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Area2">
+    <h4>Area2</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Area2</code>은 행정 구역 단위 명칭 2 정보 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>대한민국인 경우 행정안전부에서 공시된 시/군/구 명칭</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역과 관련된 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Area3">
+    <h4>Area3</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Area3</code>은 행정 구역 단위 명칭 3 정보 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>대한민국인 경우 행정안전부에서 공시된 읍/면/동 명칭</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역과 관련된 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Area4">
+    <h4>Area4</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Area4</code>은 행정 구역 단위 명칭 4 정보 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>대한민국인 경우 행정안전부에서 공시된 리 명칭</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역과 관련된 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Coords">
+    <h4>Coords</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Coords</code>은 행정 구역과 관련된 좌표를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>center</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>행정 구역의 중심 좌표</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>crs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>좌표계 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>x축 좌표, 예) 경위도(epsg:4326)인 경우 위도(longitude)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>y축 좌표, 예) 경위도(epsg:4326)인 경우 경도(latitude)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
 <dt class="name" id="~GeocodeResponse">
     <h4>GeocodeResponse</h4>
 
@@ -2473,7 +5386,7 @@
 
             
 
-            <td class="description last"><p>API의 응답 내용을 담고 있는 컨테이너.</p>
+            <td class="description last"><p>기존 응답 형식의 내용을 담고 있는 컨테이너. <code>(deprecated)</code></p>
                 <h6>Properties</h6>
 
 <table class="props table table-striped">
@@ -2586,6 +5499,171 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>v2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>API의 응답 내용을 담고 있는 컨테이너.</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#.GeocodeStatus">naver.maps.Service.GeocodeStatus</a> -->
+    <a href="naver.maps.Service.html#.GeocodeStatus">naver.maps.Service.GeocodeStatus</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>검색 결과 상태 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Meta">naver.maps.Service~Meta</a> -->
+    <a href="naver.maps.Service.html#~Meta">Meta</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>응답 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addresses</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- Array.&lt;<a href="naver.maps.Service.html#~AddressItemV2">naver.maps.Service~AddressItemV2</a>> -->
+    Array.&lt;<a href="naver.maps.Service.html#~AddressItemV2">naver.maps.Service~AddressItemV2</a>>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>주소 검색 결과 목록</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>errorMessage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>예외 발생 시 메시지</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
     </tbody>
 </table>
 </dl>
@@ -2652,8 +5730,1162 @@
         }
       }
     ]
+  },
+  &quot;v2&quot;: {
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;meta&quot;: {
+      &quot;totalCount&quot;: 1,
+      &quot;page&quot;: 1,
+      &quot;count&quot;: 1
+    },
+    &quot;addresses&quot;: [
+      {
+        &quot;roadAddress&quot;: &quot;경기도 성남시 분당구 불정로 6 그린팩토리&quot;,
+        &quot;jibunAddress&quot;: &quot;경기도 성남시 분당구 정자동 178-1 그린팩토리&quot;,
+        &quot;englishAddress&quot;: &quot;6, Buljeong-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, Republic of Korea&quot;,
+        &quot;addressElements&quot;: [
+          {
+            &quot;types&quot;: [
+              &quot;POSTAL_CODE&quot;
+            ],
+            &quot;longName&quot;: &quot;13561&quot;,
+            &quot;shortName&quot;: &quot;&quot;,
+            &quot;code&quot;: &quot;&quot;
+          }
+        ],
+        &quot;x&quot;: &quot;127.10522081658463&quot;,
+        &quot;y&quot;: &quot;37.35951219616309&quot;,
+        &quot;distance&quot;: 20.925857741585514
+      }
+    ],
+    &quot;errorMessage&quot;: &quot;&quot;
   }
 }</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Land">
+    <h4>Land</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Land</code>는 상세주소 정보 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지번주소의 경우 지적 타입, 예) 대한민국 지번 주소인 경우 1: 일반토지, 2: 산, 도로명주소의 경우 reserved</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>상세 명칭, 예) 대한민국 지번 주소인 경우 reserved, 대한민국 도로명 주소인 경우 도로명</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>number1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>상세 번호 1, 예) 대한민국 지번 주소인 경우 토지 본번호, 대한민국 도로명 주소인 경우 상세주소</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>number2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>상세 번호 2, 예) 대한민국 지번 주소인 경우 토지 부번호, 대한민국 도로명 주소인 경우 reserved</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Coords">naver.maps.Service~Coords</a> -->
+    <a href="naver.maps.Service.html#~Coords">Coords</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지적 구역에 관계된 좌표 (reserved)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Meta">
+    <h4>Meta</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Meta</code>는 응답 정보를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>totalCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>총 검색 건수</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>page</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>현재 페이지 번호</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>count</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>페이지 내 결과 개수</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~Region">
+    <h4>Region</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>Region</code>은 지역 명칭 정보을 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>area0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Area0">naver.maps.Service~Area0</a> -->
+    <a href="naver.maps.Service.html#~Area0">Area0</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>국가 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>area1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Area1">naver.maps.Service~Area1</a> -->
+    <a href="naver.maps.Service.html#~Area1">Area1</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>시/도 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>area2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Area2">naver.maps.Service~Area2</a> -->
+    <a href="naver.maps.Service.html#~Area2">Area2</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>시/군/구 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>area3</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Area3">naver.maps.Service~Area3</a> -->
+    <a href="naver.maps.Service.html#~Area3">Area3</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>읍/면/동 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>area4</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Area4">naver.maps.Service~Area4</a> -->
+    <a href="naver.maps.Service.html#~Area4">Area4</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>리 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>land</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Land">naver.maps.Service~Land</a> -->
+    <a href="naver.maps.Service.html#~Land">Land</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>상세주소 정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addition0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Addition0">naver.maps.Service~Addition0</a> -->
+    <a href="naver.maps.Service.html#~Addition0">Addition0</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>추가정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addition1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Addition1">naver.maps.Service~Addition1</a> -->
+    <a href="naver.maps.Service.html#~Addition1">Addition1</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>추가정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addition2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Addition2">naver.maps.Service~Addition2</a> -->
+    <a href="naver.maps.Service.html#~Addition2">Addition2</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>추가정보</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addition3</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Addition3">naver.maps.Service~Addition3</a> -->
+    <a href="naver.maps.Service.html#~Addition3">Addition3</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>reserved</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>addition4</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Addition4">naver.maps.Service~Addition4</a> -->
+    <a href="naver.maps.Service.html#~Addition4">Addition4</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>reserved</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~ResultItem">
+    <h4>ResultItem</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>ResultItem</code>은 ReverseGeocode 응답 결과를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>변환 작업 이름</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>코드 정보</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>코드값</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>코드 타입, 예) L: 법정동, A: 행정동, S: 동일법정동 이름 존재하는 행정동</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mappingId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>id와 관련된 매핑 코드, 예) 법정 코드의 매핑된 네이버 동 코드 또는  행정 코드의 매핑된 네이버 동 코드</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>region</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~Region">naver.maps.Service~Region</a> -->
+    <a href="naver.maps.Service.html#~Region">Region</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지역 명칭 정보.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
 
 
     
@@ -2738,7 +6970,7 @@
 
             
 
-            <td class="description last"><p>API의 응답 내용을 담고 있는 컨테이너.</p>
+            <td class="description last"><p>기존 응답 형식의 내용을 담고 있는 컨테이너. <code>(deprecated)</code></p>
                 <h6>Properties</h6>
 
 <table class="props table table-striped">
@@ -2851,6 +7083,115 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>v2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#object">object</a> -->
+    <a href="global.html#object">object</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>API의 응답 내용을 담고 있는 컨테이너.</p>
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#~ReverseGeocodeStatus">naver.maps.Service~ReverseGeocodeStatus</a> -->
+    <a href="naver.maps.Service.html#~ReverseGeocodeStatus">ReverseGeocodeStatus</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>응답 상태</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>results</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- Array.&lt;<a href="naver.maps.Service.html#~ResultItem">naver.maps.Service~ResultItem</a>> -->
+    Array.&lt;<a href="naver.maps.Service.html#~ResultItem">naver.maps.Service~ResultItem</a>>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>주소 목록의 배열</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
     </tbody>
 </table>
 </dl>
@@ -2932,8 +7273,261 @@
         }
       }
     ]
+  },
+  &quot;v2&quot;: {
+    &quot;status&quot;:{
+      &quot;code&quot;:0,
+      &quot;name&quot;:&quot;ok&quot;,
+      &quot;message&quot;:&quot;done&quot;
+    },
+    &quot;results&quot;:[
+      {
+        &quot;name&quot;:&quot;legalcode&quot;,
+        &quot;code&quot;:{
+          &quot;id&quot;:&quot;2641010100&quot;,
+          &quot;type&quot;:&quot;L&quot;,
+          &quot;mappingId&quot;:&quot;08410101&quot;
+        },
+        &quot;region&quot;:{
+          &quot;area0&quot;:{
+            &quot;name&quot;:&quot;kr&quot;,
+            &quot;coords&quot;:{
+              &quot;center&quot;:{
+                &quot;crs&quot;:&quot;&quot;,
+                &quot;x&quot;:0.0,
+                &quot;y&quot;:0.0
+              }
+            }
+          },
+          &quot;area1&quot;:{
+            &quot;name&quot;:&quot;부산광역시&quot;,
+            &quot;coords&quot;:{
+              &quot;center&quot;:{
+                &quot;crs&quot;:&quot;EPSG:4326&quot;,
+                &quot;x&quot;:129.0750222,
+                &quot;y&quot;:35.1798159
+              }
+            }
+          },
+          &quot;area2&quot;:{
+            &quot;name&quot;:&quot;금정구&quot;,
+            &quot;coords&quot;:{
+              &quot;center&quot;:{
+                &quot;crs&quot;:&quot;EPSG:4326&quot;,
+                &quot;x&quot;:129.0921,
+                &quot;y&quot;:35.243068
+              }
+            }
+          },
+          &quot;area3&quot;:{
+            &quot;name&quot;:&quot;두구동&quot;,
+            &quot;coords&quot;:{
+              &quot;center&quot;:{
+                &quot;crs&quot;:&quot;EPSG:4326&quot;,
+                &quot;x&quot;:129.1133567,
+                &quot;y&quot;:35.2982641
+              }
+            }
+          },
+          &quot;area4&quot;:{
+            &quot;name&quot;:&quot;&quot;,
+            &quot;coords&quot;:{
+              &quot;center&quot;:{
+                &quot;crs&quot;:&quot;&quot;,
+                &quot;x&quot;:0.0,
+                &quot;y&quot;:0.0
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }</pre>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~ReverseGeocodeStatus">
+    <h4>ReverseGeocodeStatus</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>ReverseGeocodeStatus</code>은 ReverseGeocode 응답 상태를 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#.ReverseGeocodeStatusCode">naver.maps.Service.ReverseGeocodeStatusCode</a> -->
+    <a href="naver.maps.Service.html#.ReverseGeocodeStatusCode">naver.maps.Service.ReverseGeocodeStatusCode</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>응답 상태 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#.ReverseGeocodeStatusName">naver.maps.Service.ReverseGeocodeStatusName</a> -->
+    <a href="naver.maps.Service.html#.ReverseGeocodeStatusName">naver.maps.Service.ReverseGeocodeStatusName</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>응답 상태 이름</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>응답 상태 설명</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
 
 
     
@@ -3001,7 +7595,7 @@
 
         <tr>
             
-                <td class="name"><code>encoding</code></td>
+                <td class="name"><code>sourcecrs</code></td>
             
 
             <td class="type">
@@ -3009,8 +7603,8 @@
                 
 <span class="param-type">
     
-    <!-- <a href="naver.maps.Service.html#.Encoding">naver.maps.Service.Encoding</a> -->
-    <a href="naver.maps.Service.html#.Encoding">naver.maps.Service.Encoding</a>
+    <!-- <a href="naver.maps.Service.html#.CoordinatesType">naver.maps.Service.CoordinatesType</a> -->
+    <a href="naver.maps.Service.html#.CoordinatesType">naver.maps.Service.CoordinatesType</a>
     </span>
 
 
@@ -3031,19 +7625,19 @@
             
                 <td class="default">
                 
-                    utf-8
+                    epsg:4326
                 
                 </td>
             
 
-            <td class="description last"><p>서비스의 응답 인코딩</p></td>
+            <td class="description last"><p>입력 좌표계 코드</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>coordType</code></td>
+                <td class="name"><code>targetcrs</code></td>
             
 
             <td class="type">
@@ -3051,8 +7645,8 @@
                 
 <span class="param-type">
     
-    <!-- <a href="naver.maps.Service.html#.CoordType">naver.maps.Service.CoordType</a> -->
-    <a href="naver.maps.Service.html#.CoordType">naver.maps.Service.CoordType</a>
+    <!-- <a href="naver.maps.Service.html#.CoordinatesType">naver.maps.Service.CoordinatesType</a> -->
+    <a href="naver.maps.Service.html#.CoordinatesType">naver.maps.Service.CoordinatesType</a>
     </span>
 
 
@@ -3073,12 +7667,54 @@
             
                 <td class="default">
                 
-                    latlng
+                    epsg:4326
                 
                 </td>
             
 
-            <td class="description last"><p>좌표 체계의 이름</p></td>
+            <td class="description last"><p>출력 좌표계 코드</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>orders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Service.html#.OrderType">naver.maps.Service.OrderType</a> -->
+    <a href="naver.maps.Service.html#.OrderType">naver.maps.Service.OrderType</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    legalcode,admcode
+                
+                </td>
+            
+
+            <td class="description last"><p>변환 작업 이름</p></td>
         </tr>
 
     
