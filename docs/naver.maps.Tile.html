@@ -109,6 +109,8 @@
                 
                         <li><a style="padding-left:40px;" href="naver.maps.NaverMapTypeOption.html">naver.maps.NaverMapTypeOption</a></li>
                 
+                        <li><a style="padding-left:40px;" href="naver.maps.NaverStyleMapTypeOption.html">naver.maps.NaverStyleMapTypeOption</a></li>
+                
                         <li><a href="#" class="_cat" style="padding-left:10px" >Control</a></li>
                 
                         <li><a style="padding-left:20px;" href="naver.maps.CustomControl.html">naver.maps.CustomControl</a></li>
@@ -365,7 +367,11 @@
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">신규 스타일 지도</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">스타일 지도</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">기존 맵 타일에서 신규 맵 타일(StyleMap)으로 전환하기</a></li>
                 
                         
                     </ul>
@@ -571,7 +577,11 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-options.example.html">StyleMap 생성 옵션 예제</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-cadastral.example.html">StyleMap 지적도 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></li>
                 
                         
                     </ul>
@@ -2768,137 +2778,6 @@
         
             
 <dt>
-    <h4 class="name" id="setOffset"><span class="type-signature"></span>setOffset(offset)</h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>타일이 표시될 오프셋(위치)을 지정합니다.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>offset</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="naver.maps.Point.html">naver.maps.Point</a> -->
-    <a href="naver.maps.Point.html">naver.maps.Point</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>타일의 오프셋</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<dt>
     <h4 class="name" id="setOffset"><span class="type-signature"></span>setOffset(x, y)</h4>
 
     
@@ -2992,6 +2871,137 @@
             
 
             <td class="description last"><p>타일의 y축 오프셋</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOffset"><span class="type-signature"></span>setOffset(offset)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>타일이 표시될 오프셋(위치)을 지정합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>offset</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Point.html">naver.maps.Point</a> -->
+    <a href="naver.maps.Point.html">naver.maps.Point</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>타일의 오프셋</p></td>
         </tr>
 
     

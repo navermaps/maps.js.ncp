@@ -44,22 +44,24 @@ var cadastralLayer = new naver.maps.CadastralLayer();
 var btn = $('#cadastral');
 
 naver.maps.Event.addListener(map, 'cadastralLayer_changed', function(cadastralLayer) {
-    if (cadastralLayer) {
-        btn.addClass('control-on');
+    if (cadastralLayer.getMap()) {
+        btn.addClass('control-on').val('지적도 끄기');
     } else {
-        btn.removeClass('control-on');
+        btn.removeClass('control-on').val('지적도 켜기');
     }
 });
 
 cadastralLayer.setMap(map);
 
-btn.on("click", function(e) {
+btn.on('click', function(e) {
     e.preventDefault();
 
     if (cadastralLayer.getMap()) {
         cadastralLayer.setMap(null);
+        btn.removeClass('control-on').val('지적도 켜기');
     } else {
         cadastralLayer.setMap(map);
+        btn.addClass('control-on').val('지적도 끄기');
     }
 });
 </script>

@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>신규 스타일 지도 | 네이버 지도 API v3</title>
-    <meta name="description" content="Tutorial: 신규 스타일 지도">
+    <title>스타일 지도 | 네이버 지도 API v3</title>
+    <meta name="description" content="Tutorial: 스타일 지도">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -108,6 +108,8 @@
                         <li><a href="#" class="_cat _subcat" style="padding-left:30px" >preset</a></li>
                 
                         <li><a style="padding-left:40px;" href="naver.maps.NaverMapTypeOption.html">naver.maps.NaverMapTypeOption</a></li>
+                
+                        <li><a style="padding-left:40px;" href="naver.maps.NaverStyleMapTypeOption.html">naver.maps.NaverStyleMapTypeOption</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >Control</a></li>
                 
@@ -365,7 +367,11 @@
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">신규 스타일 지도</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">스타일 지도</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">기존 맵 타일에서 신규 맵 타일(StyleMap)으로 전환하기</a></li>
                 
                         
                     </ul>
@@ -571,7 +577,11 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-options.example.html">StyleMap 생성 옵션 예제</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-cadastral.example.html">StyleMap 지적도 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></li>
                 
                         
                     </ul>
@@ -632,7 +642,7 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">신규 스타일 지도</span>
+                    <span itemprop="keywords">스타일 지도</span>
                 </div>
             </div>
             <link rel='stylesheet' type='text/css' href='./css/tutorial.css' />
@@ -640,13 +650,13 @@
 <!-- <header>
     
 
-    <h2>신규 스타일 지도</h2>
+    <h2>스타일 지도</h2>
 </header> -->
 <header></header>
 <article>
     
 
-    <h1>신규 스타일 지도</h1>
+    <h1>스타일 지도</h1>
 
     <p>StyleMap 서브 모듈은 NAVER 지도 API v3에서 제공하는 서브 모듈 중 하나로, EPSG3857 투영을 사용하는 신규 스타일 지도를 제공합니다.</p>
 <p>StyleMap 지도에 대한 다양한 예제는 <a href="./tutorial-digest.example.html#신규 스타일 지도">StyleMap 지도 예제</a>를 참고합니다.</p>

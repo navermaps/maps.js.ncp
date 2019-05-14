@@ -109,6 +109,8 @@
                 
                         <li><a style="padding-left:40px;" href="naver.maps.NaverMapTypeOption.html">naver.maps.NaverMapTypeOption</a></li>
                 
+                        <li><a style="padding-left:40px;" href="naver.maps.NaverStyleMapTypeOption.html">naver.maps.NaverStyleMapTypeOption</a></li>
+                
                         <li><a href="#" class="_cat" style="padding-left:10px" >Control</a></li>
                 
                         <li><a style="padding-left:20px;" href="naver.maps.CustomControl.html">naver.maps.CustomControl</a></li>
@@ -365,7 +367,11 @@
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">신규 스타일 지도</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">스타일 지도</a></li>
+                
+                        <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">기존 맵 타일에서 신규 맵 타일(StyleMap)으로 전환하기</a></li>
                 
                         
                     </ul>
@@ -571,7 +577,11 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-options.example.html">StyleMap 생성 옵션 예제</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-2-stylemap-cadastral.example.html">StyleMap 지적도 레이어 표시하기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></li>
                 
                         
                     </ul>
@@ -3712,318 +3722,6 @@
 <dd>
     
     <div class="description">
-        <p><code>NaverImageMapTypeOptions</code> 객체는 <a href="naver.maps.ImageMapType.html#~ImageMapTypeOptions">ImageMapTypeOptions</a>를 상속받으며, NAVER 지도 전용으로 설계된 별도의 옵션을 추가로 정의합니다.</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type"><a href="global.html#object">object</a></span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    <h5 class="subsection-title">Properties</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>maxZoom</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="global.html#number">number</a> -->
-    <a href="global.html#number">number</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    14
-                
-                </td>
-            
-
-            <td class="description last"><p>지도 유형의 최대 줌 레벨입니다.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>minZoom</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="global.html#number">number</a> -->
-    <a href="global.html#number">number</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    -1
-                
-                </td>
-            
-
-            <td class="description last"><p>지도 유형의 최소 줌 레벨입니다.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>projection</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="naver.maps.Projection.html">naver.maps.Projection</a> -->
-    <a href="naver.maps.Projection.html">naver.maps.Projection</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    naver.maps.UTMK_NAVER
-                
-                </td>
-            
-
-            <td class="description last"><p>지도 유형의 투영입니다. 자세한 설명은 <code>Projection</code> 객체를 참고합니다.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tileSize</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="naver.maps.Size.html">naver.maps.Size</a> -->
-    <a href="naver.maps.Size.html">naver.maps.Size</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    (256,256)
-                
-                </td>
-            
-
-            <td class="description last"><p>지도 유형의 타일 크기입니다.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>hd</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">
-    
-    <!-- <a href="global.html#string">string</a> -->
-    <a href="global.html#string">string</a>
-    </span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>고해상도 이미지 타일의 사용 여부입니다. <code>window.devicePixelRation</code>의 값이 <code>2</code> 이상이면 <code>true</code>로 설정됩니다.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-            
-                
-<hr>
-<dt class="name" id="~NaverImageMapTypeOptions">
-    <h4>NaverImageMapTypeOptions</h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
         <p><code>StyleMapTypeOption</code> 객체는 <a href="naver.maps.ImageMapType.html#~ImageMapTypeOptions">ImageMapTypeOptions</a>입니다.</p>
     </div>
     
@@ -4442,6 +4140,630 @@
             
 
             <td class="description last"><p>초기화 시 적용할 <code>StyleMapLayerId</code> 컬렉션의 id 배열입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~NaverImageMapTypeOptions">
+    <h4>NaverImageMapTypeOptions</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>NaverImageMapTypeOptions</code> 객체는 <a href="naver.maps.ImageMapType.html#~ImageMapTypeOptions">ImageMapTypeOptions</a>를 상속받으며, NAVER 지도 전용으로 설계된 별도의 옵션을 추가로 정의합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>maxZoom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    14
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 최대 줌 레벨입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minZoom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    -1
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 최소 줌 레벨입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>projection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Projection.html">naver.maps.Projection</a> -->
+    <a href="naver.maps.Projection.html">naver.maps.Projection</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    naver.maps.UTMK_NAVER
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 투영입니다. 자세한 설명은 <code>Projection</code> 객체를 참고합니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tileSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Size.html">naver.maps.Size</a> -->
+    <a href="naver.maps.Size.html">naver.maps.Size</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    (256,256)
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 타일 크기입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>고해상도 이미지 타일의 사용 여부입니다. <code>window.devicePixelRation</code>의 값이 <code>2</code> 이상이면 <code>true</code>로 설정됩니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="~NaverStyleMapTypeOptions">
+    <h4>NaverStyleMapTypeOptions</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>NaverStyleMapTypeOptions</code> 객체는 <a href="naver.maps.ImageMapType.html#~ImageMapTypeOptions">ImageMapTypeOptions</a>를 상속받으며, NAVER 지도 전용으로 설계된 별도의 옵션을 추가로 정의합니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>maxZoom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    21
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 최대 줌 레벨입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minZoom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 최소 줌 레벨입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>projection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Projection.html">naver.maps.Projection</a> -->
+    <a href="naver.maps.Projection.html">naver.maps.Projection</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    naver.maps.EPSG3857
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 투영입니다. 자세한 설명은 <code>Projection</code> 객체를 참고합니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tileSize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Size.html">naver.maps.Size</a> -->
+    <a href="naver.maps.Size.html">naver.maps.Size</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    (256,256)
+                
+                </td>
+            
+
+            <td class="description last"><p>지도 유형의 타일 크기입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hd</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>고해상도 이미지 타일의 사용 여부입니다. <code>window.devicePixelRation</code>의 값이 <code>2</code> 이상이면 <code>true</code>로 설정됩니다.</p></td>
         </tr>
 
     
