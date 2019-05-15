@@ -404,3 +404,11 @@ textarea{resize:none}
     .oss .section6 .inner_section6 div.btn_id{width:150px;margin:0 0 0 -75px}
     .oss .section6 .inner_section6 div.btn_id a{height:26px;line-height:26px;border-radius:20px;font-size:10px;}
 }
+
+.footer a{text-decoration: none; color: white;}
+.oss #close-warning{position:fixed;z-index:1000;padding:20px;text-align:center;font-size:24px;color:white;font-weight:bold;top:80px;right:20px;background-color:#f00;border:solid 2px #00ffff;pointer-events:none;}
+.oss #close-warning a {text-decoration: none; color: white;}
+.oss #close-warning a:link {text-decoration: none; color: white;}
+.oss #close-warning a:visited {text-decoration: none; color: white;}
+.oss #close-warning a:active {text-decoration: none; color: white;}
+.oss #close-warning a:hover {text-decoration: underline; color: white;}
