@@ -407,8 +407,8 @@ textarea{resize:none}
 
 .footer a{text-decoration: none; color: white;}
 .oss #close-warning{position:fixed;z-index:1000;padding:20px;text-align:center;font-size:24px;color:white;font-weight:bold;top:80px;right:20px;background-color:#f00;border:solid 2px #00ffff;pointer-events:none;}
-.oss #close-warning a {text-decoration: none; color: white;}
-.oss #close-warning a:link {text-decoration: none; color: white;}
-.oss #close-warning a:visited {text-decoration: none; color: white;}
-.oss #close-warning a:active {text-decoration: none; color: white;}
-.oss #close-warning a:hover {text-decoration: underline; color: white;}
+.oss #close-warning a{text-decoration: none; color: white;}
+.oss #close-warning a:link{text-decoration: none; color: white;}
+.oss #close-warning a:visited{text-decoration: none; color: white;}
+.oss #close-warning a:active{text-decoration: none; color: white;}
+.oss #close-warning a:hover{text-decoration: underline; color: white;}
