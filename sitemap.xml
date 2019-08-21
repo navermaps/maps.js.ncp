@@ -6,794 +6,774 @@
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/showcase.html</loc>
-        <lastmod>2018-11-22T01:41:26.533Z</lastmod>
+        <lastmod>2019-08-06T09:25:59.833Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/classes.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.659Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.330Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/global.html</loc>
-        <lastmod>2019-07-15T05:06:49.554Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.229Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/</loc>
-        <lastmod>2019-07-15T05:06:49.837Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.507Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/interfaces.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.794Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.461Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/mixins.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.752Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.425Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/module-drawing.html</loc>
-        <lastmod>2019-07-15T05:06:49.859Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.529Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/module-geocoder.html</loc>
-        <lastmod>2019-07-15T05:06:49.870Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.537Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/module-panorama.html</loc>
-        <lastmod>2019-07-15T05:06:49.877Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/module-stylemap.html</loc>
-        <lastmod>2019-07-15T05:06:49.884Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.550Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/module-visualization.html</loc>
-        <lastmod>2019-07-15T05:06:49.895Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.557Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/modules.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.611Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.287Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/namespaces.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.707Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.375Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.html</loc>
-        <lastmod>2019-07-15T05:06:49.902Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.564Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.AroundControl.html</loc>
-        <lastmod>2019-07-15T05:06:49.932Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.595Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.CadastralLayer.html</loc>
-        <lastmod>2019-07-15T05:06:49.948Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.607Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.CanvasMapType.html</loc>
-        <lastmod>2019-07-15T05:06:49.961Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.623Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.CanvasTile.html</loc>
-        <lastmod>2019-07-15T05:06:49.981Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.640Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Circle.html</loc>
-        <lastmod>2019-07-15T05:06:50.004Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.668Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.CustomControl.html</loc>
-        <lastmod>2019-07-15T05:06:50.028Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.687Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Data.html</loc>
-        <lastmod>2019-07-15T05:06:50.052Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.712Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.EPSG3857.html</loc>
-        <lastmod>2019-07-15T05:06:50.121Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.781Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.EPSG3857Coord.html</loc>
-        <lastmod>2019-07-15T05:06:50.133Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.792Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Ellipse.html</loc>
-        <lastmod>2019-07-15T05:06:50.105Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.765Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Event.html</loc>
-        <lastmod>2019-07-15T05:06:50.152Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.811Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Feature.html</loc>
-        <lastmod>2019-07-15T05:06:50.169Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.828Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.FlightSpot.html</loc>
-        <lastmod>2019-07-15T05:06:50.184Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.843Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Geometry.html</loc>
-        <lastmod>2019-07-15T05:06:50.192Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.853Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.GroundOverlay.html</loc>
-        <lastmod>2019-07-15T05:06:50.202Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.864Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.ImageMapType.html</loc>
-        <lastmod>2019-07-15T05:06:50.219Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.880Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.ImageTile.html</loc>
-        <lastmod>2019-07-15T05:06:50.236Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.898Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.InfoWindow.html</loc>
-        <lastmod>2019-07-15T05:06:50.259Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.922Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.KVO.html</loc>
-        <lastmod>2019-07-15T05:06:50.276Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.939Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.KVOArray.html</loc>
-        <lastmod>2019-07-15T05:06:50.300Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.965Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.LabelLayer.html</loc>
-        <lastmod>2019-07-15T05:06:50.315Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.983Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.LatLng.html</loc>
-        <lastmod>2019-07-15T05:06:50.329Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.994Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.LatLngBounds.html</loc>
-        <lastmod>2019-07-15T05:06:50.343Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.009Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Layer.html</loc>
-        <lastmod>2019-07-15T05:06:50.361Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.028Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.LogoControl.html</loc>
-        <lastmod>2019-07-15T05:06:50.372Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.040Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Map.html</loc>
-        <lastmod>2019-07-15T05:06:50.402Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.072Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.MapDataControl.html</loc>
-        <lastmod>2019-07-15T05:06:50.424Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.094Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.MapSystemProjection.html</loc>
-        <lastmod>2019-07-15T05:06:50.442Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.118Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.MapType.html</loc>
-        <lastmod>2019-07-15T05:06:50.452Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.128Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.MapTypeControl.html</loc>
-        <lastmod>2019-07-15T05:06:50.463Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.140Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.MapTypeRegistry.html</loc>
-        <lastmod>2019-07-15T05:06:50.478Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.155Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Marker.html</loc>
-        <lastmod>2019-07-15T05:06:50.498Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.176Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.NaverMapTypeOption.html</loc>
-        <lastmod>2019-07-15T05:06:50.526Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.200Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.NaverStyleMapTypeOption.html</loc>
-        <lastmod>2019-07-15T05:06:50.545Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.216Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.OverlayView.html</loc>
-        <lastmod>2019-07-15T05:06:50.556Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.231Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Panorama.html</loc>
-        <lastmod>2019-07-15T05:06:50.579Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.249Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.PanoramaProjection.html</loc>
-        <lastmod>2019-07-15T05:06:50.597Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.266Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Point.html</loc>
-        <lastmod>2019-07-15T05:06:50.608Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.277Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.PointBounds.html</loc>
-        <lastmod>2019-07-15T05:06:50.626Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.290Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Polygon.html</loc>
-        <lastmod>2019-07-15T05:06:50.647Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.318Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Polyline.html</loc>
-        <lastmod>2019-07-15T05:06:50.673Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.346Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Projection.html</loc>
-        <lastmod>2019-07-15T05:06:50.689Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.361Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Rectangle.html</loc>
-        <lastmod>2019-07-15T05:06:50.709Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.376Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.ScaleControl.html</loc>
-        <lastmod>2019-07-15T05:06:50.724Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.395Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Service.html</loc>
-        <lastmod>2019-07-15T05:06:50.754Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.421Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Size.html</loc>
-        <lastmod>2019-07-15T05:06:50.772Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.442Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.StreetLayer.html</loc>
-        <lastmod>2019-07-15T05:06:50.787Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.StyleMapLayerId.html</loc>
-        <lastmod>2019-07-15T05:06:50.797Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.StyleMapType.html</loc>
-        <lastmod>2019-07-15T05:06:50.807Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.StyleMapTypeId.html</loc>
-        <lastmod>2019-07-15T05:06:50.821Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.StyleMapTypeOption.html</loc>
-        <lastmod>2019-07-15T05:06:50.829Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.454Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.TM128.html</loc>
-        <lastmod>2019-07-15T05:06:50.861Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.490Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.TM128Coord.html</loc>
-        <lastmod>2019-07-15T05:06:50.871Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.501Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.Tile.html</loc>
-        <lastmod>2019-07-15T05:06:50.845Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.477Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.TrafficLayer.html</loc>
-        <lastmod>2019-07-15T05:06:50.883Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.517Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.TransCoord.html</loc>
-        <lastmod>2019-07-15T05:06:50.906Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.537Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.UTMK.html</loc>
-        <lastmod>2019-07-15T05:06:50.921Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.556Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.UTMKCoord.html</loc>
-        <lastmod>2019-07-15T05:06:50.955Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.587Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.UTMK_NAVER.html</loc>
-        <lastmod>2019-07-15T05:06:50.933Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.569Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.UTMK_NAVERCoord.html</loc>
-        <lastmod>2019-07-15T05:06:50.946Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.578Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.ZoomControl.html</loc>
-        <lastmod>2019-07-15T05:06:51.029Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.657Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.drawing.DrawingManager.html</loc>
-        <lastmod>2019-07-15T05:06:50.085Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.746Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.drawing.html</loc>
-        <lastmod>2019-07-15T05:06:50.070Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.731Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.html</loc>
-        <lastmod>2019-07-15T05:06:49.918Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.582Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.visualization.DotMap.html</loc>
-        <lastmod>2019-07-15T05:06:50.975Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.611Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.visualization.HeatMap.html</loc>
-        <lastmod>2019-07-15T05:06:50.991Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.625Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.visualization.SpectrumStyle.html</loc>
-        <lastmod>2019-07-15T05:06:51.000Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.637Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.visualization.WeightedLocation.html</loc>
-        <lastmod>2019-07-15T05:06:51.008Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.646Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/naver.maps.visualization.html</loc>
-        <lastmod>2019-07-15T05:06:50.963Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.599Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-Conceptual-Overview.html</loc>
-        <lastmod>2019-07-15T05:06:51.041Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.670Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-Getting-Client-ID.html</loc>
-        <lastmod>2019-07-15T05:06:51.043Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.673Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-Layers.html</loc>
-        <lastmod>2019-07-15T05:06:51.047Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.677Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-Overlay-Overview.html</loc>
-        <lastmod>2019-07-15T05:06:51.049Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.679Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-bicycle.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.196Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.832Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-control-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.151Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.790Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-datalayer.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.162Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.801Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-drawing-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.178Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.815Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-event-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.184Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.822Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-geocoder-transcoord.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.189Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.827Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-infowindow-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.236Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.877Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-map-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.204Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.844Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-map-stylemap.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.300Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.955Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-maptypes-tilecheck.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.221Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.860Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-marker-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.237Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.878Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-panorama-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.284Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.931Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-shape-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.239Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.881Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-1-visualization-heatmap.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.311Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.968Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-Abbreviation.html</loc>
-        <lastmod>2019-07-15T05:06:51.053Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.687Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-DataLayer.html</loc>
-        <lastmod>2019-07-15T05:06:51.059Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.694Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-Getting-Started.html</loc>
-        <lastmod>2019-07-15T05:06:51.063Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.698Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-Marker.html</loc>
-        <lastmod>2019-07-15T05:06:51.075Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.708Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-cadastral.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.197Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.833Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-control-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.153Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.791Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-datalayer-region.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.168Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.803Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-drawing-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.181Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.818Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-event-kvo.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.186Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.823Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-geocoder-tm128coord.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.191Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.828Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-map-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.205Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.846Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-maptypes-imagemaptype.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.223Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.862Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-panorama-resize.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.286Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.935Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-stylemap-cadastral.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.301Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.956Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-2-visualization-dotmap.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.313Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.970Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-InfoWindow.html</loc>
-        <lastmod>2019-07-15T05:06:51.078Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.711Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-KVO-Mechanism.html</loc>
-        <lastmod>2019-07-15T05:06:51.081Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.713Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-control-positioning.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.155Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.794Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-datalayer-kml.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.169Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.804Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-drawing-restore.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.183Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.820Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-event-overlay.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.188Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.825Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-geocoder-geocoding.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.192Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.830Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-map-types.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.207Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.850Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-maptypes-basic.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.224Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.863Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-marker-image-icon.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.240Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.882Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-panorama-event.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.288Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.937Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-polygon-simple.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.242Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.884Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-stylemap-custom.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.303Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.958Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-traffic.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.199Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.835Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-3-visualization-spectrum.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.314Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.972Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-Shape.html</loc>
-        <lastmod>2019-07-15T05:06:51.086Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.719Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-Submodules.html</loc>
-        <lastmod>2019-07-15T05:06:51.088Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.722Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-control-custom-p1.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.160Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.799Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-datalayer-gpx.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.171Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.806Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-map-bounds.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.209Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.852Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-maptypes-dynamic.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.226Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.865Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-marker-sprite-image-icon.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.243Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.886Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-panorama-image-marker.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.290Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.939Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-polygon-hole.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.244Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.888Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-street.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.201Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.841Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-stylemap-submodule-heatmap.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.309Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.960Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-4-visualization-heatmap-w.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.316Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.974Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-GroundOverlay.html</loc>
-        <lastmod>2019-07-15T05:06:51.090Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.724Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-custom.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.202Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.843Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-map-moves.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.210Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.855Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-maptypes-naver_osm.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.227Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.867Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-marker-html-icon.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.246Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.894Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-panorama-html-infowindow.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.292Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.941Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-polygon-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.248Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.896Z</lastmod>
+    </url>
+    <url>
+        <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-stylemap-custom-maptypes.example.html</loc>
+        <lastmod>2019-08-21T11:50:00.961Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-5-visualization-dotmap-w.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.317Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.976Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-CustomOverlay.html</loc>
-        <lastmod>2019-07-15T05:06:51.093Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.730Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-map-geolocation.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.212Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.856Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-maptypes-gta5.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.229Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.869Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-marker-symbol-icon.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.249Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.898Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-panorama-zoomcontrol.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.293Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.948Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-polyline-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.250Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.900Z</lastmod>
+    </url>
+    <url>
+        <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-6-stylemap-custom-control.example.html</loc>
+        <lastmod>2019-08-21T11:50:00.963Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-7-map-fullsize-minimap.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.219Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.858Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-7-maptypes-the-hunters.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.231Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.870Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-7-marker-retina.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.252Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.901Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-7-panorama-aroundcontrol.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.295Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.950Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-8-maptypes-greenfactory.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.232Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.872Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-8-marker-retina-sprite.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.253Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.903Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-8-panorama-flightspot.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.296Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.952Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-9-maptypes-canvasmaptype.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.234Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.874Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-9-marker-position.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.255Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.905Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-9-panorama-map.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.298Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.953Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Controls.html</loc>
-        <lastmod>2019-07-15T05:06:51.095Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.733Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Custom-Control.html</loc>
-        <lastmod>2019-07-15T05:06:51.097Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.735Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-DOM-Event.html</loc>
-        <lastmod>2019-07-15T05:06:51.099Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.737Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Drawing.html</loc>
-        <lastmod>2019-07-15T05:06:51.102Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.741Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Geocoder-Geocoding.html</loc>
-        <lastmod>2019-07-15T05:06:51.106Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.745Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Geocoder.html</loc>
-        <lastmod>2019-07-15T05:06:51.114Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.748Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-KVO-State-Changes.html</loc>
-        <lastmod>2019-07-15T05:06:51.116Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.751Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Map.html</loc>
-        <lastmod>2019-07-15T05:06:51.118Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.754Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-MapTypes.html</loc>
-        <lastmod>2019-07-15T05:06:51.123Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.760Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Migrate-To-StyleMap.html</loc>
-        <lastmod>2019-07-15T05:06:51.128Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.766Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Panorama.html</loc>
-        <lastmod>2019-07-15T05:06:51.132Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.770Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Projection.html</loc>
-        <lastmod>2019-07-15T05:06:51.135Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Quota.html</loc>
-        <lastmod>2019-07-15T05:06:51.137Z</lastmod>
-    </url>
-    <url>
-        <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-StyleMap.html</loc>
-        <lastmod>2019-07-15T05:06:51.139Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.773Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-UI-Event.html</loc>
-        <lastmod>2019-07-15T05:06:51.141Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.779Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-Visualization.html</loc>
-        <lastmod>2019-07-15T05:06:51.144Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.782Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-custom-overlay.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.257Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.907Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-digest.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.177Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.813Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-ground-overlay.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.263Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.909Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-infowindow-options.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.265Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.911Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-animation.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.266Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.913Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-cluster.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.268Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.915Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-intersect.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.270Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.917Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-shape.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.271Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.918Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-viewport.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.273Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.920Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-marker-viewportevents.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.275Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.922Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-pointing-icon.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.277Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.924Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-polygon-dynamic.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.278Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.926Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-polyline-dynamic.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.280Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.928Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorial-shape-measures.example.html</loc>
-        <lastmod>2019-07-15T05:06:51.282Z</lastmod>
+        <lastmod>2019-08-21T11:50:00.929Z</lastmod>
     </url>
     <url>
         <loc>https://github.com/navermaps/maps.js.ncp/docs/tutorials.list.html</loc>
-        <lastmod>2019-07-15T05:06:49.833Z</lastmod>
+        <lastmod>2019-08-21T11:49:59.504Z</lastmod>
     </url>
 </urlset>

@@ -191,10 +191,6 @@
                 
                         <li><a style="padding-left:20px;" href="naver.maps.visualization.WeightedLocation.html">naver.maps.visualization.WeightedLocation</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
-                
-                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapType.html">naver.maps.StyleMapType</a></li>
-                
                         
                     </ul>
                 </li>
@@ -257,14 +253,6 @@
                 
                         <li><a style="padding-left:20px;" href="naver.maps.visualization.SpectrumStyle.html">naver.maps.visualization.SpectrumStyle</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >Submodule: stylemap</a></li>
-                
-                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapLayerId.html">naver.maps.StyleMapLayerId</a></li>
-                
-                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeId.html">naver.maps.StyleMapTypeId</a></li>
-                
-                        <li><a style="padding-left:20px;" href="naver.maps.StyleMapTypeOption.html">naver.maps.StyleMapTypeOption</a></li>
-                
                         
                     </ul>
                 </li>
@@ -281,7 +269,7 @@
                     <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
                     <ul class="dropdown-menu ">
                         
-                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-stylemap.html">stylemap</a></li><li><a href="module-visualization.html">visualization</a></li>
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
                     </ul>
                 </li>
                 
@@ -298,8 +286,6 @@
                         <li><a style="padding-left:20px;" href="tutorial-3-KVO-Mechanism.html">KVO 디자인</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-Submodules.html">서브 모듈 시스템</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-Quota.html">사용 제한</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >시작하기</a></li>
                 
@@ -364,10 +350,6 @@
                         <li><a href="#" class="_cat" style="padding-left:10px" >그리기 도구</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
-                
-                        <li><a href="#" class="_cat" style="padding-left:10px" >StyleMap</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-StyleMap.html">스타일 지도</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
                 
@@ -582,6 +564,10 @@
                         <li><a style="padding-left:20px;" href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-5-stylemap-custom-maptypes.example.html">StyleMap 사용자 지도 유형 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
                         
                     </ul>
@@ -877,6 +863,138 @@ naver.maps.onJSContentLoaded = function() {
         data: data
     });
 };</code></pre><p><strong>Examples</strong>: <a href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></p>
+<h3>사용자 지도 유형</h3><h4>기존 맵 타일</h4><pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10,
+    mapTypeId: 'mine',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.DROPDOWN
+    }
+});
+
+var MyMapType = {
+    name: &quot;Alphabet&quot;,
+    minZoom: 0,
+    maxZoom: 22,
+    tileSize: new naver.maps.Size(50, 50),
+    getTile: function(x, y, z) {
+        var w = this.tileSize.width,
+            h = this.tileSize.height;
+
+        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+            alphabet = String.fromCharCode(ascii);
+        var div = $(&quot;&lt;div class='mytile'>&quot;+ alphabet +&quot;&lt;/div>&quot;);
+
+        div.css({
+            width: w, height: h,
+            fontSize: Math.min(w, h) - 10,
+            lineHeight: h+&quot;px&quot;,
+            opacity: 1 - ((ascii - 65) * 0.04)
+        });
+
+        return div[0];
+    }
+};
+
+map.mapTypes.set(&quot;mine&quot;, MyMapType);</code></pre><h4>신규 맵 타일</h4><blockquote>
+<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 mapType 설정</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  /* 변경점 */
+  useStyleMap: true,
+  center: new naver.maps.LatLng(37.3595704, 127.105399),
+  zoom: 15,
+  mapTypeId: 'mine',
+  mapTypeControl: true,
+  mapTypeControlOptions: {
+    style: naver.maps.MapTypeControlStyle.DROPDOWN
+  }
+});
+
+var MyMapType = {
+  name: &quot;Alphabet&quot;,
+  minZoom: 0,
+  maxZoom: 22,
+  tileSize: new naver.maps.Size(50, 50),
+  getTile: function(x, y, z) {
+    var w = this.tileSize.width,
+        h = this.tileSize.height;
+
+    var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+    alphabet = String.fromCharCode(ascii);
+    var div = $(&quot;&lt;div class='mytile'>&quot;+ alphabet +&quot;&lt;/div>&quot;);
+
+    div.css({
+      width: w, height: h,
+      fontSize: Math.min(w, h) - 10,
+      lineHeight: h+&quot;px&quot;,
+      opacity: 1 - ((ascii - 65) * 0.04)
+    });
+
+    return div[0];
+  }
+};
+
+/* 변경점 */
+naver.maps.onJSContentLoaded = function() {
+  map.mapTypes.set(&quot;mine&quot;, MyMapType);
+};</code></pre><p><strong>Examples</strong>: <a href="tutorial-5-stylemap-custom-maptypes.example.html">StyleMap 사용자 지도 유형 예제</a></p>
+<h3>사용자 정의 컨트롤</h3><h4>기존 맵 타일</h4><pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
+var map = new naver.maps.Map('map', {zoom: 8});
+
+//customControl 객체 이용하기
+var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+  position: naver.maps.Position.TOP_LEFT
+});
+
+customControl.setMap(map);
+
+var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+  map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+});
+
+//Map 객체의 controls 활용하기
+var $locationBtn = $(locationBtnHtml),
+    locationBtnEl = $locationBtn[0];
+
+map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+
+var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+  map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+});</code></pre><h4>신규 맵 타일</h4><blockquote>
+<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 생성</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
+var map = new naver.maps.Map('map', {
+        /* 변경점 */
+        useStyleMap: true,
+        zoom: 13
+    });
+
+/* 변경점 */
+naver.maps.onJSContentLoaded = function() {
+  //customControl 객체 이용하기
+  var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+    position: naver.maps.Position.TOP_LEFT
+  });
+
+  customControl.setMap(map);
+
+  var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+  });
+
+  //Map 객체의 controls 활용하기
+  var $locationBtn = $(locationBtnHtml),
+      locationBtnEl = $locationBtn[0];
+
+  map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+
+  var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+  });
+};</code></pre><p><strong>Examples</strong>: <a href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></p>
 
     
 </article>
