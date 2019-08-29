@@ -26,7 +26,13 @@ window.SearcherDisplay = (function($) {
             body.append(quickSearch);
 
             $(window).on("message", function(msg) {
-                var msgData = JSON.parse(msg.originalEvent.data);
+                var data = msg.originalEvent.data;
+
+                if (data == '') {
+                    return;
+                }
+
+                var msgData = JSON.parse(data);
 
                 if (msgData.msgid != "docstrap.quicksearch.done") {
                     return;

@@ -569,6 +569,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -724,6 +726,7 @@
 <h3>기본 줌 변경</h3><ul>
 <li>기존 맵 타일: <code>11</code>을 기본 줌 레벨로 사용</li>
 <li>신규 맵 타일: <code>16</code>을 기본 줌 레벨로 사용</li>
+<li>신규 타일은 기존 타일 줌레벨 보다  <code>5</code>  레벨 높습니다. 기존 타일 <code>11</code> 레벨이 v5 타일에서는 <code>16</code> 레벨입니다.</li>
 </ul>
 <h3>StyleMap 서브 모듈 제거</h3><ul>
 <li>기존 맵 타일: stylemap 서브 모듈을 이용하여 신규 스타일 지도 표시</li>
@@ -796,7 +799,7 @@ var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
 
 var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
 labelLayer.setMap(map);</code></pre><h4>신규 맵 타일</h4><blockquote>
-<p><code>NaverStyleMapTypeOption</code> 사용</p>
+<p><code>NaverStyleMapTypeOption</code> 사용, <code>init_stylemap</code> 이벤트 시점에 layer 설정</p>
 </blockquote>
 <pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
     /* 변경점 */
@@ -808,13 +811,15 @@ labelLayer.setMap(map);</code></pre><h4>신규 맵 타일</h4><blockquote>
 });
 
 /* 변경점 */
-var labelMapType = new naver.maps.NaverStyleMapTypeOption.getNormalLabelLayer();
-var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
-    'label': labelMapType
-});
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    var labelMapType = new naver.maps.NaverStyleMapTypeOption.getNormalLabelLayer();
+    var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
+        'label': labelMapType
+    });
 
-var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
-labelLayer.setMap(map);</code></pre><p><strong>Examples</strong>: <a href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></p>
+    var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
+    labelLayer.setMap(map);
+});</code></pre><p><strong>Examples</strong>: <a href="tutorial-3-stylemap-custom.example.html">StyleMap 사용자 정의 레이어 만들기</a></p>
 <h3>그리기 도구 서브 모듈 사용하기</h3><h4>기존 맵 타일</h4><pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map');
 var drawingManager = new naver.maps.drawing.DrawingManager({map: map});</code></pre><h4>신규 맵 타일</h4><blockquote>
 <p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 생성</p>
@@ -863,83 +868,6 @@ naver.maps.onJSContentLoaded = function() {
         data: data
     });
 };</code></pre><p><strong>Examples</strong>: <a href="tutorial-4-stylemap-submodule-heatmap.example.html">StyleMap 열지도 사용 예제</a></p>
-<h3>사용자 지도 유형</h3><h4>기존 맵 타일</h4><pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10,
-    mapTypeId: 'mine',
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-        style: naver.maps.MapTypeControlStyle.DROPDOWN
-    }
-});
-
-var MyMapType = {
-    name: &quot;Alphabet&quot;,
-    minZoom: 0,
-    maxZoom: 22,
-    tileSize: new naver.maps.Size(50, 50),
-    getTile: function(x, y, z) {
-        var w = this.tileSize.width,
-            h = this.tileSize.height;
-
-        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
-            alphabet = String.fromCharCode(ascii);
-        var div = $(&quot;&lt;div class='mytile'>&quot;+ alphabet +&quot;&lt;/div>&quot;);
-
-        div.css({
-            width: w, height: h,
-            fontSize: Math.min(w, h) - 10,
-            lineHeight: h+&quot;px&quot;,
-            opacity: 1 - ((ascii - 65) * 0.04)
-        });
-
-        return div[0];
-    }
-};
-
-map.mapTypes.set(&quot;mine&quot;, MyMapType);</code></pre><h4>신규 맵 타일</h4><blockquote>
-<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 mapType 설정</p>
-</blockquote>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  /* 변경점 */
-  useStyleMap: true,
-  center: new naver.maps.LatLng(37.3595704, 127.105399),
-  zoom: 15,
-  mapTypeId: 'mine',
-  mapTypeControl: true,
-  mapTypeControlOptions: {
-    style: naver.maps.MapTypeControlStyle.DROPDOWN
-  }
-});
-
-var MyMapType = {
-  name: &quot;Alphabet&quot;,
-  minZoom: 0,
-  maxZoom: 22,
-  tileSize: new naver.maps.Size(50, 50),
-  getTile: function(x, y, z) {
-    var w = this.tileSize.width,
-        h = this.tileSize.height;
-
-    var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
-    alphabet = String.fromCharCode(ascii);
-    var div = $(&quot;&lt;div class='mytile'>&quot;+ alphabet +&quot;&lt;/div>&quot;);
-
-    div.css({
-      width: w, height: h,
-      fontSize: Math.min(w, h) - 10,
-      lineHeight: h+&quot;px&quot;,
-      opacity: 1 - ((ascii - 65) * 0.04)
-    });
-
-    return div[0];
-  }
-};
-
-/* 변경점 */
-naver.maps.onJSContentLoaded = function() {
-  map.mapTypes.set(&quot;mine&quot;, MyMapType);
-};</code></pre><p><strong>Examples</strong>: <a href="tutorial-5-stylemap-custom-maptypes.example.html">StyleMap 사용자 지도 유형 예제</a></p>
 <h3>사용자 정의 컨트롤</h3><h4>기존 맵 타일</h4><pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
 var map = new naver.maps.Map('map', {zoom: 8});
 
@@ -963,7 +891,7 @@ map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
 var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
   map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
 });</code></pre><h4>신규 맵 타일</h4><blockquote>
-<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 생성</p>
+<p><code>init_stylemap</code> 이벤트 시점에 생성</p>
 </blockquote>
 <pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
 var map = new naver.maps.Map('map', {
@@ -973,28 +901,38 @@ var map = new naver.maps.Map('map', {
     });
 
 /* 변경점 */
-naver.maps.onJSContentLoaded = function() {
-  //customControl 객체 이용하기
-  var customControl = new naver.maps.CustomControl(locationBtnHtml, {
-    position: naver.maps.Position.TOP_LEFT
-  });
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    //customControl 객체 이용하기
+    var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+        position: naver.maps.Position.TOP_LEFT
+    });
 
-  customControl.setMap(map);
+    customControl.setMap(map);
 
-  var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
-    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
-  });
+    var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+    });
 
-  //Map 객체의 controls 활용하기
-  var $locationBtn = $(locationBtnHtml),
-      locationBtnEl = $locationBtn[0];
+    //Map 객체의 controls 활용하기
+    var $locationBtn = $(locationBtnHtml),
+        locationBtnEl = $locationBtn[0];
 
-  map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+    map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
 
-  var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
-    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
-  });
-};</code></pre><p><strong>Examples</strong>: <a href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></p>
+    var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+    });
+});</code></pre><p><strong>Examples</strong>: <a href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></p>
+<h3>repeatX MapTypeOption 적용 예제</h3><pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+    useStyleMap: true,
+    zoom: 0,
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    mapTypes: new naver.maps.MapTypeRegistry({
+        'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+            { repeatX: true }
+        )
+    })
+});</code></pre><p><strong>Examples</strong>: <a href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></p>
 
     
 </article>

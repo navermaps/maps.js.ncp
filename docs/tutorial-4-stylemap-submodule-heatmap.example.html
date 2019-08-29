@@ -569,6 +569,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -653,31 +655,31 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var HOME_PATH = window.HOME_PATH || '.';
+var HOME_PATH = window.HOME_PATH || '.';
 
-    var mapDiv = document.getElementById('map');
-    var map = new naver.maps.Map(mapDiv, {
-        useStyleMap: true,
-        zoom: 8,
-        center: new naver.maps.LatLng(36.0207091, 127.9204629)
+var mapDiv = document.getElementById('map');
+var map = new naver.maps.Map(mapDiv, {
+    useStyleMap: true,
+    zoom: 8,
+    center: new naver.maps.LatLng(36.0207091, 127.9204629)
+});
+
+function loadData() {
+    $.ajax({
+        url: HOME_PATH +'/data/earthquake.json',
+        dataType: 'json',
+        success: startHeatMap
     });
+}
 
-    function loadData() {
-        $.ajax({
-            url: HOME_PATH +'/data/earthquake.json',
-            dataType: 'json',
-            success: startHeatMap
-        });
-    }
+function startHeatMap(data) {
+    var heatmap = new naver.maps.visualization.HeatMap({
+        map: map,
+        data: data.coordinates
+    });
+}
 
-    function startHeatMap(data) {
-        var heatmap = new naver.maps.visualization.HeatMap({
-            map: map,
-            data: data.coordinates
-        });
-    }
-
-    naver.maps.onJSContentLoaded = loadData;
+naver.maps.onJSContentLoaded = loadData;
 </script>
 
 

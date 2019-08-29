@@ -569,6 +569,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -661,33 +663,33 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        useStyleMap: true,
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        mapTypes: new naver.maps.MapTypeRegistry({
-            'normal': naver.maps.NaverStyleMapTypeOption.getVectorMap()
-        })
-    });
+var map = new naver.maps.Map('map', {
+    useStyleMap: true,
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    mapTypes: new naver.maps.MapTypeRegistry({
+        'normal': naver.maps.NaverStyleMapTypeOption.getVectorMap()
+    })
+});
 
-    var labelMapType = new naver.maps.NaverStyleMapTypeOption.getNormalLabelLayer();
-    var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
-        'label': labelMapType
-    });
-    var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
+var labelMapType = new naver.maps.NaverStyleMapTypeOption.getNormalLabelLayer();
+var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
+    'label': labelMapType
+});
+var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
 
-    $('#labelLayer').on('click', function(e) {
-        e.preventDefault();
+$('#labelLayer').on('click', function(e) {
+    e.preventDefault();
 
-        var btn = $(this);
+    var btn = $(this);
 
-        if (labelLayer.getMap()) {
-            labelLayer.setMap(null);
-            btn.removeClass('control-on').val('POI 켜기');
-        } else {
-            labelLayer.setMap(map);
-            btn.addClass('control-on').val('POI 끄기');
-        }
-    });
+    if (labelLayer.getMap()) {
+        labelLayer.setMap(null);
+        btn.removeClass('control-on').val('POI 켜기');
+    } else {
+        labelLayer.setMap(map);
+        btn.addClass('control-on').val('POI 끄기');
+    }
+});
 </script>
 
 

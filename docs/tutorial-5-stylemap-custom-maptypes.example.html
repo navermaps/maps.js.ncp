@@ -569,6 +569,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -656,44 +658,42 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        useStyleMap: true,
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 15,
-        mapTypeId: 'mine',
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-            style: naver.maps.MapTypeControlStyle.DROPDOWN
-        }
-    });
+var map = new naver.maps.Map('map', {
+    useStyleMap: true,
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 15,
+    mapTypeId: 'mine',
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.DROPDOWN
+    }
+});
 
-    var MyMapType = {
-        name: "Alphabet",
-        minZoom: 0,
-        maxZoom: 22,
-        tileSize: new naver.maps.Size(50, 50),
-        getTile: function(x, y, z) {
-            var w = this.tileSize.width,
-                h = this.tileSize.height;
+var MyMapType = {
+    name: 'Alphabet',
+    minZoom: 0,
+    maxZoom: 22,
+    tileSize: new naver.maps.Size(50, 50),
+    getTile: function(x, y, z) {
+        var w = this.tileSize.width,
+            h = this.tileSize.height;
 
-            var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
-            alphabet = String.fromCharCode(ascii);
-            var div = $("<div class='mytile'>"+ alphabet +"</div>");
+        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+        alphabet = String.fromCharCode(ascii);
+        var div = $("<div class='mytile'>"+ alphabet +"</div>");
 
-            div.css({
-                width: w, height: h,
-                fontSize: Math.min(w, h) - 10,
-                lineHeight: h+"px",
-                opacity: 1 - ((ascii - 65) * 0.04)
-            });
+        div.css({
+            width: w, height: h,
+            fontSize: Math.min(w, h) - 10,
+            lineHeight: h+'px',
+            opacity: 1 - ((ascii - 65) * 0.04)
+        });
 
-            return div[0];
-        }
-    };
+        return div[0];
+    }
+};
 
-    naver.maps.onJSContentLoaded = function() {
-        map.mapTypes.set("mine", MyMapType);
-    };
+map.mapTypes.set('mine', MyMapType);
 </script>
 
 

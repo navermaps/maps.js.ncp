@@ -569,6 +569,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
+                
                         
                     </ul>
                 </li>
@@ -661,44 +663,44 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        useStyleMap: true,
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-            style: naver.maps.MapTypeControlStyle.DROPDOWN
+var map = new naver.maps.Map('map', {
+    useStyleMap: true,
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.DROPDOWN
+    }
+});
+
+function startCadastralLayer() {
+    var cadastralLayer = new naver.maps.CadastralLayer({ useStyleMap: true });
+
+    var btn = $('#cadastral');
+
+    naver.maps.Event.addListener(map, 'cadastralLayer_changed', function(cadastralLayer) {
+        if (cadastralLayer.getMap()) {
+            btn.addClass('control-on').val('지적도 끄기');
+        } else {
+            btn.removeClass('control-on').val('지적도 켜기');
         }
     });
 
-    function startCadastralLayer() {
-        var cadastralLayer = new naver.maps.CadastralLayer({ useStyleMap: true });
+    cadastralLayer.setMap(map);
 
-        var btn = $('#cadastral');
+    btn.on('click', function(e) {
+        e.preventDefault();
 
-        naver.maps.Event.addListener(map, 'cadastralLayer_changed', function(cadastralLayer) {
-            if (cadastralLayer.getMap()) {
-                btn.addClass('control-on').val('지적도 끄기');
-            } else {
-                btn.removeClass('control-on').val('지적도 켜기');
-            }
-        });
+        if (cadastralLayer.getMap()) {
+            cadastralLayer.setMap(null);
+            btn.removeClass('control-on').val('지적도 켜기');
+        } else {
+            cadastralLayer.setMap(map);
+            btn.addClass('control-on').val('지적도 끄기');
+        }
+    });
+}
 
-        cadastralLayer.setMap(map);
-
-        btn.on('click', function(e) {
-            e.preventDefault();
-
-            if (cadastralLayer.getMap()) {
-                cadastralLayer.setMap(null);
-                btn.removeClass('control-on').val('지적도 켜기');
-            } else {
-                cadastralLayer.setMap(map);
-                btn.addClass('control-on').val('지적도 끄기');
-            }
-        });
-    }
-
-    naver.maps.onJSContentLoaded = startCadastralLayer;
+naver.maps.Event.once(map, 'init_stylemap', startCadastralLayer);
 </script>
 
 
