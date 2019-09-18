@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>네이버 실시간 교통상황 레이어 표시하기 | 네이버 지도 API v3</title>
-    <meta name="description" content="Example: 네이버 실시간 교통상황 레이어 표시하기">
+    <title>StyleMap 옵션 설정과 참조 예제 | 네이버 지도 API v3</title>
+    <meta name="description" content="Example: StyleMap 옵션 설정과 참조 예제">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -634,7 +634,7 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">네이버 실시간 교통상황 레이어 표시하기</span>
+                    <span itemprop="keywords">StyleMap 옵션 설정과 참조 예제</span>
                 </div>
             </div>
             <script src="./js/jquery-1.9.1.js"></script>
@@ -647,80 +647,29 @@
 <article>
     
 
-    <h1>네이버 실시간 교통상황 레이어 표시하기</h1>
+    <h1>StyleMap 옵션 설정과 참조 예제</h1>
 
     
 
 <!--  -->
-
-<style type="text/css">
-    #wrap .buttons, #wrap .checkbox { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
-    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
-    #wrap .checkbox { top:30px;left:5px;border:solid 1px #333;padding:2px;background-color:#fff;display:none;font-size:11px; }
-    input[type="checkbox"] {margin-left: 0px !important;}
-</style>
-
 <div id="wrap" class="section">
-    <h2>네이버 실시간 교통상황 레이어 표시하기</h2>
-    <p>네이버 실시간 교통상황 레이어를 생성하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
-    <div id="map" style="width:100%;height:600px;">
-        <div class="buttons">
-            <input id="traffic" type="button" value="교통상황" class="control-btn" />
-        </div>
-        <div class="checkbox">
-            <input id="autorefresh" type="checkbox" checked="checked" value="1" /><label for="autorefresh">자동 새로고침</label>
-        </div>
-    </div>
+    <h2>StyleMap 옵션 설정과 참조 예제</h2>
+    <p>StyleMap 옵션 설정과 참조 시점 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
 var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-        style: naver.maps.MapTypeControlStyle.DROPDOWN
-    }
+    useStyleMap: true,
+    zoom: 16,
+    center: new naver.maps.LatLng(37.5666103, 126.9783882)
 });
 
-var trafficLayer = new naver.maps.TrafficLayer({
-    interval: 2000 // 2초마다 새로고침
-});
+map.setOptions('minZoom', 10);
+console.log('잘못된 참조 시점', map.getOptions('minZoom') === 10);
 
-var btn = $('#traffic');
-
-naver.maps.Event.addListener(map, 'trafficLayer_changed', function(trafficLayer) {
-    if (trafficLayer) {
-        btn.addClass('control-on');
-        $("#autorefresh").parent().show();
-        $("#autorefresh")[0].checked = true;
-    } else {
-        btn.removeClass('control-on');
-        $("#autorefresh").parent().hide();
-    }
-});
-
-trafficLayer.setMap(map);
-
-
-btn.on("click", function(e) {
-    e.preventDefault();
-
-    if (trafficLayer.getMap()) {
-        trafficLayer.setMap(null);
-    } else {
-        trafficLayer.setMap(map);
-    }
-});
-
-$("#autorefresh").on("click", function(e) {
-    var btn = $(this),
-        checked = btn.is(":checked");
-
-    if (checked) {
-        trafficLayer.startAutoRefresh();
-    } else {
-        trafficLayer.endAutoRefresh();
-    }
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    console.log('올바른 참조 시점', map.getOptions('minZoom') === 10);
 });
 </script>
 
