@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>StyleMap repeatX MapTypeOption 적용 예제 | 네이버 지도 API v3</title>
-    <meta name="description" content="Example: StyleMap repeatX MapTypeOption 적용 예제">
+    <title>사용자 정의 OverlayType 설정 | 네이버 지도 API v3</title>
+    <meta name="description" content="Tutorial: 사용자 정의 OverlayType 설정">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -261,7 +261,7 @@
                     <a href="global.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-types" data-toggle="dropdown">Types<b class="caret"></b></a>
                     <ul class="dropdown-menu ">
                         
-                        <li><a href="global.html#any">any</a></li><li><a href="global.html#array">array</a></li><li><a href="global.html#ArrayOfBounds">ArrayOfBounds</a></li><li><a href="global.html#ArrayOfBoundsLiteral">ArrayOfBoundsLiteral</a></li><li><a href="global.html#ArrayOfCoords">ArrayOfCoords</a></li><li><a href="global.html#ArrayOfCoordsLiteral">ArrayOfCoordsLiteral</a></li><li><a href="global.html#boolean">boolean</a></li><li><a href="global.html#Bounds">Bounds</a></li><li><a href="global.html#BoundsLiteral">BoundsLiteral</a></li><li><a href="global.html#Coord">Coord</a></li><li><a href="global.html#CoordLiteral">CoordLiteral</a></li><li><a href="global.html#DOMEvent">DOMEvent</a></li><li><a href="global.html#DOMEventListener">DOMEventListener</a></li><li><a href="global.html#DrawingOverlay">DrawingOverlay</a></li><li><a href="global.html#function">function</a></li><li><a href="global.html#GeoJSON">GeoJSON</a></li><li><a href="global.html#GPX">GPX</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#ImageData">ImageData</a></li><li><a href="global.html#KeyboardEvent">KeyboardEvent</a></li><li><a href="global.html#KML">KML</a></li><li><a href="global.html#KVOArrayOfCoords">KVOArrayOfCoords</a></li><li><a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a></li><li><a href="global.html#LatLngBoundsObjectLiteral">LatLngBoundsObjectLiteral</a></li><li><a href="global.html#LatLngLiteral">LatLngLiteral</a></li><li><a href="global.html#LatLngObjectLiteral">LatLngObjectLiteral</a></li><li><a href="global.html#LayerRegistry">LayerRegistry</a></li><li><a href="global.html#MapEventListener">MapEventListener</a></li><li><a href="global.html#MapType">MapType</a></li><li><a href="global.html#margin">margin</a></li><li><a href="global.html#null">null</a></li><li><a href="global.html#number">number</a></li><li><a href="global.html#object">object</a></li><li><a href="global.html#padding">padding</a></li><li><a href="global.html#PointArrayLiteral">PointArrayLiteral</a></li><li><a href="global.html#PointBoundsArrayLiteral">PointBoundsArrayLiteral</a></li><li><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></li><li><a href="global.html#PointBoundsObjectLiteral">PointBoundsObjectLiteral</a></li><li><a href="global.html#PointerEvent">PointerEvent</a></li><li><a href="global.html#PointLiteral">PointLiteral</a></li><li><a href="global.html#PointObjectLiteral">PointObjectLiteral</a></li><li><a href="global.html#SizeArrayLiteral">SizeArrayLiteral</a></li><li><a href="global.html#SizeLiteral">SizeLiteral</a></li><li><a href="global.html#SizeObjectLiteral">SizeObjectLiteral</a></li><li><a href="global.html#string">string</a></li><li><a href="global.html#TransitionOptions">TransitionOptions</a></li>
+                        <li><a href="global.html#any">any</a></li><li><a href="global.html#array">array</a></li><li><a href="global.html#ArrayOfBounds">ArrayOfBounds</a></li><li><a href="global.html#ArrayOfBoundsLiteral">ArrayOfBoundsLiteral</a></li><li><a href="global.html#ArrayOfCoords">ArrayOfCoords</a></li><li><a href="global.html#ArrayOfCoordsLiteral">ArrayOfCoordsLiteral</a></li><li><a href="global.html#boolean">boolean</a></li><li><a href="global.html#Bounds">Bounds</a></li><li><a href="global.html#BoundsLiteral">BoundsLiteral</a></li><li><a href="global.html#Coord">Coord</a></li><li><a href="global.html#CoordLiteral">CoordLiteral</a></li><li><a href="global.html#DOMEvent">DOMEvent</a></li><li><a href="global.html#DOMEventListener">DOMEventListener</a></li><li><a href="global.html#DrawingOverlay">DrawingOverlay</a></li><li><a href="global.html#function">function</a></li><li><a href="global.html#GeoJSON">GeoJSON</a></li><li><a href="global.html#GPX">GPX</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#ImageData">ImageData</a></li><li><a href="global.html#isBuiltInMapType">isBuiltInMapType</a></li><li><a href="global.html#KeyboardEvent">KeyboardEvent</a></li><li><a href="global.html#KML">KML</a></li><li><a href="global.html#KVOArrayOfCoords">KVOArrayOfCoords</a></li><li><a href="global.html#LatLngBoundsLiteral">LatLngBoundsLiteral</a></li><li><a href="global.html#LatLngBoundsObjectLiteral">LatLngBoundsObjectLiteral</a></li><li><a href="global.html#LatLngLiteral">LatLngLiteral</a></li><li><a href="global.html#LatLngObjectLiteral">LatLngObjectLiteral</a></li><li><a href="global.html#LayerRegistry">LayerRegistry</a></li><li><a href="global.html#limitMaxBounds">limitMaxBounds</a></li><li><a href="global.html#limitMinZoom">limitMinZoom</a></li><li><a href="global.html#MapEventListener">MapEventListener</a></li><li><a href="global.html#MapType">MapType</a></li><li><a href="global.html#margin">margin</a></li><li><a href="global.html#null">null</a></li><li><a href="global.html#number">number</a></li><li><a href="global.html#object">object</a></li><li><a href="global.html#padding">padding</a></li><li><a href="global.html#PointArrayLiteral">PointArrayLiteral</a></li><li><a href="global.html#PointBoundsArrayLiteral">PointBoundsArrayLiteral</a></li><li><a href="global.html#PointBoundsLiteral">PointBoundsLiteral</a></li><li><a href="global.html#PointBoundsObjectLiteral">PointBoundsObjectLiteral</a></li><li><a href="global.html#PointerEvent">PointerEvent</a></li><li><a href="global.html#PointLiteral">PointLiteral</a></li><li><a href="global.html#PointObjectLiteral">PointObjectLiteral</a></li><li><a href="global.html#SizeArrayLiteral">SizeArrayLiteral</a></li><li><a href="global.html#SizeLiteral">SizeLiteral</a></li><li><a href="global.html#SizeObjectLiteral">SizeObjectLiteral</a></li><li><a href="global.html#string">string</a></li><li><a href="global.html#TransitionOptions">TransitionOptions</a></li>
                     </ul>
                 </li>
                 
@@ -355,6 +355,10 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">기존 맵 타일에서 신규 맵 타일(StyleMap)으로 전환하기</a></li>
                 
+                        <li><a href="#" class="_cat" style="padding-left:10px" >스타일맵</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap-Custom-OverlayType.html">사용자 정의 OverlayType 설정</a></li>
+                
                         
                     </ul>
                 </li>
@@ -396,8 +400,6 @@
                         <li><a style="padding-left:20px;" href="tutorial-4-maptypes-dynamic.example.html">투영법과 타일의 크기를 동적으로 변경하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-5-maptypes-naver_osm.example.html">두 가지의 지도 유형을 함께 사용하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-6-maptypes-gta5.example.html">Grand Theft Auto V 지도 유형</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-7-maptypes-the-hunters.example.html">Starcraft The Hunters 지도 유형</a></li>
                 
@@ -561,7 +563,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-map-stylemap.example.html">StyleMap 기본 예제</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-10-map-options.example.html">StyleMap 옵션 설정과 참조 예제</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-10-stylemap-options.example.html">StyleMap 옵션 설정과 참조 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-14-stylemap-overlaytype.example.html">StyleMap 사용자 정의 OverlayType 설정 예제</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-2-stylemap-cadastral.example.html">StyleMap 지적도 레이어 표시하기</a></li>
                 
@@ -572,8 +576,6 @@
                         <li><a style="padding-left:20px;" href="tutorial-5-stylemap-custom-maptypes.example.html">StyleMap 사용자 지도 유형 예제</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-6-stylemap-custom-control.example.html">StyleMap 사용자 정의 컨트롤 예제</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-7-stylemap-repeatX.example.html">StyleMap repeatX MapTypeOption 적용 예제</a></li>
                 
                         
                     </ul>
@@ -634,44 +636,193 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">StyleMap repeatX MapTypeOption 적용 예제</span>
+                    <span itemprop="keywords">사용자 정의 OverlayType 설정</span>
                 </div>
             </div>
-            <script src="./js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="./js/base.js"></script>
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&amp;submodules=panorama,geocoder,drawing,visualization"></script>
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-
+            <link rel='stylesheet' type='text/css' href='./css/tutorial.css' />
 <section class="tutorial-section">
+<!-- <header>
+    
+
+    <h2>사용자 정의 OverlayType 설정</h2>
+</header> -->
 <header></header>
 <article>
     
 
-    <h1>StyleMap repeatX MapTypeOption 적용 예제</h1>
+    <h1>사용자 정의 OverlayType 설정</h1>
 
-    
-
-<!--  -->
-<div id="wrap" class="section">
-    <h2>StyleMap repeatX MapTypeOption 적용 예제</h2>
-    <p>StyleMap 에서 repeatX MapTypOption 을 적용하는 예제입니다.</p>
-    <div id="map" style="width:100%;height:600px;"></div>
-    <code id="snippet" class="snippet"></code>
-</div>
-<script id="code">
-var map = new naver.maps.Map('map', {
-    useStyleMap: true,
-    zoom: 0,
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    mapTypes: new naver.maps.MapTypeRegistry({
-        'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
-            { repeatX: true }
-        )
-    })
+    <h2>사용자 타일 세부 유형 설정 하기</h2>
+<p>마침표(.)을 구분자로 원하는 세부 지도 유형을 조합할 수 있습니다.</p>
+<h3>세부 지도 유형</h3>
+<table>
+<thead>
+<tr>
+<th>세부 지도 유형 (overlayType)</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bg</td>
+<td>해당하는 지도 유형의 배경 표시</td>
+</tr>
+<tr>
+<td>ol</td>
+<td>실폭 도로, 실선 도로, 행정 경계, 공원 상세, 도로시설물, 시설, 역과 같이 세밀한 요소 표현</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>지하철 노선도(sw), 버스 정류장(bs)과 같이 대중교통 관련 요소 표현</td>
+</tr>
+<tr>
+<td>pr</td>
+<td>거리뷰(ps), 항공뷰, 수중뷰와 같이 파노라마 촬영 위치 관련 요소 표현</td>
+</tr>
+<tr>
+<td>br</td>
+<td>자전거 관련 요소 표현</td>
+</tr>
+<tr>
+<td>ar</td>
+<td>등산로 관련 요소 표현</td>
+</tr>
+<tr>
+<td>lp</td>
+<td>지적편집도 표현</td>
+</tr>
+<tr>
+<td>ctt</td>
+<td>혼잡 교통정보 표현</td>
+</tr>
+<tr>
+<td>lko</td>
+<td>한국어 라벨 표현</td>
+</tr>
+<tr>
+<td>len</td>
+<td>영어 라벨 표현</td>
+</tr>
+<tr>
+<td>lzh</td>
+<td>중국어 라벨 표현</td>
+</tr>
+<tr>
+<td>lja</td>
+<td>일본어 라벨 표현</td>
+</tr>
+</tbody>
+</table>
+<h4>일반 지도 배경 요청</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 11,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg'
+      }
+    )
+  })
 });
-</script>
-
-
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.png" alt="일반 지도 배경 요청"></p>
+<p><strong>Examples</strong>: <a href="tutorial-14-stylemap-overlaytype.example.html">StyleMap 사용자 정의 OverlayType 설정 예제</a></p>
+<h4>위성 지도 배경에 자전거 도로 요청</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 11,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getSatelliteMap(
+      {
+        overlayType: 'bg.br'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-satellite-bg.br.png" alt="위성 지도 배경에 자전거 도로 요청"></p>
+<h4>일반 지도 배경에 실시간 혼잡 교통 정보 요청</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 11,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg.ol.ts.ctt.lko'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.ol.ts.ctt.lko.png" alt="일반 지도 배경에 실시간 혼잡 교통 정보 요청"></p>
+<h4>다국어 라벨</h4>
+<blockquote>
+<p>한국어를 포함한 총 4개 언어를 지원하며 외국어 선택시 한국어는 자동으로 병행 표기됩니다.</p>
+</blockquote>
+<h4>일반 지도 배경에 세부 요소와 한국어 라벨 요청</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 12,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg.ol.lko'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.ol.lko.png" alt="일반 지도 배경에 세부 요소와 한국어 라벨 요청"></p>
+<h4>영어</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 12,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg.ol.len'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.ol.len.png" alt="영어 라벨 요청"></p>
+<h4>중국어</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 12,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg.ol.lzh'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.ol.lzh.png" alt="중국어 라벨 요청"></p>
+<h4>일본어</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+  useStyleMap: true,
+  zoom: 12,
+  mapTypes: new naver.maps.MapTypeRegistry({
+    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
+      {
+        overlayType: 'bg.ol.lja'
+      }
+    )
+  })
+});
+</code></pre>
+<p><strong>실행결과</strong></p>
+<p><img src="./img/tutorial/stylemap-normal-bg.ol.lja.png" alt="일본어 라벨 요청"></p>
 
     
 </article>
@@ -711,7 +862,7 @@ var map = new naver.maps.Map('map', {
     </span>
 
 <span class="jsdoc-message">
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
     
     using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
