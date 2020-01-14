@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>투영법과 타일의 크기를 동적으로 변경하기 | 네이버 지도 API v3</title>
-    <meta name="description" content="Example: 투영법과 타일의 크기를 동적으로 변경하기">
+    <title>BicycleLayer | 네이버 지도 API v3</title>
+    <meta name="description" content="Class: naver.maps.BicycleLayer">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -621,7 +621,7 @@
 <div class="row">
 
     
-    <div class="col-md-12">
+    <div class="col-md-8">
     
         <div id="main" itemscope itemtype="https://schema.org/TechArticle">
             <div style="display:none;">
@@ -638,156 +638,1815 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">투영법과 타일의 크기를 동적으로 변경하기</span>
+                    <span itemprop="keywords">BicycleLayer</span>
                 </div>
             </div>
-            <script src="./js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="./js/base.js"></script>
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&amp;submodules=panorama,geocoder,drawing,visualization"></script>
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
+            
 
-<section class="tutorial-section">
-<header></header>
+	<h1 class="page-title">Class: naver.maps.BicycleLayer</h1>
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="naver.html">naver</a><a href="naver.maps.html">.maps</a>.</span>
+        
+        BicycleLayer
+        </h2>
+        
+            <div class="class-description" itemprop="description"><p><code>BicycleLayer</code> 클래스는 자전거 전용도로와 자전거 관련 오버레이를 하나의 지도 유형으로 나타내는 레이어를 정의합니다.</p></div>
+        
+    
+</header>
+
+
 <article>
+    <div class="container-overview">
+    
+        
+<dt>
+    <h4 class="name" id="BicycleLayer"><span class="type-signature"></span>new naver.maps.BicycleLayer(<span class="optional">option</span>)</h4>
+
+    
+</dt>
+<dd>
+
     
 
-    <h1>투영법과 타일의 크기를 동적으로 변경하기</h1>
+    
 
     
 
-<!--  -->
+    
+    
+        <h5>Parameters</h5>
+        
 
-<style type="text/css">
-    #radio-wrap { margin-top:10px; }
-    #radio-wrap input { margin-left:0;vertical-align:bottom; }
-    #radio-wrap label { margin-right:15px; }
-</style>
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-<div id="wrap" class="section">
-    <h2>투영법과 타일 크기를 동적으로 변경하기</h2>
-    <p>투영법과 타일 크기를 동적으로 변경하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
-    <div id="map" style="width:100%;height:600px;"></div>
-    <div>
-        <h4>투영법 변경</h4>
-        <p>(오른쪽 위 버튼 메뉴)</p>
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>option</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.BicycleLayer.html#~BicycleLayerOptions">naver.maps.BicycleLayer~BicycleLayerOptions</a> -->
+    <a href="naver.maps.BicycleLayer.html#~BicycleLayerOptions">BicycleLayerOptions</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>레이어 옵션</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>레이어 이름입니다. 이 레이어의 이름은 <code>bicycle</code>입니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+	<dt class="tag-tutorial method-doc-label method-doc-details-label">Tutorials</dt>
+	<dd class="tag-tutorial">
+		<ul>
+			<li><a href="tutorial-1-Layers.html">레이어</a></li>
+			</ul>
+	</dd>
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
     </div>
-    <div id="radio-wrap" class="radio">
-        <h4>타일 크기 변경</h4>
-        <input id="s64x64" type="radio" name="tile_size" value="64x64" /><label for="s64x64">64 x 64</label>
-        <input id="s128x128" type="radio" name="tile_size" value="128x128" /><label for="s128x128">128 x 128</label>
-        <input id="s256x256" type="radio" name="tile_size" value="256x256" checked /><label for="s256x256">256 x 256</label>
-        <input id="s512x512" type="radio" name="tile_size" value="512x512" /><label for="s512x512">512 x 512</label>
-        <input id="s256x128" type="radio" name="tile_size" value="256x128" /><label for="s256x128">256 x 128</label>
-        <input id="s256x64" type="radio" name="tile_size" value="256x64" /><label for="s256x64">256 x 64</label>
-    </div>
 
-    <code id="snippet" class="snippet"></code>
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="naver.maps.LabelLayer.html">naver.maps.LabelLayer</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getLayerType"><span class="type-signature"></span>getLayerType()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어의 지도 유형을 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#getLayerType">naver.maps.Layer#getLayerType</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.Map.html#event:mapType_changed">mapType_changed</a></li>
+    
+        <li><a href="naver.maps.Map.html#event:mapTypeId_changed">mapTypeId_changed</a></li>
+    
+        <li><a href="naver.maps.Map.html#event:projection_changed">projection_changed</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>레이어의 지도 유형</p>
 </div>
-<script id="code">
-//UTMK_NAVER 투영법의 이미지 지도 타입
-var naverNormalMapType = naver.maps.NaverMapTypeOption.getNormalMap();
-//EPSG3857 투영법의 이미지 지도 타입
-var openStreetMapType = new naver.maps.ImageMapType({
-    name: 'OSM',
-    minZoom: 0,
-    maxZoom: 19,
-    tileSize: new naver.maps.Size(256, 256),
-    projection: naver.maps.EPSG3857,
-    repeatX: true,
-    tileSet: [
-        "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    ],
-    provider: [{
-        title: " /OpenStreetMap",
-        link: "http://www.openstreetmap.org/copyright"
-    }]
-});
-
-// 두 개의 mapType으로 된 지도를 생성합니다.
-var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 2,
-    mapTypes: new naver.maps.MapTypeRegistry({
-        'naver': naverNormalMapType,
-        'osm': openStreetMapType
-    }),
-    mapTypeId: 'naver', //지도의 초기 지도 유형 id
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-        style: naver.maps.MapTypeControlStyle.BUTTON
-    }
-});
-
-new naver.maps.Marker({
-    position: map.getCenter(),
-    map: map
-});
 
 
-var stopNotify = false;
 
-$('#radio-wrap input').on('click', function(e) {
-    var sizeArr = this.value.split('x'),
-        tileSize = new naver.maps.Size(parseInt(sizeArr[0], 10), parseInt(sizeArr[1], 10));
-
-
-    function changeTileSize(mapType, tileSize) {
-        var opts = mapType.getMapTypeOptions();
-
-        opts.tileSize = tileSize; // 타일 크기를 변경합니다.
-        mapType.setMapTypeOptions(opts);
-    }
-
-    changeTileSize(naverNormalMapType, tileSize);
-    changeTileSize(openStreetMapType, tileSize);
-
-    stopNotify = true;
-    map.refresh(true);
-    stopNotify = false;
-});
-
-var idleListener = null;
-
-naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
-    if (stopNotify) return;
-
-    naver.maps.Event.removeListener(idleListener);
-
-    var curZoom = map.getZoom(),
-        toZoom = curZoom;
-
-    if (mapTypeId === 'osm') {
-        toZoom += 5;
-    } else if (mapTypeId === 'naver') {
-        toZoom -= 5;
-    }
-
-    idleListener = naver.maps.Event.once(map, 'idle', function() {
-        naver.maps.Event.removeListener(idleListener);
-
-        var zoom = map.getZoom();
-
-        if (zoom !== toZoom) {
-            map.setZoom(toZoom);
-        }
-    });
-});
-</script>
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="naver.maps.MapType.html">naver.maps.MapType</a></span>
 
 
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.MapType.html">naver.maps.MapType</a> -->
+    <a href="naver.maps.MapType.html">naver.maps.MapType</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>레이어의 지도 유형</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getLayerTypeId"><span class="type-signature"></span>getLayerTypeId()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어의 지도 유형 <code>id</code>를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#getLayerTypeId">naver.maps.Layer#getLayerTypeId</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>레이어의 지도 유형 <code>id</code></p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#string">string</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>레이어의 지도 유형 <code>id</code></p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getMap"><span class="type-signature"></span>getMap()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 레이어가 추가된 지도 객체를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#getMap">naver.maps.Layer#getMap</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>지도 객체</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="naver.maps.Map.html">naver.maps.Map</a></span>
+|
+
+<span class="param-type"><a href="global.html#null">null</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Map.html">naver.maps.Map</a> -->
+    <a href="naver.maps.Map.html">naver.maps.Map</a>
+    </span>
+|
+
+<span class="param-type">
+    
+    <!-- <a href="global.html#null">null</a> -->
+    <a href="global.html#null">null</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>지도 객체</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getOpacity"><span class="type-signature"></span>getOpacity()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어 타일의 불투명도를 반환합니다.<br>
+불투명도값의 범위는 <code>0~1</code>이며, 기본값은 1입니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#getOpacity">naver.maps.Layer#getOpacity</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p><code>0~1</code> 사이의 실수.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#number">number</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p><code>0~1</code> 사이의 실수.</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getPaneElement"><span class="type-signature"></span>getPaneElement()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어의 지도 타일이 렌더링된 창(pane)의 HTML 요소를 반환합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#getPaneElement">naver.maps.Layer#getPaneElement</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>레이어 HTML 요소</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#HTMLElement">HTMLElement</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#HTMLElement">HTMLElement</a> -->
+    <a href="global.html#HTMLElement">HTMLElement</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>레이어 HTML 요소</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="refresh"><span class="type-signature"></span>refresh(<span class="optional">noEffect</span>)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어를 새로 고칩니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>noEffect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>효과 적용 여부</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#refresh">naver.maps.Layer#refresh</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setLayerTypeId"><span class="type-signature"></span>setLayerTypeId(typeId)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어의 지도 유형을 설정합니다.</p>
+<blockquote>
+<p>반드시 <a href="naver.maps.MapTypeRegistry.html">MapTypeRegistry</a> 객체에 등록된 지도 유형 <code>id</code>를 사용합니다.</p>
+</blockquote>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>typeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지도 유형 <code>id</code></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#setLayerTypeId">naver.maps.Layer#setLayerTypeId</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires</h5>
+    <ul>
+    
+        <li><a href="naver.maps.Map.html#event:addLayer">addLayer</a></li>
+    
+        <li><a href="naver.maps.Map.html#event:removeLayer">removeLayer</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setMap"><span class="type-signature"></span>setMap(map)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어를 지도에 추가합니다. 인수로 <a href="global.html#null">null</a>을 전달하면 레이어를 지도에서 제거합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>map</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="naver.maps.Map.html">naver.maps.Map</a> -->
+    <a href="naver.maps.Map.html">naver.maps.Map</a>
+    </span>
+|
+
+<span class="param-type">
+    
+    <!-- <a href="global.html#null">null</a> -->
+    <a href="global.html#null">null</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지도 객체</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#setMap">naver.maps.Layer#setMap</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOpacity"><span class="type-signature"></span>setOpacity(opacity)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>레이어 타일의 불투명도를 설정합니다.<br>
+불투명도값의 범위는 <code>0~1</code>이며, 기본값은 1입니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opacity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>불투명도. <code>0~1</code> 사이의 실수.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="naver.maps.Layer.html#setOpacity">naver.maps.Layer#setOpacity</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id="~BicycleLayerOptions">
+    <h4>BicycleLayerOptions</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p><code>BicycleLayerOptions</code> 객체는 <code>BicycleLayer</code>를 정의하는 옵션을 나타냅니다.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#object">object</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>overlayMap</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>이 값이 true이면 레이어를 타일로 간주합니다. 즉, 타일과 동일한 레벨에 위치하므로 지도 요소 구조상 제일 아래에 위치하며, 타일과 동일한 줌 효과가 적용됩니다. 이 값이 false이면 레이어를 별도의 창(pane)으로 간주합니다. 생성한 순서대로 지도 요소 구조에 추가되므로 레이어의 zIndex값에 따라서는 오버레이보다 위에 위치할 수도 있습니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>zIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#number">number</a> -->
+    <a href="global.html#number">number</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    3
+                
+                </td>
+            
+
+            <td class="description last"><p>레이어의 우선순위입니다. 이 값이 높을수록 다른 레이어보다 위에 표시됩니다. 오버레이 창의 <code>zIndex</code>는 100으로 설정되어 있으므로 이 값이 100보다 크면 오버레이 위로 레이어가 추가됩니다. 단, 레이어가 오버레이보다 위에 있을 때는 오버레이의 이벤트를 사용하지 못하니 주의해야 합니다.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
+    
 
     
 </article>
 
 </section>
 
+
+
+
         </div>
     </div>
 
     <div class="clearfix"></div>
 
+    
+        <div class="col-md-3">
+            <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+        </div>
     
 
 </div>
