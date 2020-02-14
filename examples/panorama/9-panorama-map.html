@@ -35,7 +35,7 @@
 <script id="code">
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.3599605, 127.1058814),
-    zoom: 12
+    zoom: 17
 });
 
 var pano = null;
@@ -62,7 +62,9 @@ naver.maps.onJSContentLoaded = function() {
 
 // 거리뷰 레이어를 생성합니다.
 var streetLayer = new naver.maps.StreetLayer();
-streetLayer.setMap(map);
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    streetLayer.setMap(map);
+});
 
 // 거리뷰 버튼에 이벤트를 바인딩합니다.
 var btn = $('#street');

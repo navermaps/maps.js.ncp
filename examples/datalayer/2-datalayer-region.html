@@ -31,33 +31,35 @@ var HOME_PATH = window.HOME_PATH || '.',
     regionGeoJson = [],
     loadCount = 0;
 
-for (var i = 1; i < 18; i++) {
-    var keyword = i +'';
-
-    if (keyword.length === 1) {
-        keyword = '0'+ keyword;
-    }
-
-    $.ajax({
-        url: urlPrefix + keyword + urlSuffix,
-        success: function(idx) {
-            return function(geojson) {
-                regionGeoJson[idx] = geojson;
-
-                loadCount++;
-
-                if (loadCount === 17) {
-                    startDataLayer();
-                }
-            }
-        }(i - 1)
-    });
-}
-
 var map = new naver.maps.Map(document.getElementById('map'), {
-    zoom: 2,
+    zoom: 7,
     mapTypeId: 'normal',
     center: new naver.maps.LatLng(36.4203004, 128.317960)
+});
+
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    for (var i = 1; i < 18; i++) {
+        var keyword = i +'';
+
+        if (keyword.length === 1) {
+            keyword = '0'+ keyword;
+        }
+
+        $.ajax({
+            url: urlPrefix + keyword + urlSuffix,
+            success: function(idx) {
+                return function(geojson) {
+                    regionGeoJson[idx] = geojson;
+
+                    loadCount++;
+
+                    if (loadCount === 17) {
+                        startDataLayer();
+                    }
+                }
+            }(i - 1)
+        });
+    }
 });
 
 var tooltip = $('<div style="position:absolute;z-index:1000;padding:5px 10px;background-color:#fff;border:solid 2px #000;font-size:14px;pointer-events:none;display:none;"></div>');

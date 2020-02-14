@@ -51,8 +51,6 @@ naver.maps.Event.addListener(map, 'streetLayer_changed', function(streetLayer) {
     }
 });
 
-streetLayer.setMap(map);
-
 btn.on("click", function(e) {
     e.preventDefault();
 
@@ -63,6 +61,9 @@ btn.on("click", function(e) {
     }
 });
 
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    streetLayer.setMap(map);
+});
 </script>
 
 </body>

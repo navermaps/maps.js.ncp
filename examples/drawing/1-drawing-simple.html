@@ -54,53 +54,55 @@
 </div>
 
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 10
-    });
+var map = new naver.maps.Map('map', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 15
+});
 
-    var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
+// 오버레이 추가
+var rect = new naver.maps.Rectangle({
+    map: map,
+    bounds: [126.96744,37.561622,126.9737437,37.5668781],
+    fillColor: '#ff0000',
+    fillOpacity: 0.4,
+    strokeWeight: 2,
+    strokeColor: '#ff0000'
+});
 
-    // 오버레이 추가
-    var rect = new naver.maps.Rectangle({
-        map: map,
-        bounds: [126.96744,37.561622,126.9737437,37.5668781],
-        fillColor: '#ff0000',
-        fillOpacity: 0.4,
-        strokeWeight: 2,
-        strokeColor: '#ff0000'
-    });
+var polygon = new naver.maps.Polygon({
+    map: map,
+    paths: [
+        [126.9797895, 37.5670131],
+        [126.979215, 37.5649555],
+        [126.9766789, 37.5649082],
+        [126.9789515, 37.5637645],
+        [126.9785598, 37.5614914],
+        [126.9804949, 37.5632666],
+        [126.9827689, 37.5619065],
+        [126.9818039, 37.5639213],
+        [126.9837414, 37.5653719],
+        [126.9811162, 37.5651081]
+    ],
+    fillColor: '#ff0000',
+    fillOpacity: 0.4,
+    strokeWeight: 2,
+    strokeColor: '#ff0000'
+});
 
-    var polygon = new naver.maps.Polygon({
-        map: map,
-        paths: [
-            [126.9797895, 37.5670131],
-            [126.979215, 37.5649555],
-            [126.9766789, 37.5649082],
-            [126.9789515, 37.5637645],
-            [126.9785598, 37.5614914],
-            [126.9804949, 37.5632666],
-            [126.9827689, 37.5619065],
-            [126.9818039, 37.5639213],
-            [126.9837414, 37.5653719],
-            [126.9811162, 37.5651081]
-        ],
-        fillColor: '#ff0000',
-        fillOpacity: 0.4,
-        strokeWeight: 2,
-        strokeColor: '#ff0000'
-    })
-
+var drawingManager;
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    drawingManager = new naver.maps.drawing.DrawingManager({map: map});
     drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
     drawingManager.addDrawing(polygon, naver.maps.drawing.DrawingMode.POLYGON);
-
+});
 </script>
 <script type="text/javascript">
+naver.maps.Event.once(map, 'init_stylemap', function() {
     // 이벤트 로깅
     var logger = $('#logger'),
         OVERAY_NAMES = ['rectangle', 'ellipse', 'polyline', 'arrowline', 'polygon', 'marker'],
@@ -125,6 +127,7 @@
             logger.scrollTop(logger.innerHeight());
         });
     });
+});
 </script>
 </body>
 </html>

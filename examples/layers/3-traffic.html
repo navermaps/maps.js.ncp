@@ -61,9 +61,6 @@ naver.maps.Event.addListener(map, 'trafficLayer_changed', function(trafficLayer)
     }
 });
 
-trafficLayer.setMap(map);
-
-
 btn.on("click", function(e) {
     e.preventDefault();
 
@@ -83,6 +80,10 @@ $("#autorefresh").on("click", function(e) {
     } else {
         trafficLayer.endAutoRefresh();
     }
+});
+
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    trafficLayer.setMap(map);
 });
 </script>
 

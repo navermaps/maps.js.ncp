@@ -39,17 +39,19 @@
 </div>
 
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 10
-    });
+var map = new naver.maps.Map('map', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 15
+});
 
-    var drawingManager = new naver.maps.drawing.DrawingManager({
+var drawingManager;
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    drawingManager = new naver.maps.drawing.DrawingManager({
         map: map,
         rectangleOptions: {
             fillColor: '#ff0000',
@@ -78,30 +80,31 @@
             strokeColor:'#ffc300'
         }
     });
+});
 
-    var restoreMap = new naver.maps.Map('restoreMap', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 10
-    });
+var restoreMap = new naver.maps.Map('restoreMap', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 15
+});
 
-    var geojson;
+var geojson;
 
-    $("#restore").on("click", function(e) {
-        e.preventDefault();
+$("#restore").on("click", function(e) {
+    e.preventDefault();
 
-        if (geojson) {
-            restoreMap.data.removeGeoJson(geojson);
-            geojson = null;
-        }
+    if (geojson) {
+        restoreMap.data.removeGeoJson(geojson);
+        geojson = null;
+    }
 
-        geojson = drawingManager.toGeoJson();
-        restoreMap.data.addGeoJson(geojson, true);
-    });
+    geojson = drawingManager.toGeoJson();
+    restoreMap.data.addGeoJson(geojson, true);
+});
 </script>
 </body>
 </html>

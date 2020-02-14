@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -661,10 +659,15 @@
 <li>기존 맵 타일: NAVER 지도 API v3에서 기본적으로 제공하는 지도 유형(MapType)은 UTMK 투영법을 변조한 네이버 자체 투영법인 <code>UTMK_NAVER</code>를 사용합니다.</li>
 <li>신규 맵 타일: StyleMap에서 기본적으로 제공하는 지도 유형은 웹 기반 지도 서비스에서 일반적으로 사용하는 <code>EPSG:3857</code> 을 기본 투영으로 사용합니다.</li>
 </ul>
+<h3>기본 줌 레벨</h3>
+<ul>
+<li>기존 맵 타일: <code>11</code>.</li>
+<li>신규 맵 타일: <code>16</code>. 기존 줌 레벨과 +5 차이가 있습니다.</li>
+</ul>
 <h3>줌 레벨 지원 범위</h3>
 <ul>
 <li>기존 맵 타일: 1~14 레벨을 지원하고 있으며, <code>14</code> 레벨이 최대 확대 레벨입니다.</li>
-<li>신규 맵 타일: 0레벨이 세계지도 전도가 보이는 레벨이며, <code>22</code> 레벨이 최대 확대 레벨입니다.</li>
+<li>신규 맵 타일: 0레벨이 세계지도 전도가 보이는 레벨이며, <code>21</code> 레벨이 최대 확대 레벨입니다.</li>
 </ul>
 <h3>minZoom 제한</h3>
 <ul>

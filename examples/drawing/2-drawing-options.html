@@ -86,17 +86,40 @@
     var HOME_PATH = window.HOME_PATH || '.';
 </script>
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 2
-    });
+var map = new naver.maps.Map('map', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 7
+});
 
-    var drawingManager = new naver.maps.drawing.DrawingManager({
+// 오버레이를 매니저에 추가
+var rect = new naver.maps.Rectangle({
+    map: map,
+    bounds: [125.6195858,37.1928595,126.5689034,37.8594302],
+    fillColor: '#00bf46',
+    fillOpacity: 0.4,
+    strokeWeight: 2,
+    strokeColor: '#00bf46'
+});
+
+// 오버레이의 setEditable을 직접 호출
+var rect2 = new naver.maps.Rectangle({
+    map: map,
+    bounds: [124.2220128,37.1928595,125.1587723,37.8594302],
+    fillColor: '#bf0091',
+    fillOpacity: 0.4,
+    strokeWeight: 2,
+    strokeColor: '#bf0091'
+});
+rect2.setEditable(true);
+
+var drawingManager;
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    drawingManager = new naver.maps.drawing.DrawingManager({
         map: map,
         drawingControl: [
             naver.maps.drawing.DrawingMode.POLYLINE,
@@ -162,33 +185,11 @@
 
     // 옵션 조정
     drawingManager.setOptions('drawingControlOptions', {position: naver.maps.Position.RIGHT_CENTER});
-
-    // 오버레이를 매니저에 추가
-    var rect = new naver.maps.Rectangle({
-            map: map,
-            bounds: [125.6195858,37.1928595,126.5689034,37.8594302],
-            fillColor: '#00bf46',
-            fillOpacity: 0.4,
-            strokeWeight: 2,
-            strokeColor: '#00bf46'
-        });
-
     drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
-
-    // 오버레이의 setEditable을 직접 호출
-    var rect2 = new naver.maps.Rectangle({
-            map: map,
-            bounds: [124.2220128,37.1928595,125.1587723,37.8594302],
-            fillColor: '#bf0091',
-            fillOpacity: 0.4,
-            strokeWeight: 2,
-            strokeColor: '#bf0091'
-        });
-
-    rect2.setEditable(true);
-
+});
 </script>
 <script type="text/javascript">
+naver.maps.Event.once(map, 'init_stylemap', function () {
     var dm = drawingManager;
 
     $('#position_panel input[type=radio]').change(function() {
@@ -221,7 +222,7 @@
             $('#icons_panel input:checkbox').prop('checked', true);
         }
     });
-
+});
 </script>
 </body>
 </html>

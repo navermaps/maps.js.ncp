@@ -29,7 +29,7 @@
             <input id="kinetic" type="button" name="관성 드래깅" value="관성 드래깅" class="control-btn" />
             <input id="tile-transition" type="button" name="타일 fadeIn 효과" value="타일 fadeIn 효과" class="control-btn" />
             <input id="controls" type="button" name="모든 지도 컨트롤" value="모든 지도 컨트롤" class="control-btn" />
-            <input id="min-max-zoom" type="button" name="최소/최대 줌 레벨" value="최소/최대 줌 레벨: 1 ~ 14" class="control-btn" />
+            <input id="min-max-zoom" type="button" name="최소/최대 줌 레벨" value="최소/최대 줌 레벨: 10 ~ 21" class="control-btn" />
         </div>
     </div>
     <code id="snippet" class="snippet"></code>
@@ -38,8 +38,8 @@
 //지도 생성 시에 옵션을 지정할 수 있습니다.
 var map = new naver.maps.Map('map', {
         center: new naver.maps.LatLng(37.3595704, 127.105399), //지도의 초기 중심 좌표
-        zoom: 8, //지도의 초기 줌 레벨
-        minZoom: 1, //지도의 최소 줌 레벨
+        zoom: 13, //지도의 초기 줌 레벨
+        minZoom: 7, //지도의 최소 줌 레벨
         zoomControl: true, //줌 컨트롤의 표시 여부
         zoomControlOptions: { //줌 컨트롤의 옵션
             position: naver.maps.Position.TOP_RIGHT
@@ -49,6 +49,9 @@ var map = new naver.maps.Map('map', {
 //setOptions 메서드를 이용해 옵션을 조정할 수도 있습니다.
 map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
 
+naver.maps.Event.addListener(map, 'zoom_changed', function (zoom) {
+    console.log('zoom:' + zoom);
+});
 
 // 지도 인터랙션 옵션
 $("#interaction").on("click", function(e) {
@@ -114,16 +117,16 @@ $("#min-max-zoom").on("click", function(e) {
 
     if (map.getOptions("minZoom") === 10) {
         map.setOptions({
-            minZoom: 1,
-            maxZoom: 14
+            minZoom: 7,
+            maxZoom: 21
         });
-        $(this).val(this.name + ': 1 ~ 14');
+        $(this).val(this.name + ': 7 ~ 21');
     } else {
         map.setOptions({
             minZoom: 10,
-            maxZoom: 12
+            maxZoom: 21
         });
-        $(this).val(this.name + ': 10 ~ 12');
+        $(this).val(this.name + ': 10 ~ 21');
     }
 });
 

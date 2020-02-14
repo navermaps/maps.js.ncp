@@ -26,17 +26,19 @@
 </div>
 <script id="code">
 var map = new naver.maps.Map(document.getElementById('map'), {
-    zoom: 7,
+    zoom: 12,
     mapTypeId: 'normal',
     center: new naver.maps.LatLng(38.1361378, 128.4021238)
 });
 
 var HOME_PATH = window.HOME_PATH || '.';
 
-$.ajax({
-    url: HOME_PATH +'/data/seorak.gpx',
-    dataType: 'xml',
-    success: startDataLayer
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    $.ajax({
+        url: HOME_PATH +'/data/seorak.gpx',
+        dataType: 'xml',
+        success: startDataLayer
+    });
 });
 
 function startDataLayer(xmlDoc) {

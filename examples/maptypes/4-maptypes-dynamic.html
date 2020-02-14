@@ -42,9 +42,7 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-//UTMK_NAVER 투영법의 이미지 지도 타입
-var naverNormalMapType = naver.maps.NaverMapTypeOption.getNormalMap();
-//EPSG3857 투영법의 이미지 지도 타입
+var naverNormalMapType = naver.maps.NaverStyleMapTypeOption.getNormalMap();
 var openStreetMapType = new naver.maps.ImageMapType({
     name: 'OSM',
     minZoom: 0,
@@ -66,7 +64,6 @@ var openStreetMapType = new naver.maps.ImageMapType({
 // 두 개의 mapType으로 된 지도를 생성합니다.
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 2,
     mapTypes: new naver.maps.MapTypeRegistry({
         'naver': naverNormalMapType,
         'osm': openStreetMapType
@@ -104,33 +101,6 @@ $('#radio-wrap input').on('click', function(e) {
     stopNotify = true;
     map.refresh(true);
     stopNotify = false;
-});
-
-var idleListener = null;
-
-naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
-    if (stopNotify) return;
-
-    naver.maps.Event.removeListener(idleListener);
-
-    var curZoom = map.getZoom(),
-        toZoom = curZoom;
-
-    if (mapTypeId === 'osm') {
-        toZoom += 5;
-    } else if (mapTypeId === 'naver') {
-        toZoom -= 5;
-    }
-
-    idleListener = naver.maps.Event.once(map, 'idle', function() {
-        naver.maps.Event.removeListener(idleListener);
-
-        var zoom = map.getZoom();
-
-        if (zoom !== toZoom) {
-            map.setZoom(toZoom);
-        }
-    });
 });
 </script>
 

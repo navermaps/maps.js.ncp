@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -684,9 +682,7 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-//UTMK_NAVER 투영법의 이미지 지도 타입
-var naverNormalMapType = naver.maps.NaverMapTypeOption.getNormalMap();
-//EPSG3857 투영법의 이미지 지도 타입
+var naverNormalMapType = naver.maps.NaverStyleMapTypeOption.getNormalMap();
 var openStreetMapType = new naver.maps.ImageMapType({
     name: 'OSM',
     minZoom: 0,
@@ -708,7 +704,6 @@ var openStreetMapType = new naver.maps.ImageMapType({
 // 두 개의 mapType으로 된 지도를 생성합니다.
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 2,
     mapTypes: new naver.maps.MapTypeRegistry({
         'naver': naverNormalMapType,
         'osm': openStreetMapType
@@ -746,33 +741,6 @@ $('#radio-wrap input').on('click', function(e) {
     stopNotify = true;
     map.refresh(true);
     stopNotify = false;
-});
-
-var idleListener = null;
-
-naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
-    if (stopNotify) return;
-
-    naver.maps.Event.removeListener(idleListener);
-
-    var curZoom = map.getZoom(),
-        toZoom = curZoom;
-
-    if (mapTypeId === 'osm') {
-        toZoom += 5;
-    } else if (mapTypeId === 'naver') {
-        toZoom -= 5;
-    }
-
-    idleListener = naver.maps.Event.once(map, 'idle', function() {
-        naver.maps.Event.removeListener(idleListener);
-
-        var zoom = map.getZoom();
-
-        if (zoom !== toZoom) {
-            map.setZoom(toZoom);
-        }
-    });
 });
 </script>
 

@@ -37,7 +37,7 @@
 <script id="code">
 var map = new naver.maps.Map("map", {
     center: new naver.maps.LatLng(37.3595316, 127.1052133),
-    zoom: 10,
+    zoom: 15,
     mapTypeControl: true
 });
 
@@ -126,6 +126,10 @@ function searchAddressToCoordinate(address) {
 }
 
 function initGeocoder() {
+    if (!map.isStyleMapReady) {
+        return;
+    }
+
     map.addListener('click', function(e) {
         searchCoordinateToAddress(e.coord);
     });
@@ -222,6 +226,7 @@ function hasAddition (addition) {
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
+naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
 </script>
 
 </body>

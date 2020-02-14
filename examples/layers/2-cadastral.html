@@ -51,8 +51,6 @@ naver.maps.Event.addListener(map, 'cadastralLayer_changed', function(cadastralLa
     }
 });
 
-cadastralLayer.setMap(map);
-
 btn.on('click', function(e) {
     e.preventDefault();
 
@@ -63,6 +61,10 @@ btn.on('click', function(e) {
         cadastralLayer.setMap(map);
         btn.addClass('control-on').val('지적도 끄기');
     }
+});
+
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    cadastralLayer.setMap(map);
 });
 </script>
 

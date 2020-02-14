@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -691,8 +689,8 @@
 </blockquote>
 <h3>지도 유형 저장소 사용하기</h3>
 <p>앞서 일반, 위성 등의 다양한 지도 유형을 설명했습니다. NAVER 지도 API v3은 이와 같은 지도 유형을 관리하기 위해 지도 유형 저장소라고 불리는 <code>MapTypeRegistry</code> 객체를 이용합니다.</p>
-<p>지도 유형 저장소는 <code>MapType</code> 객체를 컬렉션으로 관리하고 있으며, NAVER 지도 API v3에서 기본적으로 제공하는 지도 유형은 <code>NaverMapTypeOptions</code> 객체에서 제공하는 팩토리 메서드를 이용해 접근할 수 있습니다.</p>
-<pre class="prettyprint source lang-js"><code>naver.maps.NaverMapTypeOption.getNormalMap();
+<p>지도 유형 저장소는 <code>MapType</code> 객체를 컬렉션으로 관리하고 있으며, NAVER 지도 API v3에서 기본적으로 제공하는 지도 유형은 <code>NaverStyleMapTypeOption</code> 객체에서 제공하는 팩토리 메서드를 이용해 접근할 수 있습니다.</p>
+<pre class="prettyprint source lang-js"><code>naver.maps.NaverStyleMapTypeOption.getNormalMap();
 </code></pre>
 <p>다음은 원하는 지도 유형(위성, 겹침보기)만 등록하는 예제입니다. 등록되지 않은 지도 유형을 사용하려고 하면 오류가 발생합니다.</p>
 <pre class="prettyprint source lang-js"><code>var registry = new naver.maps.MapTypeRegistry();
@@ -702,8 +700,8 @@ var map = new naver.maps.Map('map', {
     mapTypeId: naver.maps.MapTypeId.SATELLITE
 });
 
-map.mapTypes.set(naver.maps.MapTypeId.SATELLITE, naver.maps.NaverMapTypeOption.getSatelliteMap());
-map.mapTypes.set(naver.maps.MapTypeId.HYBRID, naver.maps.NaverMapTypeOption.getHybridMap());
+map.mapTypes.set(naver.maps.MapTypeId.SATELLITE, naver.maps.NaverStyleMapTypeOption.getSatelliteMap());
+map.mapTypes.set(naver.maps.MapTypeId.HYBRID, naver.maps.NaverStyleMapTypeOption.getHybridMap());
 
 map.setMapTypeId(naver.maps.MapTypeId.NORMAL); // error thrown
 </code></pre>

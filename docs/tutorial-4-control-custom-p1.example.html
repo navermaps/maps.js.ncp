@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -671,9 +669,10 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
-    var map = new naver.maps.Map('map', {zoom: 8});
+var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
+var map = new naver.maps.Map('map', {zoom: 13});
 
+naver.maps.Event.once(map, 'init_stylemap', function() {
     //customControl 객체 이용하기
     var customControl = new naver.maps.CustomControl(locationBtnHtml, {
         position: naver.maps.Position.TOP_LEFT
@@ -681,7 +680,7 @@
 
     customControl.setMap(map);
 
-    var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+    naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
         map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
     });
 
@@ -691,9 +690,10 @@
 
     map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
 
-    var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+    naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
         map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
     });
+});
 </script>
 
 

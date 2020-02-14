@@ -28,7 +28,7 @@ window.SearcherDisplay = (function($) {
             $(window).on("message", function(msg) {
                 var data = msg.originalEvent.data;
 
-                if (data == '') {
+                if (data === '' || typeof data === 'object') {
                     return;
                 }
 

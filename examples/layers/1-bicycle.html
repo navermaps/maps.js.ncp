@@ -52,8 +52,6 @@ naver.maps.Event.addListener(map, 'bicycleLayer_changed', function(bicycleLayer)
     }
 });
 
-bicycleLayer.setMap(map);
-
 btn.on("click", function(e) {
     e.preventDefault();
 
@@ -64,6 +62,9 @@ btn.on("click", function(e) {
     }
 });
 
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    bicycleLayer.setMap(map);
+});
 </script>
 
 </body>

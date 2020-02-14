@@ -26,7 +26,7 @@
     <div id="map" style="width:100%;height:600px;">
         <div class="buttons">
             <input id="to-jeju" type="button" value="제주도로 setCenter" class="control-btn" />
-            <input id="to-1" type="button" value="1레벨로 setZoom" class="control-btn" />
+            <input id="to-1" type="button" value="6레벨로 setZoom" class="control-btn" />
             <input id="to-dokdo" type="button" value="독도로 fitBounds" class="control-btn" />
             <input id="to-busan" type="button" value="부산으로 panTo" class="control-btn" />
             <input id="to-seoul" type="button" value="서울로 panToBounds" class="control-btn" />
@@ -38,7 +38,7 @@
 <script id="code">
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.5666805, 126.9784147),
-    zoom: 4
+    zoom: 9
 });
 
 var jeju = new naver.maps.LatLng(33.3590628, 126.534361),
@@ -59,7 +59,7 @@ $("#to-jeju").on("click", function(e) {
 $("#to-1").on("click", function(e) {
     e.preventDefault();
 
-    map.setZoom(1, true);
+    map.setZoom(6, true);
 });
 
 $("#to-dokdo").on("click", function(e) {

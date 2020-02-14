@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -677,17 +675,19 @@
 </div>
 
 <script id="code">
-    var map = new naver.maps.Map('map', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 10
-    });
+var map = new naver.maps.Map('map', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 15
+});
 
-    var drawingManager = new naver.maps.drawing.DrawingManager({
+var drawingManager;
+naver.maps.Event.once(map, 'init_stylemap', function () {
+    drawingManager = new naver.maps.drawing.DrawingManager({
         map: map,
         rectangleOptions: {
             fillColor: '#ff0000',
@@ -716,30 +716,31 @@
             strokeColor:'#ffc300'
         }
     });
+});
 
-    var restoreMap = new naver.maps.Map('restoreMap', {
-        zoomControl: true,
-        zoomControlOptions: {
-            style: naver.maps.ZoomControlStyle.LARGE,
-            position: naver.maps.Position.TOP_RIGHT
-        },
-        mapTypeControl: true,
-        zoom: 10
-    });
+var restoreMap = new naver.maps.Map('restoreMap', {
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.LARGE,
+        position: naver.maps.Position.TOP_RIGHT
+    },
+    mapTypeControl: true,
+    zoom: 15
+});
 
-    var geojson;
+var geojson;
 
-    $("#restore").on("click", function(e) {
-        e.preventDefault();
+$("#restore").on("click", function(e) {
+    e.preventDefault();
 
-        if (geojson) {
-            restoreMap.data.removeGeoJson(geojson);
-            geojson = null;
-        }
+    if (geojson) {
+        restoreMap.data.removeGeoJson(geojson);
+        geojson = null;
+    }
 
-        geojson = drawingManager.toGeoJson();
-        restoreMap.data.addGeoJson(geojson, true);
-    });
+    geojson = drawingManager.toGeoJson();
+    restoreMap.data.addGeoJson(geojson, true);
+});
 </script>
 
 

@@ -29,9 +29,10 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-    var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
-    var map = new naver.maps.Map('map', {zoom: 8});
+var locationBtnHtml = '<a href="#" class="btn_mylct"><span class="spr_trff spr_ico_mylct">NAVER 그린팩토리</span></a>';
+var map = new naver.maps.Map('map', {zoom: 13});
 
+naver.maps.Event.once(map, 'init_stylemap', function() {
     //customControl 객체 이용하기
     var customControl = new naver.maps.CustomControl(locationBtnHtml, {
         position: naver.maps.Position.TOP_LEFT
@@ -39,7 +40,7 @@
 
     customControl.setMap(map);
 
-    var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+    naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
         map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
     });
 
@@ -49,9 +50,10 @@
 
     map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
 
-    var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+    naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
         map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
     });
+});
 </script>
 </body>
 </html>

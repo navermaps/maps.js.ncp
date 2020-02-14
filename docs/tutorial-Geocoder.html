@@ -343,7 +343,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Panorama.html">파노라마 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Geocoder-Geocoding.html">Geocoder를 활용한 주소와 좌표 검색 API 호출하기</a></li>
                 
@@ -545,11 +545,9 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-panorama-map.example.html">지도와 파노라마 연동하기</a></li>
                 
-                        <li><a href="tutorial-digest.example.html#좌표-주소 변환" class="_cat" style="padding-left:10px" >좌표-주소 변환</a></li>
+                        <li><a href="tutorial-digest.example.html#좌표-주소-변환" class="_cat" style="padding-left:10px" >좌표-주소-변환</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-geocoder-geocoding.example.html">주소와 좌표 검색 API 사용하기</a></li>
                 
@@ -655,7 +653,7 @@
     <h1>Geocoder를 활용한 좌표 변환</h1>
 
     <p>Geocoder 서브 모듈은 NAVER 지도 API v3에서 제공하는 서브 모듈 중 하나로, 좌표 체계 간 변환 메서드와 특정 좌표계를 지원하는 투영 객체들을 제공합니다.</p>
-<p>Geocoder에 대한 다양한 예제는 [Geocoder 예제](./tutorial-digest.example.html#좌표-주소 변환)를 참고합니다.</p>
+<p>Geocoder에 대한 다양한 예제는 <a href="./tutorial-digest.example.html#%EC%A2%8C%ED%91%9C-%EC%A3%BC%EC%86%8C-%EB%B3%80%ED%99%98">Geocoder 예제</a>를 참고합니다.</p>
 <h2>서브 모듈 로드하기</h2>
 <p>Geocoder를 사용하려면 Geocoder 서브 모듈 JavaScript 파일을 로드해야 합니다. 다음과 같이 파일을 로드합니다.<br>
 Geocoder 서브 모듈을 사용하려면 NAVER 지도 API v3이 로드되어 있어야 합니다. 자세한 사항은 <a href="./tutorial-4-Submodules.html">서브 모듈 시스템</a>을 참고합니다.</p>
@@ -687,32 +685,6 @@ var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
 var naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128); // TM128 -> NAVER
 </code></pre>
 <p><strong>Examples</strong>: <a href="tutorial-1-geocoder-transcoord.example.html">좌표계 변환하기</a></p>
-<h2>확장된 투영 객체 사용하기</h2>
-<p>NAVER 지도 API v3에서 기본으로 제공하는 투영 객체는 기본 좌표계로 위/경도 좌표계를 사용했습니다.<br>
-Geocoder에서는 위/경도 좌표가 아닌 다른 평면 좌표계를 기본 좌표계로 사용하는 투영 객체들을 제공합니다.<br>
-예를 들어, <code>naver.maps.TM128Coord</code> 투영 객체를 활용하는 지도 유형을 사용한다면 입/출력 좌표는 모두 <code>TM128</code> 좌표를 사용하게 됩니다.</p>
-<h3>TM128Coord 투영 객체 사용하기</h3>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map-container', {
-    center:  new naver.maps.Point(309852, 552189), // TM128
-    zoom: 11,
-    mapTypeId: 'normal',
-    mapTypes: new naver.maps.MapTypeRegistry({
-        'normal': naver.maps.NaverMapTypeOption.getNormalMap({
-            projection: naver.maps.TM128Coord
-        }),
-        'terrain': naver.maps.NaverMapTypeOption.getTerrainMap({
-            projection: naver.maps.TM128Coord
-        }),
-        'satellite': naver.maps.NaverMapTypeOption.getSatelliteMap({
-            projection: naver.maps.TM128Coord
-        }),
-        'hybrid': naver.maps.NaverMapTypeOption.getHybridMap({
-            projection: naver.maps.TM128Coord
-        })
-    })
-});
-</code></pre>
-<p><strong>Examples</strong>: <a href="tutorial-2-geocoder-tm128coord.example.html">TM128 평면 좌표 투영 사용하기</a></p>
 
     
 </article>
