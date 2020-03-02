@@ -45,7 +45,7 @@ var map = new naver.maps.Map('map', {
 });
 
 var trafficLayer = new naver.maps.TrafficLayer({
-    interval: 2000 // 2초마다 새로고침
+    interval: 300000 // 5분마다 새로고침 (최소값 5분)
 });
 
 var btn = $('#traffic');
