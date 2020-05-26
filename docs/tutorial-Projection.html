@@ -409,6 +409,10 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-9-maptypes-canvasmaptype.example.html">캔버스 타일 지도 유형</a></li>
                 
+                        <li><a href="tutorial-digest.example.html#프로젝션" class="_cat" style="padding-left:10px" >프로젝션</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-projection-coord-to-pixel.example.html">좌표를 픽셀로 변환하기</a></li>
+                
                         <li><a href="tutorial-digest.example.html#이벤트" class="_cat" style="padding-left:10px" >이벤트</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-event-simple.example.html">이벤트 기본 예제</a></li>
@@ -693,7 +697,7 @@
 </blockquote>
 <p>다음은 <a href="naver.maps.MapSystemProjection.html">MapSystemProjection</a> 인스턴스와 지도 유형의 투영 객체의 세계 좌표 변환을 보여줍니다. 이 예제의 결과를 살펴보면 본래의 투영 객체로 변환한 세계 좌표에서 타일 크기를 곱한 결과가 실제 API에서 사용하는 세계 좌표라는 것을 알 수 있습니다.</p>
 <pre class="prettyprint source lang-js"><code>map.getProjection() === map.getMapType().projection; // false
-map.getPrimitiveProjection() === map.getMapType().projectio; // true
+map.getPrimitiveProjection() === map.getMapType().projection; // true
 
 var cityHall = new naver.maps.LatLng(37.5666805, 126.9784147);
 

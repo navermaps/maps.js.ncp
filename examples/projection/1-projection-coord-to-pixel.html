@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>좌표를 픽셀로 변환하는 예제</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=orK7_YeBAdN64OJ8HUVz&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Projection -->
+
+<style type="text/css">
+    #wrap .buttons { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
+    #wrap .buttons2 { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons2 .control-btn { margin:0 5px 5px 0; }
+</style>
+<div id="wrap" class="section">
+    <h2>좌표를 픽셀로 변환하여 Bounds를 설정하는 예제</h2>
+    <p>프로젝션을 활용하여 좌표를 픽셀로 변환하여 Bounds 를 확대 / 축소하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;">
+        <div class="buttons">
+            <input id="reduce" type="button" value="바운드50줄이기" class="control-btn" />
+            <input id="expand" type="button" value="바운드50늘리기" class="control-btn" />
+        </div>
+    </div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var sw,
+    ne,
+    rect,
+    bounds,
+    projection,
+    map = new naver.maps.Map('map', {
+        zoom: 16,
+        center: new naver.maps.LatLng(37.565580, 126.978008),
+    });
+
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    bounds = map.getBounds();
+    projection = map.getProjection();
+    rect = new naver.maps.Rectangle({
+        map: map,
+        bounds: bounds,
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2,
+        strokeColor: '#00ff00',
+        fillColor: '#00ff00',
+    });
+    sw = new naver.maps.Marker({
+        map: map,
+        position: bounds.getSW()
+    });
+    ne = new naver.maps.Marker({
+        map: map,
+        position: bounds.getNE()
+    });
+});
+
+var btns = $(".buttons > input");
+btns.on("click", function(e) {
+    e.preventDefault();
+
+    if (this.id === 'reduce') {
+        bounds = reduce(bounds, 50, 50);
+        updateRectangle(bounds);
+    } else {
+        bounds = expand(bounds, 50, 50);
+        updateRectangle(bounds);
+    }
+
+    btns.removeClass("control-on");
+    $(this).addClass("control-on");
+});
+
+function updateRectangle(bounds) {
+    rect.setBounds(bounds);
+    sw.setPosition(bounds.getSW());
+    ne.setPosition(bounds.getNE());
+}
+
+function reduce(bounds, x, y) {
+    var sw = bounds.getSW(),
+        ne = bounds.getNE(),
+        offsetSW = projection.fromCoordToOffset(sw),
+        offsetNE = projection.fromCoordToOffset(ne);
+
+    offsetSW.x = offsetSW.x + x;
+    offsetSW.y = offsetSW.y - y;
+    offsetNE.x = offsetNE.x - x;
+    offsetNE.y = offsetNE.y + y;
+
+    return new naver.maps.LatLngBounds(projection.fromOffsetToCoord(offsetSW), projection.fromOffsetToCoord(offsetNE));
+}
+
+function expand(bounds, x, y) {
+    var sw = bounds.getSW(),
+        ne = bounds.getNE(),
+        offsetSW = projection.fromCoordToOffset(sw),
+        offsetNE = projection.fromCoordToOffset(ne);
+
+    offsetSW.x = offsetSW.x - x;
+    offsetSW.y = offsetSW.y + y;
+    offsetNE.x = offsetNE.x + x;
+    offsetNE.y = offsetNE.y - y;
+
+    return new naver.maps.LatLngBounds(projection.fromOffsetToCoord(offsetSW), projection.fromOffsetToCoord(offsetNE));
+}
+</script>
+
+</body>
+</html>

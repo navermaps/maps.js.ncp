@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>행정구역 GeoJSON 데이터 레이어 표시하기 | 네이버 지도 API v3</title>
-    <meta name="description" content="Example: 행정구역 GeoJSON 데이터 레이어 표시하기">
+    <title>좌표를 픽셀로 변환하기 | 네이버 지도 API v3</title>
+    <meta name="description" content="Example: 좌표를 픽셀로 변환하기">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -640,7 +640,7 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">행정구역 GeoJSON 데이터 레이어 표시하기</span>
+                    <span itemprop="keywords">좌표를 픽셀로 변환하기</span>
                 </div>
             </div>
             <script src="./js/jquery-1.9.1.js"></script>
@@ -653,116 +653,109 @@
 <article>
     
 
-    <h1>행정구역 GeoJSON 데이터 레이어 표시하기</h1>
+    <h1>좌표를 픽셀로 변환하기</h1>
 
     
 
 <!--  -->
 
+<style type="text/css">
+    #wrap .buttons { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
+    #wrap .buttons2 { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons2 .control-btn { margin:0 5px 5px 0; }
+</style>
 <div id="wrap" class="section">
-    <h2>행정구역 GeoJSON 데이터 레이어 표시하기</h2>
-    <p>행정구역 GeoJSON 데이터를 지도에 표시하는 예제입니다. 이 예제는 jQuery 구문을 포함하고 있습니다.</p>
-    <div id="map" style="width:100%;height:600px;"></div>
+    <h2>좌표를 픽셀로 변환하여 Bounds를 설정하는 예제</h2>
+    <p>프로젝션을 활용하여 좌표를 픽셀로 변환하여 Bounds 를 확대 / 축소하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;">
+        <div class="buttons">
+            <input id="reduce" type="button" value="바운드50줄이기" class="control-btn" />
+            <input id="expand" type="button" value="바운드50늘리기" class="control-btn" />
+        </div>
+    </div>
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="code">
-var HOME_PATH = window.HOME_PATH || '.',
-    urlPrefix = HOME_PATH +'/data/region',
-    urlSuffix = '.json',
-    regionGeoJson = [],
-    loadCount = 0;
+var sw,
+    ne,
+    rect,
+    bounds,
+    projection,
+    map = new naver.maps.Map('map', {
+        zoom: 16,
+        center: new naver.maps.LatLng(37.565580, 126.978008),
+    });
 
-var map = new naver.maps.Map(document.getElementById('map'), {
-    zoom: 7,
-    mapTypeId: 'normal',
-    center: new naver.maps.LatLng(36.4203004, 128.317960)
+naver.maps.Event.once(map, 'init_stylemap', function() {
+    bounds = map.getBounds();
+    projection = map.getProjection();
+    rect = new naver.maps.Rectangle({
+        map: map,
+        bounds: bounds,
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2,
+        strokeColor: '#00ff00',
+        fillColor: '#00ff00',
+    });
+    sw = new naver.maps.Marker({
+        map: map,
+        position: bounds.getSW()
+    });
+    ne = new naver.maps.Marker({
+        map: map,
+        position: bounds.getNE()
+    });
 });
 
-naver.maps.Event.once(map, 'init_stylemap', function () {
-    for (var i = 1; i < 18; i++) {
-        var keyword = i +'';
+var btns = $(".buttons > input");
+btns.on("click", function(e) {
+    e.preventDefault();
 
-        if (keyword.length === 1) {
-            keyword = '0'+ keyword;
-        }
-
-        $.ajax({
-            url: urlPrefix + keyword + urlSuffix,
-            success: function(idx) {
-                return function(geojson) {
-                    regionGeoJson[idx] = geojson;
-
-                    loadCount++;
-
-                    if (loadCount === 17) {
-                        startDataLayer();
-                    }
-                }
-            }(i - 1)
-        });
+    if (this.id === 'reduce') {
+        bounds = reduce(bounds, 50, 50);
+        updateRectangle(bounds);
+    } else {
+        bounds = expand(bounds, 50, 50);
+        updateRectangle(bounds);
     }
+
+    btns.removeClass("control-on");
+    $(this).addClass("control-on");
 });
 
-var tooltip = $('<div style="position:absolute;z-index:1000;padding:5px 10px;background-color:#fff;border:solid 2px #000;font-size:14px;pointer-events:none;display:none;"></div>');
+function updateRectangle(bounds) {
+    rect.setBounds(bounds);
+    sw.setPosition(bounds.getSW());
+    ne.setPosition(bounds.getNE());
+}
 
-tooltip.appendTo(map.getPanes().floatPane);
+function reduce(bounds, x, y) {
+    var sw = bounds.getSW(),
+        ne = bounds.getNE(),
+        offsetSW = projection.fromCoordToOffset(sw),
+        offsetNE = projection.fromCoordToOffset(ne);
 
-function startDataLayer() {
-    map.data.setStyle(function(feature) {
-        var styleOptions = {
-            fillColor: '#ff0000',
-            fillOpacity: 0.0001,
-            strokeColor: '#ff0000',
-            strokeWeight: 2,
-            strokeOpacity: 0.4
-        };
+    offsetSW.x = offsetSW.x + x;
+    offsetSW.y = offsetSW.y - y;
+    offsetNE.x = offsetNE.x - x;
+    offsetNE.y = offsetNE.y + y;
 
-        if (feature.getProperty('focus')) {
-            styleOptions.fillOpacity = 0.6;
-            styleOptions.fillColor = '#0f0';
-            styleOptions.strokeColor = '#0f0';
-            styleOptions.strokeWeight = 4;
-            styleOptions.strokeOpacity = 1;
-        }
+    return new naver.maps.LatLngBounds(projection.fromOffsetToCoord(offsetSW), projection.fromOffsetToCoord(offsetNE));
+}
 
-        return styleOptions;
-    });
+function expand(bounds, x, y) {
+    var sw = bounds.getSW(),
+        ne = bounds.getNE(),
+        offsetSW = projection.fromCoordToOffset(sw),
+        offsetNE = projection.fromCoordToOffset(ne);
 
-    regionGeoJson.forEach(function(geojson) {
-        map.data.addGeoJson(geojson);
-    });
+    offsetSW.x = offsetSW.x - x;
+    offsetSW.y = offsetSW.y + y;
+    offsetNE.x = offsetNE.x + x;
+    offsetNE.y = offsetNE.y - y;
 
-    map.data.addListener('click', function(e) {
-        var feature = e.feature;
-
-        if (feature.getProperty('focus') !== true) {
-            feature.setProperty('focus', true);
-        } else {
-            feature.setProperty('focus', false);
-        }
-    });
-
-    map.data.addListener('mouseover', function(e) {
-        var feature = e.feature,
-            regionName = feature.getProperty('area1');
-
-        tooltip.css({
-            display: '',
-            left: e.offset.x,
-            top: e.offset.y
-        }).text(regionName);
-
-        map.data.overrideStyle(feature, {
-            fillOpacity: 0.6,
-            strokeWeight: 4,
-            strokeOpacity: 1
-        });
-    });
-
-    map.data.addListener('mouseout', function(e) {
-        tooltip.hide().empty();
-        map.data.revertStyle();
-    });
+    return new naver.maps.LatLngBounds(projection.fromOffsetToCoord(offsetSW), projection.fromOffsetToCoord(offsetNE));
 }
 </script>
 
