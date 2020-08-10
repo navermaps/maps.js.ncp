@@ -700,18 +700,6 @@
 <td>등산로 관련 요소 표현</td>
 </tr>
 <tr>
-<td>rtrl</td>
-<td>철도, 지하철 (realty_rail)</td>
-</tr>
-<tr>
-<td>rtrd</td>
-<td>도로(realty_road)</td>
-</tr>
-<tr>
-<td>rtrg</td>
-<td>개발지역(reaty_region)</td>
-</tr>
-<tr>
 <td>lp</td>
 <td>지적편집도 표현</td>
 </tr>
@@ -722,18 +710,6 @@
 <tr>
 <td>lko</td>
 <td>한국어 라벨 표현</td>
-</tr>
-<tr>
-<td>len</td>
-<td>영어 라벨 표현</td>
-</tr>
-<tr>
-<td>lzh</td>
-<td>중국어 라벨 표현</td>
-</tr>
-<tr>
-<td>lja</td>
-<td>일본어 라벨 표현</td>
 </tr>
 <tr>
 <td>ib</td>
@@ -787,70 +763,6 @@
 </code></pre>
 <p><strong>실행결과</strong></p>
 <p><img src="./img/tutorial/stylemap-normal-bg.ol.ts.ctt.lko.png" alt="일반 지도 배경에 실시간 혼잡 교통 정보 요청"></p>
-<h4>다국어 라벨</h4>
-<blockquote>
-<p>한국어를 포함한 총 4개 언어를 지원하며 외국어 선택시 한국어는 자동으로 병행 표기됩니다.</p>
-</blockquote>
-<h4>일반 지도 배경에 세부 요소와 한국어 라벨 요청</h4>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  useStyleMap: true,
-  zoom: 12,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
-      {
-        overlayType: 'bg.ol.lko'
-      }
-    )
-  })
-});
-</code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.ol.lko.png" alt="일반 지도 배경에 세부 요소와 한국어 라벨 요청"></p>
-<h4>영어</h4>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  useStyleMap: true,
-  zoom: 12,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
-      {
-        overlayType: 'bg.ol.len'
-      }
-    )
-  })
-});
-</code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.ol.len.png" alt="영어 라벨 요청"></p>
-<h4>중국어</h4>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  useStyleMap: true,
-  zoom: 12,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
-      {
-        overlayType: 'bg.ol.lzh'
-      }
-    )
-  })
-});
-</code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.ol.lzh.png" alt="중국어 라벨 요청"></p>
-<h4>일본어</h4>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  useStyleMap: true,
-  zoom: 12,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOption.getNormalMap(
-      {
-        overlayType: 'bg.ol.lja'
-      }
-    )
-  })
-});
-</code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.ol.lja.png" alt="일본어 라벨 요청"></p>
 
     
 </article>
