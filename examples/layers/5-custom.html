@@ -34,11 +34,11 @@
 var map = new naver.maps.Map('map', {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
     mapTypes: new naver.maps.MapTypeRegistry({
-        'normal': naver.maps.NaverStyleMapTypeOption.getVectorMap()
+        'normal': naver.maps.NaverStyleMapTypeOptions.getVectorMap()
     })
 });
 
-var labelMapType = new naver.maps.NaverStyleMapTypeOption.getNormalLabelLayer();
+var labelMapType = new naver.maps.NaverStyleMapTypeOptions.getNormalLabelLayer();
 var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
     'label': labelMapType
 });
