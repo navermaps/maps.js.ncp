@@ -736,6 +736,7 @@ var polygon = new naver.maps.Polygon({
 
 var drawingManager;
 naver.maps.Event.once(map, 'init_stylemap', function() {
+    // 그리기 도구 인터페이스 추가 - v3 API URL에 'submodules=drawing' 을 추가해주세요.
     drawingManager = new naver.maps.drawing.DrawingManager({map: map});
     drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
     drawingManager.addDrawing(polygon, naver.maps.drawing.DrawingMode.POLYGON);
