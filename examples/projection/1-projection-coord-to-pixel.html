@@ -43,7 +43,7 @@ var sw,
         center: new naver.maps.LatLng(37.565580, 126.978008),
     });
 
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     bounds = map.getBounds();
     projection = map.getProjection();
     rect = new naver.maps.Rectangle({

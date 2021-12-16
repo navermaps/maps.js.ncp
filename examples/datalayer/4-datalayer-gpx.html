@@ -33,7 +33,7 @@ var map = new naver.maps.Map(document.getElementById('map'), {
 
 var HOME_PATH = window.HOME_PATH || '.';
 
-naver.maps.Event.once(map, 'init_stylemap', function () {
+naver.maps.Event.once(map, 'init', function () {
     $.ajax({
         url: HOME_PATH +'/data/seorak.gpx',
         dataType: 'xml',

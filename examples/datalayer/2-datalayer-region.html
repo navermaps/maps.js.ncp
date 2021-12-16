@@ -37,7 +37,7 @@ var map = new naver.maps.Map(document.getElementById('map'), {
     center: new naver.maps.LatLng(36.4203004, 128.317960)
 });
 
-naver.maps.Event.once(map, 'init_stylemap', function () {
+naver.maps.Event.once(map, 'init', function () {
     for (var i = 1; i < 18; i++) {
         var keyword = i +'';
 

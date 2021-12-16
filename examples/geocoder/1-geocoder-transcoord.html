@@ -70,7 +70,7 @@ function initGeocoder() {
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
-naver.maps.Event.once(map, 'init_stylemap', initGeocoder);
+naver.maps.Event.once(map, 'init', initGeocoder);
 </script>
 
 </body>

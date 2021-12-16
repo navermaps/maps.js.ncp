@@ -17,7 +17,7 @@ var map = new naver.maps.Map(mapDiv, {
     center: new naver.maps.LatLng(36.0207091, 127.9204629)
 });
 
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     $.ajax({
         url: HOME_PATH +'/data/earthquake.json',
         dataType: 'json',

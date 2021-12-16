@@ -50,7 +50,7 @@ var map = new naver.maps.Map('map', {
 });
 
 var drawingManager;
-naver.maps.Event.once(map, 'init_stylemap', function () {
+naver.maps.Event.once(map, 'init', function () {
     drawingManager = new naver.maps.drawing.DrawingManager({
         map: map,
         rectangleOptions: {

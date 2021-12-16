@@ -62,7 +62,7 @@ naver.maps.onJSContentLoaded = function() {
 
 // 거리뷰 레이어를 생성합니다.
 var streetLayer = new naver.maps.StreetLayer();
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     streetLayer.setMap(map);
 });
 

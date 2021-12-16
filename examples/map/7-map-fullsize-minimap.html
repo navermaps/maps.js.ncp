@@ -45,7 +45,7 @@ var map = new naver.maps.Map('map', {
 
 var semaphore = false;
 
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     map.setOptions({
         mapTypeControl: true,
         scaleControl: false,

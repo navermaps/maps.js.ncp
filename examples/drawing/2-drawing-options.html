@@ -118,7 +118,7 @@ var rect2 = new naver.maps.Rectangle({
 rect2.setEditable(true);
 
 var drawingManager;
-naver.maps.Event.once(map, 'init_stylemap', function () {
+naver.maps.Event.once(map, 'init', function () {
     drawingManager = new naver.maps.drawing.DrawingManager({
         map: map,
         drawingControl: [
@@ -189,7 +189,7 @@ naver.maps.Event.once(map, 'init_stylemap', function () {
 });
 </script>
 <script type="text/javascript">
-naver.maps.Event.once(map, 'init_stylemap', function () {
+naver.maps.Event.once(map, 'init', function () {
     var dm = drawingManager;
 
     $('#position_panel input[type=radio]').change(function() {

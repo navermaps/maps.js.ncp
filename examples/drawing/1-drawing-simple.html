@@ -95,14 +95,14 @@ var polygon = new naver.maps.Polygon({
 });
 
 var drawingManager;
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     drawingManager = new naver.maps.drawing.DrawingManager({map: map});
     drawingManager.addDrawing(rect, naver.maps.drawing.DrawingMode.RECTANGLE, 'my-id');
     drawingManager.addDrawing(polygon, naver.maps.drawing.DrawingMode.POLYGON);
 });
 </script>
 <script type="text/javascript">
-naver.maps.Event.once(map, 'init_stylemap', function() {
+naver.maps.Event.once(map, 'init', function() {
     // 이벤트 로깅
     var logger = $('#logger'),
         OVERAY_NAMES = ['rectangle', 'ellipse', 'polyline', 'arrowline', 'polygon', 'marker'],

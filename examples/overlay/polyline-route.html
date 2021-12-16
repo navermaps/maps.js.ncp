@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>폴리라인 길찾기 라우트 테스트</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=orK7_YeBAdN64OJ8HUVz&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Overlay/Shapes -->
+
+<div id="wrap" class="section">
+    <h2>폴리라인 성능 테스트</h2>
+    <p>멀티 폴리라인 생성 테스트</p>
+    <div style="display:block; position:relative; width:100%; max-height:400px; margin-bottom:18px;">
+        <div style="display:inline;">
+            <button style="padding:10px 10px; margin:2px;" id="drawSingle" class="btn">단일 폴리라인으로 그리기</button>
+            <button style="padding:10px 10px; margin:2px;" id="drawMulti" class="btn">멀티 폴리라인으로 그리기</button>
+            <button style="padding:10px 10px; margin:2px;" id="remove" class="btn">폴리라인 삭제</button>
+        </div>
+    </div>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script>
+    // 서울 -> 부산 길찾기
+    var bicycleRouteUrl = 'https://map.naver.com/v5/api/dir/findbicycle?start=126.9706649,37.5550333,placeid=11630456,name=%EC%84%9C%EC%9A%B8%EC%97%AD%20%EA%B2%BD%EB%B6%80%EC%84%A0(%EA%B3%A0%EC%86%8D%EC%B2%A0%EB%8F%84)&destination=129.0422136,35.1152199,placeid=13479631,name=%EB%B6%80%EC%82%B0%EC%97%AD%20%EA%B2%BD%EB%B6%80%EC%84%A0(%EA%B3%A0%EC%86%8D%EC%B2%A0%EB%8F%84)&call=route3&output=json&result=webmobile&coord_type=lnglat&search=8&lang=ko';
+</script>
+<script id="code">
+var cacheSteps,
+    polyLines,
+    polylineOptions = {
+        fillColor: '#E16E79',
+        fillOpacity: 0.3,
+        strokeColor: '#E16E79',
+        strokeOpacity: 1,
+        strokeWeight: 3,
+    };
+
+var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(36.3835833, 128.0344242),
+    zoom: 8,
+    zoomControl: true,
+    zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.SMALL,
+        position: naver.maps.Position.RIGHT_CENTER
+    }
+});
+
+function loadData(localCompleteCallback) {
+    console.time('loadData');
+    $.get(bicycleRouteUrl, localCompleteCallback, 'json').fail(loadFail);
+}
+
+function draw(result, drawMethod) {
+    console.timeEnd('loadData');
+    if (!result || !result.routes) return;
+    try {
+        polyLines = drawMethod(result.routes[0].legs[0].steps);
+        console.log('polyLines', polyLines);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function loadFail(error) {
+    console.log('loadFail', error);
+}
+
+function drawSingle() {
+    if (!map) return;
+    remove();
+    cacheSteps ? polyLines = drawSinglePolyline(cacheSteps) : loadData(function (result) {
+        draw(result, drawSinglePolyline);
+    });
+}
+
+function drawMulti() {
+    if (!map) return;
+    remove();
+    cacheSteps ? polyLines = drawMultiPolyline(cacheSteps) : loadData(function (result) {
+        draw(result, drawMultiPolyline);
+    });
+}
+
+function filterAndCacheSteps(steps) {
+    console.time('filterAndCacheSteps');
+    cacheSteps = steps.filter(step => !!step.path);
+    console.log('cacheSteps', cacheSteps);
+    console.timeEnd('filterAndCacheSteps');
+    return cacheSteps;
+}
+
+function drawSinglePolyline(steps) {
+    if (!steps) return;
+    console.time('drawSinglePolyline');
+    var allPaths = [];
+    filterAndCacheSteps(steps).forEach(step => {
+        allPaths = allPaths.concat(getPaths(step.path));
+    });
+    var polyLines = [createPolyline(allPaths)];
+    console.timeEnd('drawSinglePolyline');
+    return polyLines;
+}
+
+function drawMultiPolyline(steps) {
+    if (!steps) return;
+    console.time('drawMultiPolyline');
+    var polyLines = filterAndCacheSteps(steps).map(step => createPolyline(getPaths(step.path)));
+    console.timeEnd('drawMultiPolyline');
+    return polyLines;
+}
+
+function getPaths(path) {
+    var paths = [],
+        steps = path.split(' ');
+    steps.map(step => {
+        var splitStep = step.split(',').map(point => parseFloat(point)),
+            latLng = new naver.maps.LatLng(splitStep[1], splitStep[0]);
+        paths.push(latLng);
+    });
+    return paths;
+}
+
+function createPolyline(paths) {
+    var polyline = new naver.maps.Polyline({
+        map: map,
+        path: paths,
+        ...polylineOptions,
+    });
+    return polyline;
+}
+
+function remove() {
+    if (!polyLines) return;
+    polyLines.map(polyLine => polyLine.setMap(null));
+    polyLines.length = 0;
+    polyLines = [];
+}
+
+$('#drawSingle').on('click', drawSingle);
+$('#drawMulti').on('click', drawMulti);
+$('#remove').on('click', remove);
+</script>
+
+</body>
+</html>

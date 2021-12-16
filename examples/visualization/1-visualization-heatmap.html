@@ -17,19 +17,22 @@ var map = new naver.maps.Map(mapDiv, {
     center: new naver.maps.LatLng(36.0207091, 127.9204629)
 });
 
-naver.maps.Event.once(map, 'init_stylemap', function () {
+function loadData() {
     $.ajax({
         url: HOME_PATH +'/data/earthquake.json',
         dataType: 'json',
         success: startHeatMap
     });
-});
+}
 
+var heatmap;
 function startHeatMap(data) {
-    var heatmap = new naver.maps.visualization.HeatMap({
+    heatmap = new naver.maps.visualization.HeatMap({
         map: map,
         data: data.coordinates
     });
 }
+
+naver.maps.onJSContentLoaded = loadData;
 </script>
 

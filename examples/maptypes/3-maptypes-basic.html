@@ -44,7 +44,7 @@ var MyMapType = {
         var w = this.tileSize.width,
             h = this.tileSize.height;
 
-        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65;
+        var ascii = parseInt(Math.abs(x + y) % 26, 10) + 65,
             alphabet = String.fromCharCode(ascii);
         var div = $("<div class='mytile'>"+ alphabet +"</div>");
 
