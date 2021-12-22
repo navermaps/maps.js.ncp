@@ -671,10 +671,6 @@ var map = new naver.maps.Map("map", {
     infoWindow = null;
 
 function initGeocoder() {
-    if (!map.isStyleMapReady) {
-        return;
-    }
-
     var latlng = map.getCenter();
     var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng); // 위/경도 -> UTMK
     var tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk);   // UTMK -> TM128
@@ -711,7 +707,6 @@ function initGeocoder() {
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
-naver.maps.Event.once(map, 'init', initGeocoder);
 </script>
 
 

@@ -780,10 +780,6 @@ function searchAddressToCoordinate(address) {
 }
 
 function initGeocoder() {
-  if (!map.isStyleMapReady) {
-    return;
-  }
-
   map.addListener('click', function(e) {
     searchCoordinateToAddress(e.coord);
   });
@@ -806,7 +802,6 @@ function initGeocoder() {
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
-naver.maps.Event.once(map, 'init', initGeocoder);
 </script>
 
 
