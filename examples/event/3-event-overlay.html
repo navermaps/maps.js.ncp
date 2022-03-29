@@ -22,7 +22,6 @@
     <code id="snippet" class="snippet"></code>
 </div>
 <script id="data">
-// path data
 var polylinePath = [
     new naver.maps.LatLng(37.4526437, 126.49236),
     new naver.maps.LatLng(37.4768068, 126.4847975),
@@ -86,13 +85,59 @@ var polygonPath = [
 <script id="code">
     var map = new naver.maps.Map('map', {
         zoom: 10,
-        center: new naver.maps.LatLng(37.3614483, 127.1114883)
+        center: new naver.maps.LatLng(37.3614483, 127.1114883),
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL,
+            position: naver.maps.Position.RIGHT_CENTER
+        }
     });
 
     var marker = new naver.maps.Marker({
         position: map.getCenter(),
         map: map,
         clickable: true
+    });
+
+    var pinkMarker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.4857788, 127.0277175),
+        map: map,
+        icon: {
+            content: [
+                '<div class="cs_mapbridge">',
+                '<div class="map_group _map_group">',
+                '<div class="map_marker _marker tvhp tvhp_big">',
+                '<span class="ico _icon"></span>',
+                '<span class="shd"></span>',
+                '</div>',
+                '</div>',
+                '</div>'
+            ].join(''),
+            size: new naver.maps.Size(38, 58),
+            anchor: new naver.maps.Point(19, 58),
+        }
+    });
+    pinkMarker.setTitle('Pink Marker');
+
+    var greenMarker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.183267, 127.0659301),
+        map: map,
+        title: 'Green Marker',
+        icon: {
+            content: [
+                '<div class="cs_mapbridge">',
+                '<div class="map_group _map_group crs">',
+                '<div class="map_marker _marker num1 num1_big"> ',
+                '<span class="ico _icon"></span>',
+                '<span class="shd"></span>',
+                '</div>',
+                '</div>',
+                '</div>'
+            ].join(''),
+            size: new naver.maps.Size(38, 58),
+            anchor: new naver.maps.Point(19, 58),
+        },
+        draggable: true
     });
 
     var polyline = new naver.maps.Polyline({
@@ -143,17 +188,38 @@ var polygonPath = [
         map: map
     });
 
-    naver.maps.Event.addListener(marker, 'click', function() {
-        var delta = 0,
-            zoom = map.getZoom();
+    var ellipse = new naver.maps.Ellipse({
+        map: map,
+        bounds: new naver.maps.LatLngBounds(
+            new naver.maps.LatLng(37.1793196, 127.6795594),
+            new naver.maps.LatLng(37.5398662, 128.4312422)
+        ),
+        strokeColor: 'yellowgreen',
+        strokeOpacity: 1,
+        strokeWeight: 3,
+        fillColor: 'yellowgreen',
+        fillOpacity: 0.3,
+        clickable: true,
+    });
 
-        if (zoom < 12) {
-            delta = 12 - zoom;
-        } else {
-            delta = 5 - zoom;
-        }
+    var infoWindow = new naver.maps.InfoWindow();
 
-        map.zoomBy(delta, marker.getPosition(), true);
+    naver.maps.Event.addListener(marker, "click", function() {
+        alert('marker click');
+        infoWindow.setContent(getContentElement('DEFAULT MARKER'));
+        infoWindow.open(map, marker);
+    });
+
+    naver.maps.Event.addListener(pinkMarker, "click", function() {
+        alert('pinkMarker click');
+        infoWindow.setContent(getContentElement('HTML MARKER'));
+        infoWindow.open(map, pinkMarker);
+    });
+
+    naver.maps.Event.addListener(greenMarker, "click", function() {
+        alert('greenMarker click');
+        infoWindow.setContent(getContentElement('HTML MARKER'));
+        infoWindow.open(map, greenMarker);
     });
 
     naver.maps.Event.addListener(polyline, "mousedown", function(e) {
@@ -161,10 +227,15 @@ var polygonPath = [
             strokeWeight: 20
         });
     });
+
     naver.maps.Event.addListener(polyline, "mouseup", function(e) {
         polyline.setOptions({
             strokeWeight: 6
         });
+    });
+
+    naver.maps.Event.addListener(polyline, "click", function() {
+        alert('polyline click');
     });
 
     naver.maps.Event.addListener(polygon, "mouseover", function(e) {
@@ -183,6 +254,10 @@ var polygonPath = [
         });
     });
 
+    naver.maps.Event.addListener(polygon, "click", function() {
+        alert('polygon click');
+    });
+
     naver.maps.Event.addListener(rectangle, "mousemove", function(e) {
         var strokeWeight = rectangle.get("strokeWeight");
 
@@ -194,6 +269,10 @@ var polygonPath = [
         rectangle.setOptions({
             strokeWeight: strokeWeight
         });
+    });
+
+    naver.maps.Event.addListener(rectangle, "click", function() {
+        alert('rectangle click');
     });
 
     var $radius = $({ radius: 3000 });
@@ -230,6 +309,35 @@ var polygonPath = [
             });
         }
     });
+
+    naver.maps.Event.addListener(ellipse, "touchstart", function() {
+        ellipse.setOptions({
+            strokeColor: 'yellow',
+            fillColor: 'yellow',
+            fillOpacity: 0.3
+        });
+    });
+
+    naver.maps.Event.addListener(ellipse, "touchend", function() {
+        ellipse.setOptions({
+            strokeColor: 'yellowgreen',
+            fillColor: 'yellowgreen',
+            fillOpacity: 0.3
+        });
+    });
+
+    naver.maps.Event.addListener(ellipse, "click", function() {
+        map.fitBounds(ellipse.getBounds());
+    });
+
+    naver.maps.Event.addListener(map, 'click', function() {
+        infoWindow.close();
+    });
+
+    function getContentElement(titleString) {
+        return '<div style="padding:20px;">' + titleString + '</div>';
+    }
+
 </script>
 
 </body>
