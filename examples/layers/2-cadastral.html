@@ -43,7 +43,7 @@ var cadastralLayer = new naver.maps.CadastralLayer();
 
 var btn = $('#cadastral');
 
-naver.maps.Event.addListener(map, 'cadastralLayer_changed', function(cadastralLayer) {
+naver.maps.Event.addListener(map, 'cadastralLayer_changed', function() {
     if (cadastralLayer.getMap()) {
         btn.addClass('control-on').val('지적도 끄기');
     } else {

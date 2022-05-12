@@ -425,6 +425,8 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-event-test.example.html">이벤트 테스트</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-5-event-test.example.html">5-event-test</a></li>
+                
                         <li><a href="tutorial-digest.example.html#컨트롤" class="_cat" style="padding-left:10px" >컨트롤</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-control-simple.example.html">지도 컨트롤 추가/제거하기</a></li>
@@ -729,6 +731,8 @@ var polygonPath = [
         }
     });
 
+    var infoWindow = new naver.maps.InfoWindow();
+
     var marker = new naver.maps.Marker({
         position: map.getCenter(),
         map: map,
@@ -736,7 +740,7 @@ var polygonPath = [
     });
 
     var pinkMarker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.4857788, 127.0277175),
+        position: new naver.maps.LatLng(37.4857788, 127.0659301),
         map: map,
         icon: {
             content: [
@@ -756,7 +760,7 @@ var polygonPath = [
     pinkMarker.setTitle('Pink Marker');
 
     var greenMarker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.183267, 127.0659301),
+        position: new naver.maps.LatLng(37.123267, 127.0659301),
         map: map,
         title: 'Green Marker',
         icon: {
@@ -838,43 +842,109 @@ var polygonPath = [
         clickable: true,
     });
 
-    var infoWindow = new naver.maps.InfoWindow();
+    var CustomOverlay = function (options) {
+        this._element = $('<div style="position:absolute;left:0;top:0;width:124px;background-color:#F2F0EA;text-align:center;border:2px solid #6C483B;">' +
+            '<img src="./img/example/brown.png" style="width: 120px; height:130px">' +
+            '<span style="font-weight: bold;"> Brown </span>' +
+            '</div>');
 
-    naver.maps.Event.addListener(marker, "click", function() {
-        alert('marker click');
+        this._addListener();
+        this.setPosition(options.position);
+        this.setMap(options.map || null);
+    };
+
+    CustomOverlay.prototype = new naver.maps.OverlayView();
+    CustomOverlay.prototype.constructor = CustomOverlay;
+
+    CustomOverlay.prototype.setPosition = function (position) {
+        this._position = position;
+        this.draw();
+    };
+
+    CustomOverlay.prototype.getPosition = function () {
+        return this._position;
+    };
+
+    CustomOverlay.prototype.onAdd = function () {
+        var overlayLayer = this.getPanes().overlayLayer;
+
+        this._element.appendTo(overlayLayer);
+    };
+
+    CustomOverlay.prototype.onClick = function (e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        } else {
+            e.cancelBubble = true;
+        }
+        naver.maps.Event.trigger(this, 'click', this);
+    };
+
+    CustomOverlay.prototype.draw = function () {
+        if (!this.getMap()) {
+            return;
+        }
+
+        var projection = this.getProjection(),
+            position = this.getPosition(),
+            pixelPosition = projection.fromCoordToOffset(position);
+
+        this._element.css('left', pixelPosition.x);
+        this._element.css('top', pixelPosition.y);
+    };
+
+    CustomOverlay.prototype.onRemove = function () {
+        naver.maps.Event.removeDOMListener(this._clickListener);
+        this._element.remove();
+        this._element.off();
+    };
+
+    CustomOverlay.prototype._addListener = function () {
+        this._clickListener = naver.maps.Event.addDOMListener(this._element[0], 'click', naver.maps.Util.bind(this.onClick, this));
+    };
+
+    var customOverlay = new CustomOverlay({
+        map: map,
+        position: new naver.maps.LatLng(37.2849483, 127.1229117)
+    });
+
+    naver.maps.Event.addListener(marker, "click", function () {
         infoWindow.setContent(getContentElement('DEFAULT MARKER'));
         infoWindow.open(map, marker);
     });
 
-    naver.maps.Event.addListener(pinkMarker, "click", function() {
-        alert('pinkMarker click');
+    naver.maps.Event.addListener(pinkMarker, "click", function () {
         infoWindow.setContent(getContentElement('HTML MARKER'));
         infoWindow.open(map, pinkMarker);
     });
 
-    naver.maps.Event.addListener(greenMarker, "click", function() {
-        alert('greenMarker click');
+    naver.maps.Event.addListener(greenMarker, "click", function () {
         infoWindow.setContent(getContentElement('HTML MARKER'));
         infoWindow.open(map, greenMarker);
     });
 
-    naver.maps.Event.addListener(polyline, "mousedown", function(e) {
+    naver.maps.Event.addListener(customOverlay, "click", function (overlay) {
+        infoWindow.setContent(getContentElement('CUSTOM OVERLAY'));
+        infoWindow.open(map, overlay.getPosition());
+    });
+
+    naver.maps.Event.addListener(polyline, "mousedown", function () {
         polyline.setOptions({
             strokeWeight: 20
         });
     });
 
-    naver.maps.Event.addListener(polyline, "mouseup", function(e) {
+    naver.maps.Event.addListener(polyline, "mouseup", function () {
         polyline.setOptions({
             strokeWeight: 6
         });
     });
 
-    naver.maps.Event.addListener(polyline, "click", function() {
+    naver.maps.Event.addListener(polyline, "click", function () {
         alert('polyline click');
     });
 
-    naver.maps.Event.addListener(polygon, "mouseover", function(e) {
+    naver.maps.Event.addListener(polygon, "mouseover", function () {
         map.setCursor("pointer");
 
         polygon.setOptions({
@@ -882,7 +952,7 @@ var polygonPath = [
         });
     });
 
-    naver.maps.Event.addListener(polygon, "mouseout", function(e) {
+    naver.maps.Event.addListener(polygon, "mouseout", function () {
         map.setCursor("auto");
 
         polygon.setOptions({
@@ -890,11 +960,11 @@ var polygonPath = [
         });
     });
 
-    naver.maps.Event.addListener(polygon, "click", function() {
+    naver.maps.Event.addListener(polygon, "click", function () {
         alert('polygon click');
     });
 
-    naver.maps.Event.addListener(rectangle, "mousemove", function(e) {
+    naver.maps.Event.addListener(rectangle, "mousemove", function () {
         var strokeWeight = rectangle.get("strokeWeight");
 
         strokeWeight++;
@@ -907,13 +977,13 @@ var polygonPath = [
         });
     });
 
-    naver.maps.Event.addListener(rectangle, "click", function() {
+    naver.maps.Event.addListener(rectangle, "click", function () {
         alert('rectangle click');
     });
 
-    var $radius = $({ radius: 3000 });
+    var $radius = $({radius: 3000});
 
-    naver.maps.Event.addListener(circle, "dblclick", function(e) {
+    naver.maps.Event.addListener(circle, "dblclick", function () {
         var radius = circle.getRadius();
 
         $radius[0].radius = radius;
@@ -922,11 +992,11 @@ var polygonPath = [
                 "radius": 6000
             }, {
                 duration: 500,
-                step: function(value) {
+                step: function (value) {
                     circle.setRadius(value);
                 },
 
-                complete: function() {
+                complete: function () {
                     circle.setRadius(6000);
                 }
             });
@@ -935,18 +1005,18 @@ var polygonPath = [
                 "radius": 3000
             }, {
                 duration: 500,
-                step: function(value) {
+                step: function (value) {
                     circle.setRadius(value);
                 },
 
-                complete: function() {
+                complete: function () {
                     circle.setRadius(3000);
                 }
             });
         }
     });
 
-    naver.maps.Event.addListener(ellipse, "touchstart", function() {
+    naver.maps.Event.addListener(ellipse, "touchstart", function () {
         ellipse.setOptions({
             strokeColor: 'yellow',
             fillColor: 'yellow',
@@ -954,7 +1024,7 @@ var polygonPath = [
         });
     });
 
-    naver.maps.Event.addListener(ellipse, "touchend", function() {
+    naver.maps.Event.addListener(ellipse, "touchend", function () {
         ellipse.setOptions({
             strokeColor: 'yellowgreen',
             fillColor: 'yellowgreen',
@@ -962,11 +1032,11 @@ var polygonPath = [
         });
     });
 
-    naver.maps.Event.addListener(ellipse, "click", function() {
+    naver.maps.Event.addListener(ellipse, "click", function () {
         map.fitBounds(ellipse.getBounds());
     });
 
-    naver.maps.Event.addListener(map, 'click', function() {
+    naver.maps.Event.addListener(map, 'click', function () {
         infoWindow.close();
     });
 
