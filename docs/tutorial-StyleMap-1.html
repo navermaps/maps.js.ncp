@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>사용자 정의 OverlayType 설정 | 네이버 지도 API v3</title>
-    <meta name="description" content="Tutorial: 사용자 정의 OverlayType 설정">
+    <title>신규 맵 타일 소개 | 네이버 지도 API v3</title>
+    <meta name="description" content="Tutorial: 신규 맵 타일 소개">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -353,13 +353,11 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
+                        <li><a href="#" class="_cat" style="padding-left:10px" >신규 타일 지도</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">기존 맵 타일에서 신규 맵 타일(StyleMap)으로 전환하기</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap-1.html">신규 맵 타일 소개</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >스타일맵</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-StyleMap-Custom-OverlayType.html">사용자 정의 OverlayType 설정</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-StyleMap-2-Custom-OverlayType.html">사용자 정의 OverlayType 설정</a></li>
                 
                         
                     </ul>
@@ -632,7 +630,7 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">사용자 정의 OverlayType 설정</span>
+                    <span itemprop="keywords">신규 맵 타일 소개</span>
                 </div>
             </div>
             <link rel='stylesheet' type='text/css' href='./css/tutorial.css' />
@@ -640,114 +638,275 @@
 <!-- <header>
     
 
-    <h2>사용자 정의 OverlayType 설정</h2>
+    <h2>신규 맵 타일 소개</h2>
 </header> -->
 <header></header>
 <article>
     
 
-    <h1>사용자 정의 OverlayType 설정</h1>
+    <h1>신규 맵 타일 소개</h1>
 
-    <h2>사용자 타일 세부 유형 설정 하기</h2>
-<p>마침표(.)을 구분자로 원하는 세부 지도 유형을 조합할 수 있습니다.</p>
-<h3>세부 지도 유형</h3>
+    <p>이 문서는 NAVER 지도 API v3 신규 맵 타일 (StyleMap)을 소개합니다.</p>
+<h2>투영</h2>
+<p>StyleMap에서 기본적으로 제공하는 지도 유형은 웹 기반 지도 서비스에서 일반적으로 사용하는 <code>EPSG:3857</code> 을 기본 투영으로 사용합니다.</p>
+<h2>줌 레벨</h2>
+<h3>기본 줌 레벨</h3>
+<p>신규 맵 타일: <code>16</code>. 기존 줌 레벨과 +5 차이가 있습니다.</p>
+<h3>줌 레벨 지원 범위</h3>
+<p>신규 맵 타일: <code>5</code>레벨이 국가가 보이는 레벨이며, <code>21</code> 레벨이 최대 확대 레벨입니다.</p>
+<h3>줌 레벨 범례</h3>
+<h4>신규 맵 타일</h4>
 <table>
 <thead>
 <tr>
-<th>세부 지도 유형 (overlayType)</th>
-<th>설명</th>
+<th>레벨</th>
+<th>범례                                            </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>bg</td>
-<td>해당하는 지도 유형의 배경 표시</td>
+<td>5 ~ 6</td>
+<td>국가</td>
 </tr>
 <tr>
-<td>ol</td>
-<td>실폭 도로, 실선 도로, 행정 경계, 공원 상세, 도로시설물, 시설, 역과 같이 세밀한 요소 표현</td>
+<td>7 ~ 9</td>
+<td>시도</td>
 </tr>
 <tr>
-<td>ts</td>
-<td>지하철 노선도(sw), 버스 정류장(bs)과 같이 대중교통 관련 요소 표현</td>
+<td>10 ~ 12</td>
+<td>시군구</td>
 </tr>
 <tr>
-<td>sw</td>
-<td>지하철 노선도만 별도 표시하고 싶을 때</td>
+<td>13 ~ 14</td>
+<td>읍면동</td>
 </tr>
 <tr>
-<td>bs</td>
-<td>버스 정류장만 별도 표시하고 싶을 때</td>
+<td>15 ~ 16</td>
+<td>거리</td>
 </tr>
 <tr>
-<td>pr</td>
-<td>거리뷰, 항공뷰, 수중뷰와 같이 파노라마 촬영 위치 관련 요소 표현</td>
-</tr>
-<tr>
-<td>br</td>
-<td>자전거 관련 요소 표현</td>
-</tr>
-<tr>
-<td>ar</td>
-<td>등산로 관련 요소 표현</td>
-</tr>
-<tr>
-<td>lp</td>
-<td>지적편집도 표현</td>
-</tr>
-<tr>
-<td>ctt</td>
-<td>혼잡 교통정보 표현</td>
-</tr>
-<tr>
-<td>lko</td>
-<td>한국어 라벨 표현</td>
+<td>17 ~ 20</td>
+<td>부동산</td>
 </tr>
 </tbody>
 </table>
-<h4>일반 지도 배경 요청</h4>
+<h3>기본 줌 변경</h3>
+<p>신규 맵 타일: <code>16</code>을 기본 줌 레벨로 사용</p>
+<p>신규 타일은 기존 타일 줌레벨 보다  <code>5</code>  레벨 높습니다. 기존 타일 <code>11</code> 레벨이 v5 타일에서는 <code>16</code> 레벨입니다.</p>
+<h2>신규 맵 타일 변경점</h2>
+<h3>지도 옵션 설정 및 참조하기</h3>
+<h4>기존 맵 타일</h4>
 <pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  zoom: 11,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOptions.getNormalMap(
-      {
-        overlayType: 'bg'
-      }
-    )
-  })
+    zoom: 11,
+    center: new naver.maps.LatLng(37.5666103, 126.9783882)
+});
+
+map.setOptions('minZoom', 10);
+console.log(map.getOptions('minZoom') === 10);
+</code></pre>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>init</code> 이벤트 시점에 옵션 값을 참조합니다.</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+    zoom: 16,
+    center: new naver.maps.LatLng(37.5666103, 126.9783882)
+});
+
+map.setOptions('minZoom', 10);
+console.log('잘못된 참조 시점', map.getOptions('minZoom') === 10);
+
+/* 변경점 */
+naver.maps.Event.once(map, 'init', function () {
+    console.log('올바른 참조 시점', map.getOptions('minZoom') === 10);
 });
 </code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.png" alt="일반 지도 배경 요청"></p>
-<p><strong>Examples</strong>: <a href="tutorial-14-stylemap-overlaytype.example.html">사용자 정의 OverlayType 설정 예제</a></p>
-<h4>위성 지도 배경에 자전거 도로 요청</h4>
+<p><strong>Examples</strong>: <a href="tutorial-2-map-options.example.html">지도 옵션 조정하기</a></p>
+<h3>NaverStyleMapTypeOptions 사용</h3>
+<h4>기존 맵 타일</h4>
+<pre class="prettyprint source lang-js"><code>var registry = new naver.maps.MapTypeRegistry();
+
+var map = new naver.maps.Map('map', {
+    mapTypes: registry,
+    mapTypeId: naver.maps.MapTypeId.SATELLITE
+});
+
+map.mapTypes.set(naver.maps.MapTypeId.SATELLITE, naver.maps.NaverMapTypeOptions.getSatelliteMap());
+map.mapTypes.set(naver.maps.MapTypeId.HYBRID, naver.maps.NaverMapTypeOptions.getHybridMap());
+</code></pre>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>NaverStyleMapTypeOptions</code> 사용</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var registry = new naver.maps.MapTypeRegistry();
+
+var map = new naver.maps.Map('map', {
+    mapTypes: registry,
+    mapTypeId: naver.maps.MapTypeId.SATELLITE
+});
+
+/* 변경점 */
+map.mapTypes.set(naver.maps.MapTypeId.SATELLITE, naver.maps.NaverStyleMapTypeOptions.getSatelliteMap());
+map.mapTypes.set(naver.maps.MapTypeId.HYBRID, naver.maps.NaverStyleMapTypeOptions.getHybridMap());
+</code></pre>
+<h3>사용자 정의 레이어 만들기</h3>
+<h4>기존 맵 타일</h4>
 <pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  zoom: 11,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOptions.getSatelliteMap(
-      {
-        overlayType: 'bg.br'
-      }
-    )
-  })
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    mapTypes: new naver.maps.MapTypeRegistry({
+        'normal': naver.maps.NaverMapTypeOptions.getVectorMap()
+    })
+});
+
+var labelMapType = new naver.maps.NaverMapTypeOptions.getNormalLabelLayer();
+var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
+    'label': labelMapType
+});
+
+var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
+labelLayer.setMap(map);
+</code></pre>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>NaverStyleMapTypeOptions</code> 사용, <code>init</code> 이벤트 시점에 layer 설정</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    mapTypes: new naver.maps.MapTypeRegistry({
+        'normal': naver.maps.NaverStyleMapTypeOptions.getVectorMap()
+    })
+});
+
+/* 변경점 */
+naver.maps.Event.once(map, 'init', function () {
+    var labelMapType = new naver.maps.NaverStyleMapTypeOptions.getNormalLabelLayer();
+    var labelMapTypeRegistry = new naver.maps.MapTypeRegistry({
+        'label': labelMapType
+    });
+
+    var labelLayer = new naver.maps.Layer('label', labelMapTypeRegistry);
+    labelLayer.setMap(map);
 });
 </code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-satellite-bg.br.png" alt="위성 지도 배경에 자전거 도로 요청"></p>
-<h4>일반 지도 배경에 실시간 혼잡 교통 정보 요청</h4>
-<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map', {
-  zoom: 11,
-  mapTypes: new naver.maps.MapTypeRegistry({
-    'normal': naver.maps.NaverStyleMapTypeOptions.getNormalMap(
-      {
-        overlayType: 'bg.ol.ts.ctt.lko'
-      }
-    )
-  })
+<p><strong>Examples</strong>: <a href="tutorial-5-custom.example.html">사용자 정의 레이어 만들기</a></p>
+<h3>그리기 도구 서브 모듈 사용하기</h3>
+<h4>기존 맵 타일</h4>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map');
+var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
+</code></pre>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 생성</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var map = new naver.maps.Map('map');
+
+/* 변경점 */
+naver.maps.onJSContentLoaded = function() {
+    var drawingManager = new naver.maps.drawing.DrawingManager({map: map});
+};
+</code></pre>
+<h3>데이터 시각화 서브 모듈 사용하기</h3>
+<h4>기존 맵 타일</h4>
+<pre class="prettyprint source lang-js"><code>var data = [
+    new naver.maps.LatLng(37.75,125.4),
+    new naver.maps.LatLng(35.42,128.56),
+    new naver.maps.LatLng(35.57,128.34),
+
+    // (생략)
+
+    new naver.maps.LatLng(36.30,125.9),
+    new naver.maps.LatLng(35.80,128.2),
+    new naver.maps.LatLng(38.70,127.9)
+];
+
+var heatmap = new naver.maps.visualization.HeatMap({
+    map: map,
+    data: data
 });
 </code></pre>
-<p><strong>실행결과</strong></p>
-<p><img src="./img/tutorial/stylemap-normal-bg.ol.ts.ctt.lko.png" alt="일반 지도 배경에 실시간 혼잡 교통 정보 요청"></p>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>onJSContentLoaded</code> 이벤트 핸들러 시점에 생성</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var data = [
+    new naver.maps.LatLng(37.75,125.4),
+    new naver.maps.LatLng(35.42,128.56),
+    new naver.maps.LatLng(35.57,128.34),
+
+    // (생략)
+
+    new naver.maps.LatLng(36.30,125.9),
+    new naver.maps.LatLng(35.80,128.2),
+    new naver.maps.LatLng(38.70,127.9)
+];
+
+/* 변경점 */
+naver.maps.onJSContentLoaded = function() {
+    var heatmap = new naver.maps.visualization.HeatMap({
+        map: map,
+        data: data
+    });
+};
+</code></pre>
+<p><strong>Examples</strong>: <a href="tutorial-1-visualization-heatmap.example.html">열지도 시각화하기</a></p>
+<h3>사용자 정의 컨트롤</h3>
+<h4>기존 맵 타일</h4>
+<pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
+var map = new naver.maps.Map('map');
+
+//customControl 객체 이용하기
+var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+    position: naver.maps.Position.TOP_LEFT
+});
+
+customControl.setMap(map);
+
+var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+});
+
+//Map 객체의 controls 활용하기
+var $locationBtn = $(locationBtnHtml),
+    locationBtnEl = $locationBtn[0];
+
+map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+
+var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+    map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+});
+</code></pre>
+<h4>신규 맵 타일</h4>
+<blockquote>
+<p><code>init</code> 이벤트 시점에 생성</p>
+</blockquote>
+<pre class="prettyprint source lang-js"><code>var locationBtnHtml = '&lt;a href=&quot;#&quot; class=&quot;btn_mylct&quot;>&lt;span class=&quot;spr_trff spr_ico_mylct&quot;>NAVER 그린팩토리&lt;/span>&lt;/a>';
+var map = new naver.maps.Map('map');
+
+/* 변경점 */
+naver.maps.Event.once(map, 'init', function () {
+    //customControl 객체 이용하기
+    var customControl = new naver.maps.CustomControl(locationBtnHtml, {
+        position: naver.maps.Position.TOP_LEFT
+    });
+
+    customControl.setMap(map);
+
+    var domEventListener = naver.maps.Event.addDOMListener(customControl.getElement(), 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1053971));
+    });
+
+    //Map 객체의 controls 활용하기
+    var $locationBtn = $(locationBtnHtml),
+        locationBtnEl = $locationBtn[0];
+
+    map.controls[naver.maps.Position.LEFT_CENTER].push(locationBtnEl);
+
+    var domEventListener = naver.maps.Event.addDOMListener(locationBtnEl, 'click', function() {
+        map.setCenter(new naver.maps.LatLng(37.3595953, 127.1553971));
+    });
+});
+</code></pre>
+<p><strong>Examples</strong>: <a href="tutorial-4-control-custom-p1.example.html">사용자 정의 컨트롤 만들기</a></p>
 
     
 </article>
