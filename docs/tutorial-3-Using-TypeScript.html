@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>drawing | 네이버 지도 API v3</title>
-    <meta name="description" content="Module: drawing">
+    <title>TypeScript 사용 | 네이버 지도 API v3</title>
+    <meta name="description" content="Tutorial: TypeScript 사용">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -615,7 +615,7 @@
 <div class="row">
 
     
-    <div class="col-md-8">
+    <div class="col-md-12">
     
         <div id="main" itemscope itemtype="https://schema.org/TechArticle">
             <div style="display:none;">
@@ -632,134 +632,48 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">drawing</span>
+                    <span itemprop="keywords">TypeScript 사용</span>
                 </div>
             </div>
-            
-
-	<h1 class="page-title">Module: drawing</h1>
-<section>
-
-<header>
+            <link rel='stylesheet' type='text/css' href='./css/tutorial.css' />
+<section class="tutorial-section">
+<!-- <header>
     
-</header>
 
-
+    <h2>TypeScript 사용</h2>
+</header> -->
+<header></header>
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description" itemprop="description"><p>그리기 도구 서브 모듈은 NAVER 지도 API v3에서 제공하는 서브 모듈 중 하나로,<br>
-아래와 같이 사용자가 지도에 폴리곤, 사각형, 폴리라인, 원, 마커를 그릴 수 있는 그래픽 인터페이스를 제공합니다.</p>
-<h3>Tutorials</h3>
-<ul>
-<li><a href="tutorial-4-Submodules.html">서브 모듈 시스템</a></li>
-<li><a href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
-</ul>
-<h3>Examples</h3>
-<ul>
-<li><a href="tutorial-1-drawing-simple.example.html">그리기 도구 기본 예제</a></li>
-<li><a href="tutorial-2-drawing-options.example.html">그리기 도구 옵션 활용하기</a></li>
-<li><a href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
-</ul>
-<h3>Namespace</h3>
-<ul>
-<li><a href="naver.maps.drawing.html">naver.maps.drawing</a></li>
-</ul>
-<h3>Classes</h3>
-<ul>
-<li><a href="naver.maps.drawing.DrawingManager.html">naver.maps.drawing.DrawingManager</a></li>
-</ul>
-<h3>Types</h3>
-<ul>
-<li><a href="naver.maps.drawing.DrawingManager.html#~DrawingOptions">DrawingOptions</a></li>
-<li><a href="global.html#DrawingOverlay">DrawingOverlay</a></li>
-</ul>
-<h3>Enums</h3>
-<ul>
-<li><a href="naver.maps.drawing.html#.DrawingMode">naver.maps.drawing.DrawingMode</a></li>
-<li><a href="naver.maps.drawing.html#.DrawingStyle">naver.maps.drawing.DrawingStyle</a></li>
-<li><a href="naver.maps.drawing.html#.DrawingEvent">naver.maps.drawing.DrawingEvent</a></li>
-</ul></div>
-        
-
-        
-<dl class="details">
     
 
-	
+    <h1>TypeScript 사용</h1>
 
-	
+    <p><a href="https://www.typescriptlang.org/">TypeScript</a>는 JavaScript를 타입 기반으로 작성할 수 있는 프로그래밍 언어입니다.</p>
+<h2>설치</h2>
+<p>NAVER 지도 API 타입 정의 파일은 NPM 패키지(<a href="https://www.npmjs.com/package/@types/navermaps">@types/navermaps</a>)를 통해 설치할 수 있습니다.</p>
+<pre class="prettyprint source lang-bash"><code>npm i -D @types/navermaps
+</code></pre>
+<h2>예제</h2>
+<p>아래 코드는 TypeScript를 사용하여 지도를 생성하는 간단한 예제입니다.</p>
+<pre class="prettyprint source lang-ts"><code>let map: naver.maps.Map;
+const center: naver.maps.LatLng = new naver.maps.LatLng(37.3595704, 127.105399);
 
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+map = new naver.maps.Map('map', {
+    center: center,
+    zoom: 16
+});
+</code></pre>
 
     
 </article>
 
 </section>
 
-
-
-
         </div>
     </div>
 
     <div class="clearfix"></div>
 
-    
-        <div class="col-md-3">
-            <div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
-        </div>
     
 
 </div>
