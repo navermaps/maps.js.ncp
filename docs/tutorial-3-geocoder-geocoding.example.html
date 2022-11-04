@@ -439,15 +439,19 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-bicycle.example.html">네이버 자전거 레이어 표시하기</a></li>
                 
+                        <li><a style="padding-left:20px;" href="tutorial-14-stylemap-overlaytype.example.html">사용자 정의 OverlayType 설정 예제</a></li>
+                
                         <li><a style="padding-left:20px;" href="tutorial-2-cadastral.example.html">네이버 지적도 레이어 표시하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-traffic.example.html">네이버 실시간 교통상황 레이어 표시하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-street.example.html">네이버 거리뷰 레이어 표시하기</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-5-label.example.html">네이버 라벨 레이어 표시하기</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-5-custom.example.html">사용자 정의 레이어 만들기</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-6-custom.example.html">사용자 정의 레이어 만들기</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-5-label.example.html">5-label</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-custom.example.html">6-custom</a></li>
                 
                         <li><a href="tutorial-digest.example.html#데이터 레이어" class="_cat" style="padding-left:10px" >데이터 레이어</a></li>
                 
@@ -660,7 +664,9 @@
 <div id="wrap" class="section">
     <h2>주소와 좌표 검색 API 사용하기</h2>
     <p>Geocoder 서브 모듈의 Service 객체를 사용하여 주소로 좌표를 검색하거나(Geocode) 좌표로 주소를 검색하는(Reversegeocode) 예제입니다.<br />
-    입력 창에 주소를 입력하여 검색하면 해당 주소의 좌표로 이동하며, 지도를 클릭하면 해당 지점의 경위도 좌표로 주소를 검색합니다.</p>
+    입력 창에 주소를 입력하여 검색하면 해당 주소의 좌표로 이동하며, 지도를 클릭하면 해당 지점의 경위도 좌표로 주소를 검색합니다.<br />
+    Geocode API의 자세한 응답값은 <a id="new-window" href="https://apidocs.ncloud.com/ko/ai-naver/maps_geocoding/geocode/" target="_blank">Geocode API</a>를 참고하세요.<br />
+    Reversegeocode API의 자세한 응답값은 <a id="new-window" href="https://apidocs.ncloud.com/ko/ai-naver/maps_reverse_geocoding/gc/" target="_blank">ReverseGeocode API</a>를 참고하세요.</p>
     <div id="map" style="width:100%;height:600px;">
         <div class="search" style="">
             <input id="address" type="text" placeholder="검색할 주소" value="불정로 6" />
@@ -671,190 +677,132 @@
 </div>
 
 <script id="code">
+/**
+ * 스크립트 로드
+ * <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=geocoder"><\/script>
+ */
+
 var map = new naver.maps.Map("map", {
-    center: new naver.maps.LatLng(37.3595316, 127.1052133),
-    zoom: 15,
-    mapTypeControl: true
+  center: new naver.maps.LatLng(37.3595316, 127.1052133),
+  zoom: 15,
+  mapTypeControl: true
 });
 
 var infoWindow = new naver.maps.InfoWindow({
-    anchorSkew: true
+  anchorSkew: true
 });
 
 map.setCursor('pointer');
 
 function searchCoordinateToAddress(latlng) {
 
-    infoWindow.close();
+  infoWindow.close();
 
-    naver.maps.Service.reverseGeocode({
-        coords: latlng,
-        orders: [
-            naver.maps.Service.OrderType.ADDR,
-            naver.maps.Service.OrderType.ROAD_ADDR
-        ].join(',')
-    }, function(status, response) {
-        if (status === naver.maps.Service.Status.ERROR) {
-            return alert('Something Wrong!');
-        }
+  naver.maps.Service.reverseGeocode({
+    coords: latlng,
+    orders: [
+      naver.maps.Service.OrderType.ADDR,
+      naver.maps.Service.OrderType.ROAD_ADDR
+    ].join(',')
+  }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+      if (!latlng) {
+        return alert('ReverseGeocode Error, Please check latlng');
+      }
+      if (latlng.toString) {
+        return alert('ReverseGeocode Error, latlng:' + latlng.toString());
+      }
+      if (latlng.x && latlng.y) {
+        return alert('ReverseGeocode Error, x:' + latlng.x + ', y:' + latlng.y);
+      }
+      return alert('ReverseGeocode Error, Please check latlng');
+    }
 
-        var items = response.v2.results,
-            address = '',
-            htmlAddresses = [];
+    var address = response.v2.address,
+        htmlAddresses = [];
 
-        for (var i=0, ii=items.length, item, addrType; i<ii; i++) {
-            item = items[i];
-            address = makeAddress(item) || '';
-            addrType = item.name === 'roadaddr' ? '[도로명 주소]' : '[지번 주소]';
+    if (address.jibunAddress !== '') {
+        htmlAddresses.push('[지번 주소] ' + address.jibunAddress);
+    }
 
-            htmlAddresses.push((i+1) +'. '+ addrType +' '+ address);
-        }
+    if (address.roadAddress !== '') {
+        htmlAddresses.push('[도로명 주소] ' + address.roadAddress);
+    }
 
-        infoWindow.setContent([
-            '<div style="padding:10px;min-width:200px;line-height:150%;">',
-            '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
-            htmlAddresses.join('<br />'),
-            '</div>'
-        ].join('\n'));
+    infoWindow.setContent([
+      '<div style="padding:10px;min-width:200px;line-height:150%;">',
+      '<h4 style="margin-top:5px;">검색 좌표</h4><br />',
+      htmlAddresses.join('<br />'),
+      '</div>'
+    ].join('\n'));
 
-        infoWindow.open(map, latlng);
-    });
+    infoWindow.open(map, latlng);
+  });
 }
 
 function searchAddressToCoordinate(address) {
-    naver.maps.Service.geocode({
-        query: address
-    }, function(status, response) {
-        if (status === naver.maps.Service.Status.ERROR) {
-            return alert('Something Wrong!');
-        }
+  naver.maps.Service.geocode({
+    query: address
+  }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+      if (!address) {
+        return alert('Geocode Error, Please check address');
+      }
+      return alert('Geocode Error, address:' + address);
+    }
 
-        if (response.v2.meta.totalCount === 0) {
-            return alert('totalCount' + response.v2.meta.totalCount);
-        }
+    if (response.v2.meta.totalCount === 0) {
+      return alert('No result.');
+    }
 
-        var htmlAddresses = [],
-            item = response.v2.addresses[0],
-            point = new naver.maps.Point(item.x, item.y);
+    var htmlAddresses = [],
+      item = response.v2.addresses[0],
+      point = new naver.maps.Point(item.x, item.y);
 
-        if (item.roadAddress) {
-            htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
-        }
+    if (item.roadAddress) {
+      htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+    }
 
-        if (item.jibunAddress) {
-            htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
-        }
+    if (item.jibunAddress) {
+      htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+    }
 
-        if (item.englishAddress) {
-            htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
-        }
+    if (item.englishAddress) {
+      htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+    }
 
-        infoWindow.setContent([
-            '<div style="padding:10px;min-width:200px;line-height:150%;">',
-            '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
-            htmlAddresses.join('<br />'),
-            '</div>'
-        ].join('\n'));
+    infoWindow.setContent([
+      '<div style="padding:10px;min-width:200px;line-height:150%;">',
+      '<h4 style="margin-top:5px;">검색 주소 : '+ address +'</h4><br />',
+      htmlAddresses.join('<br />'),
+      '</div>'
+    ].join('\n'));
 
-        map.setCenter(point);
-        infoWindow.open(map, point);
-    });
+    map.setCenter(point);
+    infoWindow.open(map, point);
+  });
 }
 
 function initGeocoder() {
-    map.addListener('click', function(e) {
-        searchCoordinateToAddress(e.coord);
-    });
+  map.addListener('click', function(e) {
+    searchCoordinateToAddress(e.coord);
+  });
 
-    $('#address').on('keydown', function(e) {
-        var keyCode = e.which;
+  $('#address').on('keydown', function(e) {
+    var keyCode = e.which;
 
-        if (keyCode === 13) { // Enter Key
-            searchAddressToCoordinate($('#address').val());
-        }
-    });
-
-    $('#submit').on('click', function(e) {
-        e.preventDefault();
-
-        searchAddressToCoordinate($('#address').val());
-    });
-
-    searchAddressToCoordinate('정자동 178-1');
-}
-
-function makeAddress(item) {
-    if (!item) {
-        return;
+    if (keyCode === 13) { // Enter Key
+      searchAddressToCoordinate($('#address').val());
     }
+  });
 
-    var name = item.name,
-        region = item.region,
-        land = item.land,
-        isRoadAddress = name === 'roadaddr';
+  $('#submit').on('click', function(e) {
+    e.preventDefault();
 
-    var sido = '', sigugun = '', dongmyun = '', ri = '', rest = '';
+    searchAddressToCoordinate($('#address').val());
+  });
 
-    if (hasArea(region.area1)) {
-        sido = region.area1.name;
-    }
-
-    if (hasArea(region.area2)) {
-        sigugun = region.area2.name;
-    }
-
-    if (hasArea(region.area3)) {
-        dongmyun = region.area3.name;
-    }
-
-    if (hasArea(region.area4)) {
-        ri = region.area4.name;
-    }
-
-    if (land) {
-        if (hasData(land.number1)) {
-            if (hasData(land.type) && land.type === '2') {
-                rest += '산';
-            }
-
-            rest += land.number1;
-
-            if (hasData(land.number2)) {
-                rest += ('-' + land.number2);
-            }
-        }
-
-        if (isRoadAddress === true) {
-            if (checkLastString(dongmyun, '면')) {
-                ri = land.name;
-            } else {
-                dongmyun = land.name;
-                ri = '';
-            }
-
-            if (hasAddition(land.addition0)) {
-                rest += ' ' + land.addition0.value;
-            }
-        }
-    }
-
-    return [sido, sigugun, dongmyun, ri, rest].join(' ');
-}
-
-function hasArea(area) {
-    return !!(area && area.name && area.name !== '');
-}
-
-function hasData(data) {
-    return !!(data && data !== '');
-}
-
-function checkLastString (word, lastString) {
-    return new RegExp(lastString + '$').test(word);
-}
-
-function hasAddition (addition) {
-    return !!(addition && addition.value);
+  searchAddressToCoordinate('정자동 178-1');
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
