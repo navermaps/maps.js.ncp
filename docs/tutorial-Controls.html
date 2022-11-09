@@ -439,19 +439,15 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-1-bicycle.example.html">네이버 자전거 레이어 표시하기</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-14-stylemap-overlaytype.example.html">사용자 정의 OverlayType 설정 예제</a></li>
-                
                         <li><a style="padding-left:20px;" href="tutorial-2-cadastral.example.html">네이버 지적도 레이어 표시하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-traffic.example.html">네이버 실시간 교통상황 레이어 표시하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-4-street.example.html">네이버 거리뷰 레이어 표시하기</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-5-custom.example.html">사용자 정의 레이어 만들기</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-5-label.example.html">네이버 라벨 레이어 표시하기</a></li>
                 
-                        <li><a style="padding-left:20px;" href="tutorial-5-label.example.html">5-label</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-6-custom.example.html">6-custom</a></li>
+                        <li><a style="padding-left:20px;" href="tutorial-6-custom.example.html">사용자 정의 레이어 만들기</a></li>
                 
                         <li><a href="tutorial-digest.example.html#데이터 레이어" class="_cat" style="padding-left:10px" >데이터 레이어</a></li>
                 
@@ -464,6 +460,8 @@
                         <li><a style="padding-left:20px;" href="tutorial-4-datalayer-gpx.example.html">GPX 데이터 레이어 표시하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-5-mantle-properties.example.html">데이터 레이어 autoStyle 활용</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-6-datalayer-pattern.example.html">데이터 레이어 SVG 패턴 적용하기</a></li>
                 
                         <li><a href="tutorial-digest.example.html#시각화" class="_cat" style="padding-left:10px" >시각화</a></li>
                 
@@ -528,6 +526,8 @@
                         <li><a style="padding-left:30px;" href="tutorial-5-polygon-options.example.html">폴리곤 옵션 사용하기</a></li>
                 
                         <li><a style="padding-left:30px;" href="tutorial-6-polyline-options.example.html">폴리라인 옵션 사용하기</a></li>
+                
+                        <li><a style="padding-left:30px;" href="tutorial-overlay-pattern.example.html">오버레이 SVG 패턴 적용하기</a></li>
                 
                         <li><a style="padding-left:30px;" href="tutorial-pointing-icon.example.html">폴리라인에 화살표 표시하기</a></li>
                 
@@ -659,7 +659,7 @@
 <li>축척 컨트롤: 지도의 축척을 표시합니다. 이 컨트롤은 기본적으로 오른쪽 아래에 표시됩니다.</li>
 <li>지도 유형 컨트롤: 일반 지도, 위성 지도와 같은 지도 유형을 전환할 수 있는 버튼 또는 드롭다운입니다. 이 컨트롤은 기본적으로 사용하지 않도록 되어 있습니다.</li>
 <li>지도 데이터 저작권 컨트롤: 지도 데이터의 저작권을 표시합니다. 이 컨트롤은 기본적으로 왼쪽 아래에 표시됩니다.</li>
-<li>NAVER 로고 컨트롤: NAVER 로고를 표시합니다. 이 컨트롤은 기본적으로 오른쪽 아래에 표시됩니다.</li>
+<li>NAVER 로고 컨트롤: NAVER 로고를 표시합니다. 이 컨트롤은 기본적으로 오른쪽 아래에 표시됩니다. 로고 컨트롤은 상시 노출로 노출 제어가 불가능합니다.</li>
 </ul>
 <p>NAVER 지도 API v3에서 제공하는 컨트롤 중 축척, 지도 데이터 저작권, NAVER 로고 컨트롤은 기본적으로 표시됩니다. 그렇지 않은 컨트롤은 사용자가 명시적으로 설정하지 않는 한 표시되지 않습니다.</p>
 <blockquote>
@@ -669,7 +669,6 @@
 <p>지도에 컨트롤을 추가하거나 제거하려면 <a href="naver.maps.html#.MapOptions">MapOptions</a> 객체의 다음 속성을 사용합니다.</p>
 <pre class="prettyprint source lang-js"><code>{
     scaleControl: true,
-    logoControl: true,
     mapDataControl: true,
     mapTypeControl: false,
     zoomControl: false
@@ -678,7 +677,6 @@
 <p>다음 예제는 기본적으로 제공하는 컨트롤을 제거하고, 줌 컨트롤만 추가하는 예제입니다.</p>
 <pre class="prettyprint source lang-js"><code>var mapOptions = {
     scaleControl: false,
-    logoControl: false,
     mapDataControl: false,
     zoomControl: true
 };
@@ -726,7 +724,6 @@ var map = new naver.maps.Map(document.getElementById('map'), mapOptions);
     scaleControlOptions: {
         position: naver.maps.Position.BOTTOM_RIGHT
     },
-    logoControl: true,
     logoControlOptions: {
         position: naver.maps.Position.TOP_LEFT
     },
