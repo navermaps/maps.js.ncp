@@ -1032,6 +1032,207 @@
         <dl>
             
 <dt>
+    <h4 class="name" id="__reserveMove"><span class="type-signature"></span>__reserveMove(coord)</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>해당 지도 좌표에 위치하는 심벌들의 정보를 반환합니다. (GL 서브 모듈에서만 지원합니다.)</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>coord</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#Coord">Coord</a> -->
+    <a href="global.html#Coord">Coord</a>
+    </span>
+|
+
+<span class="param-type">
+    
+    <!-- <a href="global.html#CoordLiteral">CoordLiteral</a> -->
+    <a href="global.html#CoordLiteral">CoordLiteral</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>지도 좌표</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns</h5>
+    
+            <!-- 
+<div class="param-desc">
+    <p>GeoJSON FeatureCollection 객체</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="global.html#GeoJSON">GeoJSON</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+ -->
+<!-- ! -->
+
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        
+
+        
+        <th class="last">Description</th>
+        
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            
+                <td class="name"><code>
+<span class="param-type">
+    
+    <!-- <a href="global.html#GeoJSON">GeoJSON</a> -->
+    <a href="global.html#GeoJSON">GeoJSON</a>
+    </span>
+
+
+</code></td>
+            
+
+            
+                <td class="description last"><p>GeoJSON FeatureCollection 객체</p></td>
+
+            
+        </tr>
+    </tbody>
+</table>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="addPane"><span class="type-signature"></span>addPane(name, elementOrZIndex)</h4>
 
     
@@ -3676,7 +3877,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     <h5>Fires</h5>
     <ul>
     
-        <li><a href="naver.maps.Map.html#event:zooming">zooming</a></li>
+        <li>zooming</li>
     
         <li><a href="naver.maps.Map.html#event:center_changed">center_changed</a></li>
     
@@ -4245,7 +4446,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     <h5>Fires</h5>
     <ul>
     
-        <li><a href="naver.maps.Map.html#event:zooming">zooming</a></li>
+        <li>zooming</li>
     
         <li><a href="naver.maps.Map.html#event:center_changed">center_changed</a></li>
     
@@ -5523,7 +5724,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     
         <li><a href="naver.maps.Map.html#event:bounds_changed">bounds_changed</a></li>
     
-        <li><a href="naver.maps.Map.html#event:zooming">zooming</a></li>
+        <li>zooming</li>
     
         <li><a href="naver.maps.Map.html#event:idle">idle</a></li>
     </ul>
@@ -5962,7 +6163,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     
         <li><a href="naver.maps.Map.html#event:bounds_changed">bounds_changed</a></li>
     
-        <li><a href="naver.maps.Map.html#event:zooming">zooming</a></li>
+        <li>zooming</li>
     
         <li><a href="naver.maps.Map.html#event:idle">idle</a></li>
     </ul>
@@ -7320,6 +7521,74 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
             
 
             <td class="description last"><p>빈 타일 이미지 URL을 설정할 수 있는 옵션입니다. 기본값은 투명 gif 입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>GL 서브 모듈 벡터맵을 활성화할 수 있는 옵션입니다. GL 서브 모듈을 반드시 로드해야 옵션이 적용됩니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>glType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- naver.maps.glType -->
+    naver.maps.glType
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last"><p>벡터맵 유형을 설정할 수 있는 옵션입니다. 값이 없을 경우 클라이언트 기기 속성에 따라 자동으로 설정합니다.</p></td>
         </tr>
 
     
@@ -12276,7 +12545,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
         
             
 <dt>
-    <h4 class="name" id="event:zooming">zooming</h4>
+    <h4 class="name" id="event:zoomend">zoomend</h4>
 
     
 </dt>
@@ -12284,7 +12553,84 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
 
     
     <div class="description">
-        <p>지도의 줌 효과가 시작되면 이벤트가 발생합니다.</p>
+        <p>지도 줌 레벨이 종료되면 이벤트가 발생합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:zoomstart">zoomstart</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>지도 줌 효과가 시작되면 이벤트가 발생합니다.</p>
     </div>
     
 
@@ -12396,7 +12742,7 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     </span>
 
 <span class="jsdoc-message">
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a>
     
     using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
