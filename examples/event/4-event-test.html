@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>오버레이 이벤트</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=orK7_YeBAdN64OJ8HUVz&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<!-- @category Event -->
+
+<div id="wrap" class="section">
+    <h2>이벤트 테스트</h2>
+    <p>isTouchStarted true 이면 mousemove 시 drag (mouse) 가 발생하지 않습니다.</p>
+    <p>draggable false 또는 pinching true 라면 swipe (touch) 가 발생하지 않습니다.</p>
+    <p>pinchZoom false 또는 tilting true 라면 pinch 가 발생하지 않습니다.</p>
+    <div id="map" style="width:810px;height:200px;display:inline-block;"></div>
+    <p id="check-event" style="display:block;width:810px;height:200px;border:1px solid #17CE5F;overflow:hidden;font-weight:bold;font-size:14px;color:#777;white-space:pre-wrap;"></p>
+    <div>
+        <p id="window-event" style="display:inline-block;width:402px;height:400px;border:1px solid #17CE5F;overflow:hidden;font-weight:bold;font-size:14px;color:#777;white-space:normal;"></p>
+        <p id="map-event" style="display:inline-block;width:402px;height:400px;border:1px solid #17CE5F;overflow:hidden;font-weight:bold;font-size:14px;color:#777;white-space:normal;"></p>
+    </div>
+</div>
+
+<script>
+    $(window).on('load', function() {
+        window.setTimeout(function() {
+            $(window).off('resize');
+        }, 10);
+    });
+</script>
+<script id="code">
+
+    var map = new naver.maps.Map(document.getElementById('map'), {
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL,
+            position: naver.maps.Position.LEFT_TOP
+        }
+    });
+
+    var mapEventDisplay = $('#map-event'),
+        mapEventTypeText = '',
+        addMapEvent = function(type) {
+            naver.maps.Event.addListener(map, type, function() {
+                mapEventTypeText = type + ' | ' + mapEventTypeText;
+                mapEventDisplay.text(mapEventTypeText);
+            });
+        },
+        mapEventList = ['pinchstart', 'pinch', 'pinchend', 'dragready', 'dragstart', 'drag', 'dragend',
+            'tap', 'click', 'doubletap', 'twofingertap', 'longtap', 'touchstart', 'touchmove', 'touchend', 'mousedown', 'mousemove', 'mouseup'];
+
+    for (var i = 0, ii = mapEventList.length; i < ii; i += 1) {
+        addMapEvent(mapEventList[i]);
+    }
+
+</script>
+
+<script>
+    (function() {
+        var mapView = map.getMapView(),
+            MOUSE_EVENT_CHECK_REGEXP = /mouse|click$|^context/i,
+            TOUCH_EVENT_CHECK_REGEXP = /^touch/i,
+            checkEventDisplay = $('#check-event'),
+            checkEventText = 'draggable: ' + map.getOptions('draggable') + '\n',
+            addCheckEvent = function(type) {
+                window.addEventListener(type, function (event) {
+                    var isTouch = false,
+                        isMouse = false,
+                        eventType = event && event.type ? event.type : '',
+                        touches = event && event.touches ? touches : [];
+
+                    if (eventType) {
+                        isMouse = MOUSE_EVENT_CHECK_REGEXP.test(eventType);
+                        isTouch = TOUCH_EVENT_CHECK_REGEXP.test(eventType);
+                    }
+
+                    console.log('[eventType[' + eventType + ']', event);
+                    if (touches.length > 0) {
+                        console.log('touches', touches);
+                    }
+
+                    var mantle = naver.maps.__export(),
+                        isTouchStarted = mantle.DOMEvent.isTouchStarted(),
+                        checkString = '[' +  eventType + ']' +
+                            ' [isTouchStarted: ' + isTouchStarted +
+                            ', touches.length: ' + touches.length +
+                            ', draggable: ' + mapView.get('draggable') +
+                            ', pinchZoom: ' + mapView.get('pinchZoom') +
+                            ', isMouse: ' + isMouse +
+                            ', isTouch: ' + isTouch +
+                            ', pinching: ' + mapView._pinching +
+                            ', tilting: ' + mapView._tilting +
+                            ']\n';
+                    checkEventText = checkString + checkEventText;
+                    checkEventDisplay.text(checkEventText);
+                })
+            },
+            checkEventList = ['mousedown', 'touchstart', 'pointerdown'];
+
+        for (var i = 0, ii = checkEventList.length; i < ii; i += 1) {
+            addCheckEvent(checkEventList[i]);
+        }
+        checkEventDisplay.text(checkEventText);
+
+    })();
+</script>
+
+<script>
+    (function() {
+
+        var windowEventDisplay = $('#window-event'),
+            windowEventTypeText = '',
+            addWindowEvent = function(type) {
+                window.addEventListener(type, function () {
+                    windowEventTypeText = type + ' | ' + windowEventTypeText;
+                    windowEventDisplay.text(windowEventTypeText);
+                })
+            },
+            windowEventList = ['mousedown', 'mousemove', 'mouseup', 'touchstart', 'touchmove', 'touchend', 'pointerdown', 'pointermove', 'pointerup'];
+
+        for (var i = 0, ii = windowEventList.length; i < ii; i += 1) {
+            addWindowEvent(windowEventList[i]);
+        }
+
+    })();
+</script>
+
+</body>
+</html>
+
