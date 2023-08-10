@@ -764,6 +764,13 @@ var map = new naver.maps.Map('map', mapOptions);
     &lt;/script>
 &lt;/body>
 </code></pre>
+<h3>인증 실패 확인</h3>
+<p>전역 함수를 사용하면 클라이언트 아이디 인증 실패를 확인할 수 있습니다. 아래 함수가 정의되어 있을 경우 Open API 인증 실패 시 함수가 호출됩니다.</p>
+<pre class="prettyprint source lang-js"><code>window.navermap_authFailure = function () {
+    // 인증 실패 시 처리 코드 작성
+    // ...
+}
+</code></pre>
 
     
 </article>
