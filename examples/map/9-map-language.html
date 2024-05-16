@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>언어 설정하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&language=en"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+</head>
+<body>
+
+<script type="text/javascript">
+    function createMap() {
+        var map = new naver.maps.Map("map", {
+            zoom: 16,
+            center: new naver.maps.LatLng(37.5666103, 126.9783882),
+            mapTypes: new naver.maps.MapTypeRegistry({
+                normal: naver.maps.NaverStyleMapTypeOptions.getNormalMap({
+                    overlayType: 'ar.bg.ol.sw.len'
+                })
+            })
+        });
+    }
+    window.attachEvent ? window.attachEvent('onload', createMap) : window.addEventListener('load', createMap, false);
+</script>
+
+<!-- @category Map -->
+
+<div id="wrap" class="section">
+    <h2>언어 설정하기</h2>
+    <p>언어를 설정하는 예제입니다. 스크립트 로드 시 language 설정을 통해 언어 변경이 가능합니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+/**
+ * 스크립트에 language=en 쿼리 추가
+ * <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&language=en"><\/script>
+ */
+</script>
+
+</body>
+</html>
