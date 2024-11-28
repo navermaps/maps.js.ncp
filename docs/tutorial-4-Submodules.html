@@ -695,6 +695,15 @@
 <h5>금융기관용</h5>
 <pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=panorama,geocoder&quot;>&lt;/script>
 </code></pre>
+<h2>순차적으로 로드하기</h2>
+<p><code>submodules</code> URL 파라미터를 사용하면 <code>document.write</code> 관련 경고를 발생시킬 수 있습니다.<br>
+따라서 서브 모듈을 순차적으로 로드하는 것을 권장합니다. 이 때 반드시 NAVER 지도 API v3(<code>maps.js</code>)를 먼저 로드해야 합니다.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/write">MDN - document.write</a></li>
+</ul>
+<pre class="prettyprint source lang-js"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&quot;>&lt;/script>
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps-panorama.js&quot;>&lt;/script>
+</code></pre>
 <h2>비동기 방식으로 실행하기</h2>
 <p>DOM이 준비(ready)되기 전에 서브 모듈과 NAVER 지도 API v3을 로드했다면, 즉시 서브 모듈과 NAVER 지도 API v3을 사용할 수 있습니다. 또는 다음과 같이 HTML 문서가 모두 로드된 후에 NAVER 지도 API v3을 비동기 방식으로 로드해 사용할 수도 있습니다.</p>
 <h5>네이버 클라우드 플랫폼</h5>
