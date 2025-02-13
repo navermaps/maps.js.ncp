@@ -357,6 +357,12 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
+                        <li><a href="#" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-GL.html">GL 생성 및 기본 동작</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-Style-Editor.html">Style Editor 연동하기</a></li>
+                
                         <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">마이그레이션: v4에서 v5로 전환하기</a></li>
@@ -585,7 +591,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
                 
-                        
+                        <li><a href="tutorial-1-gl-simple.example.html">GL 기본 예제</a></li><li><a href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a></li>
                     </ul>
                 </li>
                 
@@ -676,24 +682,10 @@
 <blockquote>
 <p>NAVER 지도 API v3은 <code>http</code>와 <code>https</code> 프로토콜을 모두 지원합니다.</p>
 </blockquote>
-<h5>네이버 클라우드 플랫폼</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=panorama&quot;>&lt;/script>
-</code></pre>
-<h5>공공기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=panorama&quot;>&lt;/script>    
-</code></pre>
-<h5>금융기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=panorama&quot;>&lt;/script>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&submodules=panorama&quot;>&lt;/script>
 </code></pre>
 <p>또는</p>
-<h5>네이버 클라우드 플랫폼</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=panorama,geocoder&quot;>&lt;/script>
-</code></pre>
-<h5>공공기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=panorama,geocoder&quot;>&lt;/script>
-</code></pre>
-<h5>금융기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=panorama,geocoder&quot;>&lt;/script>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&submodules=panorama,geocoder&quot;>&lt;/script>
 </code></pre>
 <h2>순차적으로 로드하기</h2>
 <p><code>submodules</code> URL 파라미터를 사용하면 <code>document.write</code> 관련 경고를 발생시킬 수 있습니다.<br>
@@ -701,29 +693,14 @@
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/write">MDN - document.write</a></li>
 </ul>
-<pre class="prettyprint source lang-js"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&quot;>&lt;/script>
+<pre class="prettyprint source lang-js"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&quot;>&lt;/script>
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps-panorama.js&quot;>&lt;/script>
 </code></pre>
 <h2>비동기 방식으로 실행하기</h2>
 <p>DOM이 준비(ready)되기 전에 서브 모듈과 NAVER 지도 API v3을 로드했다면, 즉시 서브 모듈과 NAVER 지도 API v3을 사용할 수 있습니다. 또는 다음과 같이 HTML 문서가 모두 로드된 후에 NAVER 지도 API v3을 비동기 방식으로 로드해 사용할 수도 있습니다.</p>
-<h5>네이버 클라우드 플랫폼</h5>
 <pre class="prettyprint source lang-js"><code>var map = null;
 
-$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
-    map = new naver.maps.Map('map-container');
-});
-</code></pre>
-<h5>공공기관용</h5>
-<pre class="prettyprint source lang-js"><code>var map = null;
-
-$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
-    map = new naver.maps.Map('map-container');
-});
-</code></pre>
-<h5>금융기관용</h5>
-<pre class="prettyprint source lang-js"><code>var map = null;
-
-$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
+$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
     map = new naver.maps.Map('map-container');
 });
 </code></pre>
@@ -731,41 +708,10 @@ $.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR
 <p>위 예제는 jQuery 구문을 포함하고 있습니다.</p>
 </blockquote>
 <p>이때, 서브 모듈 역시 비동기 방식으로 로드됩니다. 따라서, <a href="naver.maps.html#.onJSContentLoaded">onJSContentLoaded</a> 이벤트 핸들러를 사용합니다. 이 핸들러는 NAVER 지도 API v3 로드 시 함께 요청한 서브 모듈의 JavaScript 콘텐츠가 웹 브라우저에 모두 로드되었을 때 한 번 호출됩니다.</p>
-<h5>네이버 클라우드 플랫폼</h5>
 <pre class="prettyprint source lang-js"><code>var map = null,
     pano = null;
 
-$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
-    naver.maps.onJSContentLoaded = function() {
-        map = new naver.maps.Map('map-container');
-        pano = new naver.maps.Panorama('pano', {
-            position: map.getCenter(),
-            pov: {
-                pan: -135,
-                tilt: 29,
-                fov: 100
-            }
-        });
-    };
-});
-</code></pre>
-<h5>공공기관용</h5>
-<pre class="prettyprint source lang-js"><code>$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
-    naver.maps.onJSContentLoaded = function() {
-        map = new naver.maps.Map('map-container');
-        pano = new naver.maps.Panorama('pano', {
-            position: map.getCenter(),
-            pov: {
-                pan: -135,
-                tilt: 29,
-                fov: 100
-            }
-        });
-    };
-});
-</code></pre>
-<h5>금융기관용</h5>
-<pre class="prettyprint source lang-js"><code>$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
+$.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&submodules=panorama&quot;, function() {
     naver.maps.onJSContentLoaded = function() {
         map = new naver.maps.Map('map-container');
         pano = new naver.maps.Panorama('pano', {
@@ -784,39 +730,8 @@ $.getScript(&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR
 </blockquote>
 <p>또는 NAVER 지도 API v3 로드 시 <code>callback</code> 파라미터를 지정할 수 있습니다. 이 역시 함께 요청한 서브 모듈의 JavaScript 콘텐츠가 웹 브라우저에 모두 로드되었을 때 한 번 호출됩니다.</p>
 <p><code>callback</code> 파라미터와 <code>onJSContentLoaded</code> 이벤트 핸들러가 모두 있을 때는 <code>callback</code> 파라미터로 지정한 콜백 함수만 호출합니다.</p>
-<h5>네이버 클라우드 플랫폼</h5>
 <pre class="prettyprint source lang-html"><code>&lt;body>
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&callback=initMap&quot;>&lt;/script>
-    &lt;script type=&quot;text/javascript&quot;>
-        var map = null;
-
-        function initMap() {
-            map = new naver.maps.Map('map', {
-                center: new naver.maps.LatLng(37.3595704, 127.105399),
-                zoom: 10
-            });
-        }
-    &lt;/script>
-&lt;/body>
-</code></pre>
-<h5>공공기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;body>
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&callback=initMap&quot;>&lt;/script>
-    &lt;script type=&quot;text/javascript&quot;>
-        var map = null;
-
-        function initMap() {
-            map = new naver.maps.Map('map', {
-                center: new naver.maps.LatLng(37.3595704, 127.105399),
-                zoom: 10
-            });
-        }
-    &lt;/script>
-&lt;/body>
-</code></pre>
-<h5>금융기관용</h5>
-<pre class="prettyprint source lang-html"><code>&lt;body>
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&callback=initMap&quot;>&lt;/script>
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&callback=initMap&quot;>&lt;/script>
     &lt;script type=&quot;text/javascript&quot;>
         var map = null;
 
@@ -940,6 +855,16 @@ $( function () {
     $("#main>section:not('.tutorial-section')").localScroll({
         offset: {
             top: -170 //offset by the height of your header (give or take a few px, see what works for you)
+        }
+    });
+
+    // GL 서브 모듈 미노출 임시 코드
+    var titleToHide = ['GL', 'GL 생성 및 기본 동작', 'Style Editor 연동하기', 'GL 기본 예제'];
+    document.querySelectorAll(".dropdown-menu li").forEach((item) => {
+        if (titleToHide.indexOf(item.textContent) >= 0) {
+            if (item.tagName.toLowerCase() === "li") {
+                item.style.display = "none";
+            }
         }
     });
 } );
