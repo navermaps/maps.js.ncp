@@ -357,12 +357,6 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
-                        <li><a href="#" class="_cat" style="padding-left:10px" >GL</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-1-GL.html">GL 생성 및 기본 동작</a></li>
-                
-                        <li><a style="padding-left:20px;" href="tutorial-2-Style-Editor.html">Style Editor 연동하기</a></li>
-                
                         <li><a href="#" class="_cat" style="padding-left:10px" >마이그레이션</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-Migrate-To-StyleMap.html">마이그레이션: v4에서 v5로 전환하기</a></li>
@@ -591,7 +585,7 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
                 
-                        <li><a href="tutorial-1-gl-simple.example.html">GL 기본 예제</a></li><li><a href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a></li>
+                        
                     </ul>
                 </li>
                 
@@ -672,7 +666,14 @@
 <h2>서브 모듈 로드하기</h2>
 <p>그리기 도구 서브 모듈은 NAVER 지도 API v3과는 별개의 라이브러리입니다. 이 라이브러리에 포함된 기능을 사용하려면 먼저 URL의 <code>submodules</code> 변수를 이용하여 로드해야 합니다.<br>
 그리기 도구 서브 모듈을 사용하려면 NAVER 지도 API v3이 로드되어 있어야 합니다. 자세한 사항은 <a href="./tutorial-4-Submodules.html">서브 모듈 시스템</a>을 참고합니다.</p>
-<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&submodules=drawing&quot;>&lt;/script>
+<h5>네이버 클라우드 플랫폼</h5>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&submodules=drawing&quot;>&lt;/script>
+</code></pre>
+<h5>공공기관용</h5>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&submodules=drawing&quot;>&lt;/script>
+</code></pre>
+<h5>금융기관용</h5>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&submodules=drawing&quot;>&lt;/script>
 </code></pre>
 <blockquote>
 <p>그리기 도구 서브 모듈을 로드하면 오버레이 클래스들을 확장하여 <code>setEditable</code> 메서드를 추가합니다. 따라서 그리기 도구 모듈로 생성하지 않은 오버레이 객체도 <code>setEditable(true)</code>를 호출하면 일반적인 편집 기능을 사용할 수 있습니다.</p>
@@ -872,16 +873,6 @@ $( function () {
     $("#main>section:not('.tutorial-section')").localScroll({
         offset: {
             top: -170 //offset by the height of your header (give or take a few px, see what works for you)
-        }
-    });
-
-    // GL 서브 모듈 미노출 임시 코드
-    var titleToHide = ['GL', 'GL 생성 및 기본 동작', 'Style Editor 연동하기', 'GL 기본 예제'];
-    document.querySelectorAll(".dropdown-menu li").forEach((item) => {
-        if (titleToHide.indexOf(item.textContent) >= 0) {
-            if (item.tagName.toLowerCase() === "li") {
-                item.style.display = "none";
-            }
         }
     });
 } );
