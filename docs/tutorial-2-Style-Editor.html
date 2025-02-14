@@ -8,8 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>KVO 디자인 | 네이버 지도 API v3</title>
-    <meta name="description" content="Tutorial: KVO 디자인">
+    <title>Style Editor 연동하기 | 네이버 지도 API v3</title>
+    <meta name="description" content="Tutorial: Style Editor 연동하기">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NAVER Maps API v3 바로가기">
     <meta property="og:title" content="NAVER Maps API v3">
@@ -648,7 +648,7 @@
                     <span itemprop="keywords">api</span>
                     <span itemprop="keywords">v3</span>
                     <span itemprop="keywords">네이버 지도 API</span>
-                    <span itemprop="keywords">KVO 디자인</span>
+                    <span itemprop="keywords">Style Editor 연동하기</span>
                 </div>
             </div>
             <link rel='stylesheet' type='text/css' href='./css/tutorial.css' />
@@ -656,138 +656,43 @@
 <!-- <header>
     
 
-    <h2>KVO 디자인</h2>
+    <h2>Style Editor 연동하기</h2>
 </header> -->
 <header></header>
 <article>
     
 
-    <h1>KVO 디자인</h1>
+    <h1>Style Editor 연동하기</h1>
 
-    <p>KVO(Key-Value Observing)는 객체의 속성에 접근할 때 해당 속성을 의미하는 문자열을 키(key)로 사용해 속성의 값(value)을 참조하는 매커니즘입니다. 또한 키에 대응하는 속성값의 변경 사항을 추적하는 역할을 합니다.</p>
-<h2>KVO 클래스 상속받기</h2>
-<p><a href="naver.maps.KVO.html">KVO</a> 클래스를 상속받으려면 클래스를 선언할 때 다음과 같이 해당 클래스의 <code>prototype</code>을 설정해야 합니다.</p>
-<pre class="prettyprint source lang-js"><code>var MyClass = function() {
-    // class initialization codes
+    <p>GL 서브 모듈에서는 <a href="https://style-editor.map.naver.com/">Style Editor</a>에서 발행한 커스텀 스타일을 사용할 수 있습니다.</p>
+<h2>주의사항</h2>
+<p>커스텀 스타일을 사용하면 기본 지도 유형 및 레이어 기능을 사용할 수 없습니다.</p>
+<ul>
+<li>지도 유형 : 일반, 위성, 겹침, 지형도</li>
+<li>레이어 : 자전거, 실시간 교통상황, 거리뷰, 지적도</li>
+</ul>
+<h2>커스텀 스타일 확인</h2>
+<p>커스텀 스타일을 사용하려면 아래 단계를 먼저 수행해야 합니다.</p>
+<ol>
+<li><a href="tutorial-1-Getting-Client-ID.html">클라이언트 아이디 발급</a></li>
+<li>지도 스타일을 생성하고 발행합니다. 자세한 내용은 <a href="https://style-editor">Style Editor 가이드</a>를 참고하세요.</li>
+<li><strong>My Style &gt; 메뉴 &gt; My Style ID 확인</strong> 화면에서 <code>My Style ID</code> 값을 확인합니다.</li>
+</ol>
+<h2>커스텀 스타일 연동</h2>
+<p>커스텀 스타일을 연동하려면 GL 서브 모듈을 로드해야 합니다. 지도를 초기화할 때 <a href="naver.maps.html#.MapOptions">MapOptions</a>에서 <code>gl</code>, <code>customStyleId</code> 값을 설정합니다.</p>
+<pre class="prettyprint source lang-html"><code>&lt;!-- GL 서브 모듈 로드 필수 -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId={YOUR_NCP_KEY_ID}&submodules=gl&quot;>&lt;/script>
+</code></pre>
+<pre class="prettyprint source lang-js"><code>var mapOptions = {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10,
+    gl: true, // 벡터 지도 활성화
+    customStyleId: MY_STYLE_ID // Style Editor에서 발행한 My Style ID
 };
 
-MyClass.prototype = new naver.maps.KVO();
-MyClass.prototype.constructor = MyClass;
-
-MyClass.prototype.myMethod = function() {
-    // implementation
-};
-
+var map = new naver.maps.Map('map', mapOptions);
 </code></pre>
-<p>위와 같이 <code>MyClass</code>를 선언하면 <code>MyClass</code>의 인스턴스는 <a href="naver.maps.KVO.html">KVO</a> 클래스를 상속받은 객체가 됩니다.</p>
-<pre class="prettyprint source lang-js"><code>var myKVO = new naver.maps.KVO();
-var myClass = new MyClass();
-
-myClass instanceof MyClass;         // true
-myClass instanceof naver.maps.KVO;  // true
-
-myKVO instanceof naver.maps.KVO;    // true
-myKVO instanceof MyClass;           // false
-</code></pre>
-<h2>Key-Value 이용하기</h2>
-<p><a href="naver.maps.KVO.html">KVO</a> 클래스를 상속받은 클래스는 <code>set</code>과 <code>get</code> 메서드를 이용해 키에 대응하는 값을 설정하거나 가져올 수 있습니다.</p>
-<pre class="prettyprint source lang-js"><code>var MyClass = function() {
-    this.set('zoom', 10);
-};
-
-MyClass.prototype = new naver.maps.KVO();
-MyClass.prototype.constructor = MyClass;
-
-MyClass.prototype.getZoom = function() {
-    return this.get('zoom');
-};
-</code></pre>
-<h3>Key-Value 연결하기</h3>
-<p><a href="naver.maps.KVO.html">KVO</a> 클래스를 상속받은 클래스의 인스턴스는 <a href="naver.maps.KVO.html#bindTo">bindTo</a> 메서드를 이용해 키에 대응하는 값을 서로 동기화할 수 있습니다.</p>
-<p>다음은 <code>zoom</code> 문자열을 키로 사용해 속성의 값을 설정하고, <a href="naver.maps.KVO.html">KVO</a> 클래스를 상속받은 클래스의 두 인스턴스 간에 <code>zoom</code> 속성을 연결하는 예제입니다. <code>myView</code> 객체가 <code>myModel</code> 객체의 <code>zoom</code> 속성을 바인딩함으로써 해당 속성에 접근해 변경할 수 있습니다. 또한 <code>zoom</code> 속성의 상태 변경은 두 객체에 동일하게 적용됩니다.</p>
-<pre class="prettyprint source lang-js"><code>var myModel = new naver.maps.KVO();
-myModel.set('zoom', 11);
-
-var myView = new naver.maps.KVO();
-
-myView.bindKVO = function() {
-    this.bindTo('zoom', myModel);
-};
-
-myView.bindKVO();
-
-myView.get('zoom');         // 11
-
-myModel.set('zoom', 21);
-myModel.get('zoom');        // 21
-
-myView.get('zoom');         // 21
-</code></pre>
-<p>속성을 바인딩할 때 속성의 이름을 별도로 지정해 동기화할 수 있습니다. 다음은 앞의 예제에서 <code>zoom</code> 속성을 <code>myZoom</code>이란 키로 지정해 연결하는 예제입니다.</p>
-<pre class="prettyprint source lang-js"><code>myView.bindKVO = function() {
-    this.bindTo('myZoom', myModel, 'zoom');
-};
-
-myView.bindKVO();
-
-myView.get('zoom');           // undefined
-myView.get('myZoom');         // 11
-
-myModel.set('zoom', 21);
-
-myView.get('myZoom');         // 21
-</code></pre>
-<blockquote>
-<p><a href="naver.maps.KVO.html#bindTo">bindTo</a> 메서드의 세 번째 인수(<code>targetKey</code>)를 생략하면, 연결하려는 객체의 속성 목록에서 첫 번째 인수의 속성 이름을 찾아 연결합니다.</p>
-</blockquote>
-<p>여러 개의 속성을 바인딩할 때는 배열 형태의 키를 지정해 이용할 수 있습니다. 다음은 <code>myModel</code> 객체의 <code>zoom</code>, <code>center</code>, <code>centerPoint</code>, <code>scale</code> 속성을 한 번에 연결하는 예제입니다.</p>
-<pre class="prettyprint source lang-js"><code>var myModel = new naver.maps.KVO();
-myModel.set('zoom', 11);
-myModel.set('center', new naver.maps.LatLng(38, 127));
-myModel.set('centerPoint', new naver.maps.Point(128, 128));
-myModel.set('scale', 1);
-
-var myView = new naver.maps.KVO();
-
-myView.bindKVO = function() {
-    this.bindTo([
-            'zoom',
-            'center',
-            'centerPoint',
-            'scale'
-        ], myModel);
-};
-
-myView.bindKVO();
-</code></pre>
-<h3>연결된 Key-Value 상태 변경 감지하기</h3>
-<p><a href="naver.maps.KVO.html">KVO</a>는 속성의 상태(내용) 변경을 <code>{key}_changed</code> 이름 규칙을 사용해 알립니다. 따라서 속성을 연결한 객체들은 해당 속성의 상태가 변경된 시점을 감지할 수 있습니다. 즉, 특정 속성의 상태가 변경되면 추가적으로 수행해야 할 것이 있을 때 유용하게 이용할 수 있습니다.</p>
-<blockquote>
-<p>연결된 Key-Value 상태 변경 감지에 대한 자세한 설명은 <a href="tutorial-KVO-State-Changes.html">KVO 상태 변경 알림</a>를 참고합니다.</p>
-</blockquote>
-<p>NAVER 지도 API v3은 속성의 상태 변경을 감지할 수 있도록 두 가지 방법을 제공합니다. 첫 번째는 <code>{key}_changed</code> 이름 규칙을 준수하는 메서드를 사용하는 것입니다. 다음은 <code>myModel</code> 객체의 <code>zoom</code> 속성을 변경하면 시스템 경고 창을 표시하는 예제입니다.</p>
-<pre class="prettyprint source lang-js"><code>myView.zoom_changed = function(zoom) {
-    alert('zoom 값이 '+ zoom +'으로 변경되었습니다!');
-};
-
-myModel.set('zoom', 14);
-</code></pre>
-<p>두 번째는 <code>{key}_changed</code> 이름 규칙을 준수하는 이벤트를 구독하는 것입니다. 다음은 위 예제를 이벤트 구독으로 처리하는 예제입니다.</p>
-<pre class="prettyprint source lang-js"><code>var listener = naver.maps.Event.addListener(myView, 'zoom_changed', function(zoom) {
-    alert('zoom 값이 '+ zoom +'으로 변경되었습니다!');
-});
-
-myModel.set('zoom', 14);
-</code></pre>
-<p><a href="naver.maps.Event.html">Event</a>의 <code>addListener</code> 메서드를 이용해 <a href="naver.maps.KVO.html">KVO</a> 이벤트를 구독하면 <code>removeListener</code> 메서드를 이용해 구독을 취소할 수 있습니다.</p>
-<pre class="prettyprint source lang-js"><code>var listener = naver.maps.Event.addListener(myView, 'zoom_changed', function(zoom) {
-    alert('zoom 값이 '+ zoom +'으로 변경되었습니다!');
-});
-
-naver.maps.Event.removeListener(listener);
-
-myModel.set('zoom', 14); // not notified
-</code></pre>
+<!-- **Examples**: 2-style-editor.example -->
 
     
 </article>
