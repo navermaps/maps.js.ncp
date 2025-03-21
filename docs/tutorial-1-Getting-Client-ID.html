@@ -271,7 +271,7 @@
                     <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
                     <ul class="dropdown-menu ">
                         
-                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-gl.html">gl</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
                     </ul>
                 </li>
                 
@@ -358,6 +358,8 @@
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-GL.html">GL 생성 및 기본 동작</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-2-Style-Editor.html">Style Editor 연동하기</a></li>
                 
@@ -589,6 +591,12 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
                 
+                        <li><a href="tutorial-digest.example.html#GL" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-gl-simple.example.html">GL 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a></li>
+                
                         
                     </ul>
                 </li>
@@ -664,14 +672,15 @@
 
     <h1>클라이언트 아이디 발급</h1>
 
-    <p>NAVER 지도 API v3을 사용하려면 클라이언트 아이디를 이용해서 인증해야 합니다.<br>
-<strong><code>네이버 클라우드 플랫폼</code></strong> 클라이언트 아이디는 <a href="https://console.ncloud.com/mc/solution/naverService/application">NAVER CLOUD PLATFORM Console</a>에서 애플리케이션을 등록해 발급받습니다.<br>
-<strong><code>공공기관용</code></strong> 클라이언트 아이디는 <a href="https://console.gov-ncloud.com/mc/solution/naverService/application">NAVER CLOUD PLATFORM GOV Console</a>에서 애플리케이션을 등록해 발급받습니다.<br>
-<strong><code>금융기관용</code></strong> 클라이언트 아이디는 <a href="https://console.fin-ncloud.com/mc/solution/naverService/application">NAVER CLOUD PLATFORM FIN Console</a>에서 애플리케이션을 등록해 발급받습니다.</p>
+    <h2>변경사항</h2>
+<p>네이버 클라우드 플랫폼의 서비스 개편으로 기존에 제공되던 공공기관용 및 금융기관용 콘솔은 중단될 예정이며, 개인/일반 기업용 콘솔로 통합되었습니다.</p>
+<h2>발급방법</h2>
+<p>NAVER 지도 API v3을 사용하려면 클라이언트 아이디를 이용해서 인증해야 합니다.<br>
+<strong><code>네이버 클라우드 플랫폼</code></strong> 클라이언트 아이디는 <a href="https://console.ncloud.com/maps/application">NAVER CLOUD PLATFORM Console</a>에서 애플리케이션을 등록해 발급받습니다.</p>
 <ol>
-<li>콘솔의 <strong>AI·Application Service &gt; AI·NAVER API &gt; Application</strong>에서 애플리케이션을 등록합니다. <br> <strong><a href="https://guide.ncloud-docs.com/docs/naveropenapiv3-application">네이버 클라우드 플랫폼 자세한 방법 보기</a> &gt;</strong> <strong><a href="https://guide-gov.ncloud-docs.com/docs/naveropenapiv3-application">공공기관용 자세한 방법 보기</a> &gt;</strong> <strong><a href="https://guide-fin.ncloud-docs.com/docs/naveropenapiv3-application">금융기관용 자세한 방법 보기</a> &gt;</strong></li>
-<li><strong>AI·Application Service &gt; AI·NAVER API &gt; Application</strong>에서 등록한 애플리케이션을 선택해 Client ID와 Client Secret값을 확인합니다.</li>
-<li><strong>AI·Application Service &gt; AI·NAVER API &gt; Application</strong>의 <strong>변경</strong> 화면에서 **<code>Maps(Web)</code>**가 선택되어 있는지 확인합니다. 선택되어 있지 않으면 429 오류(Quota Exceed)가 발생하니 주의하시기 바랍니다.</li>
+<li>콘솔의 <strong>Service &gt; Application Services &gt; Maps &gt; Application</strong>에서 애플리케이션을 등록합니다. <br> <strong><a href="https://guide.ncloud-docs.com/docs/application-maps-app-vpc">네이버 클라우드 플랫폼 자세한 방법 보기</a></strong></li>
+<li><strong>Service &gt; Application Services &gt; Maps &gt; Application</strong>에서 등록한 애플리케이션을 선택해 Client ID와 Client Secret값을 확인합니다.</li>
+<li><strong>Service &gt; Application Services &gt; Maps &gt; Application</strong>의 <strong>Application 수정</strong> 화면에서 <code>Dynamic Map</code>이 선택되어 있는지 확인합니다. 선택되어 있지 않으면 429 오류(Quota Exceed)가 발생하니 주의하시기 바랍니다.</li>
 </ol>
 
     
@@ -784,16 +793,6 @@ $( function () {
     $("#main>section:not('.tutorial-section')").localScroll({
         offset: {
             top: -170 //offset by the height of your header (give or take a few px, see what works for you)
-        }
-    });
-
-    // GL 서브 모듈 미노출 임시 코드
-    var titleToHide = ['GL', 'GL 생성 및 기본 동작', 'Style Editor 연동하기', 'GL 기본 예제'];
-    document.querySelectorAll(".dropdown-menu li").forEach((item) => {
-        if (titleToHide.indexOf(item.textContent) >= 0) {
-            if (item.tagName.toLowerCase() === "li") {
-                item.style.display = "none";
-            }
         }
     });
 } );

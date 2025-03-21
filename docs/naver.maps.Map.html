@@ -271,7 +271,7 @@
                     <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
                     <ul class="dropdown-menu ">
                         
-                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-gl.html">gl</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
                     </ul>
                 </li>
                 
@@ -358,6 +358,8 @@
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-GL.html">GL 생성 및 기본 동작</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-2-Style-Editor.html">Style Editor 연동하기</a></li>
                 
@@ -588,6 +590,12 @@
                         <li><a style="padding-left:20px;" href="tutorial-2-drawing-options.example.html">그리기 도구 옵션 활용하기</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
+                
+                        <li><a href="tutorial-digest.example.html#GL" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-gl-simple.example.html">GL 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a></li>
                 
                         
                     </ul>
@@ -3651,6 +3659,9 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     
     <div class="description">
         <p>지정한 좌표와 줌 레벨을 사용하는 새로운 위치로 지도를 이동합니다. 이때, 이동 거리가 가깝다면 부드럽게 이동합니다.</p>
+<blockquote>
+<p>줌 레벨이 변경되면 <code>transitionOptions</code> 옵션은 적용되지 않고, 애니메이션 효과만 유지됩니다.</p>
+</blockquote>
     </div>
     
 
@@ -4221,6 +4232,9 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     
     <div class="description">
         <p>지정한 좌표 경계를 포함하는 위치로 지도를 부드럽게 이동합니다.</p>
+<blockquote>
+<p>줌 레벨이 변경되면 <code>transitionOptions</code> 옵션은 적용되지 않고, 애니메이션 효과만 유지됩니다.</p>
+</blockquote>
     </div>
     
 
@@ -5836,6 +5850,83 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
     
         <li><a href="naver.maps.Map.html#event:idle">idle</a></li>
     </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="stop"><span class="type-signature"></span>stop()</h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 진행 중인 애니메이션 효과를 중지합니다.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
     
 
     
@@ -7629,6 +7720,72 @@ left 값이 10이면 왼쪽 여백이 5px 증가합니다. (센터 좌표가 왼
             
 
             <td class="description last"><p>빈 타일 이미지 URL을 설정할 수 있는 옵션입니다. 기본값은 투명 gif 입니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#boolean">boolean</a> -->
+    <a href="global.html#boolean">boolean</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>GL 서브 모듈 벡터맵을 활성화할 수 있는 옵션입니다. GL 서브 모듈을 반드시 로드해야 옵션이 적용됩니다.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customStyleId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">
+    
+    <!-- <a href="global.html#string">string</a> -->
+    <a href="global.html#string">string</a>
+    </span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Style Editor에서 발행한 <code>My Style ID</code>입니다. GL 서브 모듈에서만 적용됩니다.</p></td>
         </tr>
 
     
@@ -12854,16 +13011,6 @@ $( function () {
     $("#main>section:not('.tutorial-section')").localScroll({
         offset: {
             top: -170 //offset by the height of your header (give or take a few px, see what works for you)
-        }
-    });
-
-    // GL 서브 모듈 미노출 임시 코드
-    var titleToHide = ['GL', 'GL 생성 및 기본 동작', 'Style Editor 연동하기', 'GL 기본 예제'];
-    document.querySelectorAll(".dropdown-menu li").forEach((item) => {
-        if (titleToHide.indexOf(item.textContent) >= 0) {
-            if (item.tagName.toLowerCase() === "li") {
-                item.style.display = "none";
-            }
         }
     });
 } );

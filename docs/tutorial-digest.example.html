@@ -271,7 +271,7 @@
                     <a href="modules.list.html" itemprop="mainEntityOfPage" class="dropdown-toggle dropdown-toggle-modules" data-toggle="dropdown">Modules<b class="caret"></b></a>
                     <ul class="dropdown-menu ">
                         
-                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
+                        <li><a href="module-drawing.html">drawing</a></li><li><a href="module-geocoder.html">geocoder</a></li><li><a href="module-gl.html">gl</a></li><li><a href="module-panorama.html">panorama</a></li><li><a href="module-visualization.html">visualization</a></li>
                     </ul>
                 </li>
                 
@@ -358,6 +358,8 @@
                         <li><a style="padding-left:20px;" href="tutorial-Drawing.html">그리기 도구 생성 및 기본 동작</a></li>
                 
                         <li><a href="#" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-GL.html">GL 생성 및 기본 동작</a></li>
                 
                         <li><a style="padding-left:20px;" href="tutorial-2-Style-Editor.html">Style Editor 연동하기</a></li>
                 
@@ -589,6 +591,12 @@
                 
                         <li><a style="padding-left:20px;" href="tutorial-3-drawing-restore.example.html">오버레이 데이터 추출 및 복원하기</a></li>
                 
+                        <li><a href="tutorial-digest.example.html#GL" class="_cat" style="padding-left:10px" >GL</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-1-gl-simple.example.html">GL 기본 예제</a></li>
+                
+                        <li><a style="padding-left:20px;" href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a></li>
+                
                         
                     </ul>
                 </li>
@@ -653,7 +661,7 @@
             </div>
             <script src="./js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="./js/base.js"></script>
-<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=83bfuniegk&amp;submodules=panorama,geocoder,drawing,visualization"></script>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=ra4y2dvddo&amp;submodules=panorama,geocoder,drawing,visualization"></script>
 <link rel="stylesheet" type="text/css" href="./css/base.css" />
 <link rel='stylesheet' type='text/css' href='./css/digest.css' />
 
@@ -1374,6 +1382,25 @@
             </div>
 
 
+        <h1><a class="_unclickable" id="GL" href="#GL">#GL</a></h1>
+
+
+
+            <div class='_digest_itm s11' style='background-image: url("./img/cover/1-gl-simple.png"); background-image: -webkit-image-set(url("./img/cover/1-gl-simple.png") 1x, url("./img/cover/1-gl-simple@2x.png") 2x); background-image: image-set(url("./img/cover/1-gl-simple.png") 1x, url("./img/cover/1-gl-simple@2x.png") 2x);'>
+                <a href="tutorial-1-gl-simple.example.html">
+                    <div class="_digest_itm_cover"></div>
+                </a>
+                <a class="_digest_a" href="tutorial-1-gl-simple.example.html">GL 기본 예제</a>
+            </div>
+
+            <div class='_digest_itm s11' style='background-image: url("./img/cover/2-style-editor.png"); background-image: -webkit-image-set(url("./img/cover/2-style-editor.png") 1x, url("./img/cover/2-style-editor@2x.png") 2x); background-image: image-set(url("./img/cover/2-style-editor.png") 1x, url("./img/cover/2-style-editor@2x.png") 2x);'>
+                <a href="tutorial-2-style-editor.example.html">
+                    <div class="_digest_itm_cover"></div>
+                </a>
+                <a class="_digest_a" href="tutorial-2-style-editor.example.html">Style Editor 연동하기</a>
+            </div>
+
+
     </div>
 </section>
 </div>
@@ -1489,16 +1516,6 @@ $( function () {
     $("#main>section:not('.tutorial-section')").localScroll({
         offset: {
             top: -170 //offset by the height of your header (give or take a few px, see what works for you)
-        }
-    });
-
-    // GL 서브 모듈 미노출 임시 코드
-    var titleToHide = ['GL', 'GL 생성 및 기본 동작', 'Style Editor 연동하기', 'GL 기본 예제'];
-    document.querySelectorAll(".dropdown-menu li").forEach((item) => {
-        if (titleToHide.indexOf(item.textContent) >= 0) {
-            if (item.tagName.toLowerCase() === "li") {
-                item.style.display = "none";
-            }
         }
     });
 } );
