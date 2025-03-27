@@ -672,7 +672,28 @@
 
     <h1>Hello, World</h1>
 
-    <p>간단한 예제를 보면서 NAVER 지도 API v3에 대해 설명합니다. 아래는 NAVER 그린팩토리를 중심점으로 하는 지도를 생성하는 예제입니다.</p>
+    <h2>변경사항</h2>
+<p>네이버 클라우드 플랫폼 서비스에서 제공 중이던 Maps API 서비스가 업그레이드되어 새롭게 출시되었습니다. 기존에 제공되던 공공기관용 및 금융기관용 콘솔은 중단될 예정이며, 개인/일반 기업용 콘솔로 통합되었습니다. 따라서 신규 클라이언트 아이디 발급이 필요합니다.</p>
+<ul>
+<li><a href="https://guide.ncloud-docs.com/docs/application-maps-overview">Maps API 개요</a></li>
+<li><a href="https://guide.ncloud-docs.com/docs/application-maps-app-vpc">Maps API 사용</a></li>
+</ul>
+<h3>변경 전</h3>
+<pre class="prettyprint source lang-html"><code>&lt;!-- 일반 -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID&quot;>&lt;/script>
+
+&lt;!-- 공공 -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?govClientId=YOUR_CLIENT_ID&quot;>&lt;/script>
+
+&lt;!-- 금융 -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?finClientId=YOUR_CLIENT_ID&quot;>&lt;/script>
+</code></pre>
+<h3>변경 후</h3>
+<pre class="prettyprint source lang-html"><code>&lt;!-- 개인/일반 통합 -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_CLIENT_ID&quot;>&lt;/script>
+</code></pre>
+<h2>예제 코드</h2>
+<p>간단한 예제를 보면서 NAVER 지도 API v3에 대해 설명합니다. 아래는 NAVER 그린팩토리를 중심점으로 하는 지도를 생성하는 예제입니다.</p>
 <pre class="prettyprint source lang-html"><code>&lt;!DOCTYPE html>
 &lt;html>
 &lt;head>
